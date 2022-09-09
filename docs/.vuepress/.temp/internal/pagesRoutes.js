@@ -1,0 +1,18 @@
+export const pagesRoutes = [
+  ["v-8daa1a0e","/",{"title":""},["/index.html","/index.md"]],
+  ["v-36464a89","/zh/js/apply.html",{"title":"call、apply"},["/zh/js/apply","/zh/js/apply.md"]],
+  ["v-b34f1ea8","/zh/js/assign.html",{"title":""},["/zh/js/assign","/zh/js/assign.md"]],
+  ["v-2ee7c2c4","/zh/js/bind.html",{"title":"bind"},["/zh/js/bind","/zh/js/bind.md"]],
+  ["v-1fa45abf","/zh/js/class.html",{"title":"类"},["/zh/js/class","/zh/js/class.md"]],
+  ["v-6b9df6dd","/zh/js/event.html",{"title":"node事件循环"},["/zh/js/event","/zh/js/event.md"]],
+  ["v-7caa96e3","/zh/js/function.html",{"title":"函数"},["/zh/js/function","/zh/js/function.md"]],
+  ["v-3cc951df","/zh/js/gc.html",{"title":"垃圾回收机制"},["/zh/js/gc","/zh/js/gc.md"]],
+  ["v-67b7193e","/zh/js/let,var.html",{"title":""},["/zh/js/let,var","/zh/js/let,var.md"]],
+  ["v-10cb9d62","/zh/js/module.html",{"title":"es module"},["/zh/js/module","/zh/js/module.md"]],
+  ["v-16b0b317","/zh/js/new.html",{"title":"new"},["/zh/js/new","/zh/js/new.md"]],
+  ["v-0d3c1305","/zh/js/promise1.html",{"title":"深入Promise--上"},["/zh/js/promise1","/zh/js/promise1.md"]],
+  ["v-258d6f63","/zh/js/scope.html",{"title":"作用域"},["/zh/js/scope","/zh/js/scope.md"]],
+  ["v-02d76e46","/zh/js/this.html",{"title":"this"},["/zh/js/this","/zh/js/this.md"]],
+  ["v-3706649a","/404.html",{"title":""},["/404"]],
+  ["v-0ef0eba4","/zh/js/promise2.html",{"title":"深入Promise--下"},["/zh/js/promise2","/zh/js/promise2.md"]],
+]
