@@ -1,4 +1,4 @@
-export const data = JSON.parse("{\"key\":\"v-3cc951df\",\"path\":\"/zh/js/gc.html\",\"title\":\"垃圾回收机制\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[],\"git\":{\"updatedTime\":null,\"contributors\":[]},\"filePathRelative\":\"zh/js/gc.md\"}")
+export const data = JSON.parse("{\"key\":\"v-3cc951df\",\"path\":\"/zh/js/gc.html\",\"title\":\"垃圾回收机制\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[],\"git\":{},\"filePathRelative\":\"zh/js/gc.md\"}")
 
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept()

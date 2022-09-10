@@ -1,5 +1,133 @@
 # 深入Promise--下
 
+## 分析一道promise打印顺序的题
+:::: code-group
+::: code-group-item promise
+```js
+Promise.resolve().then(() => {
+  console.log(0);
+  return Promise.resolve(4);
+}).then((res) => {
+  console.log(res)
+})
+
+Promise.resolve().then(() => {
+  console.log(1);
+}).then(() => {
+  console.log(2);
+}).then(() => {
+  console.log(3);
+}).then(() => {
+  console.log(5);
+}).then(() =>{
+  console.log(6);
+})
+```
+:::
+
+::: code-group-item  / PromiseA+ 
+```js
+// 用上文里实现的promiseA.js
+var PromiseA = require('./PromiseA.js');
+// 增加一个resolve的实现
+PromiseA.resolve = function(v) {
+  return new PromiseA((resolve, reject) => resolve(v))
+}
+
+PromiseA.resolve().then(() => {
+  console.log(0);
+  return PromiseA.resolve(4);
+}).then((res) => {
+  console.log(res)
+})
+
+PromiseA.resolve().then(() => {
+  console.log(1);
+}).then(() => {
+  console.log(2);
+}).then(() => {
+  console.log(3);
+}).then(() => {
+  console.log(5);
+}).then(() =>{
+  console.log(6);
+})
+```
+:::
+
+::: code-group-item  / PromisePolyfill
+```js
+var PromisePolyfill = require('promise-polyfill');
+PromisePolyfill.resolve().then(() => {
+    console.log(0);
+    return PromisePolyfill.resolve(4);
+}).then((res) => {
+    console.log(res)
+})
+
+PromisePolyfill.resolve().then(() => {
+    console.log(1);
+}).then(() => {
+    console.log(2);
+}).then(() => {
+    console.log(3);
+}).then(() => {
+    console.log(5);
+}).then(() =>{
+    console.log(6);
+})
+```
+:::
+
+
+::::
+
+| - | 结果 | 第几次打印 |
+| -- | -- | -- |
+| promise | 0, 1, 2, 3, `4`, 5, 6 | 第 5 次打印 |
+| promiseA+ | 0, 1, 2, `4`, 3, 5, 6 | 第 4 次打印 |
+| promisePolyfill | 0, 1, `4`, 2, 3, 5, 6 | 第 3 次打印 |
+
+他们都可以通过promises-aplus-tests的测试。但是得到了不一样的结果。
+
+1. 第一次执行
+```js
+Promise.resolve().then(() => {
+  console.log(0)
+  // ...
+})
+```
+2. 根据Promise规范2.2.4条：onFulfilled 和 onRejected 只有在[执行上下文](https://es5.github.io/#x10.3)堆栈仅包含平台代码时才可被调用 [注3.1]。 此时的then里的是onFulfilled函数，所以要等和then同级别的函数先执行。
+3. 所以接下来执行如下的部分。
+```js
+Promise.resolve().then(() => {
+  console.log(1);
+}).then(() => {
+  console.log(2);
+}).then(() => {
+  console.log(3);
+}).then(() => {
+  console.log(5);
+}).then(() =>{
+  console.log(6);
+})
+```
+理论上第三次执行是要执行的如下代码里面的 Promise.resolve(4)打印的部分
+```js
+Promise.resolve().then(() => {
+  console.log(0);
+  return Promise.resolve(4);
+}).then((res) => {
+  console.log(res)
+})
+```
+
+- 原生promise延迟了两次后才打印
+- 按照规范写的promiseA延迟了一次
+- 只有promisePolyfill刚好在第3次打印了Promise.resolve(4)的结果。
+
+后面的执行和
+
 ## Promise的缺点
 - promise一旦新建就会立即执行，中途无法取消
 - 当处于pending状态时，无法得知当前出于那一个状态，是刚开始还是刚结束

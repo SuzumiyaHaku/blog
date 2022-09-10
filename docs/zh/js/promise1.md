@@ -114,6 +114,8 @@ Promise 解决过程 是一个抽象的操作，其需输入一个 promise 和�
 
 ### 对照规范实现PromiseA+
 下面的代码，加上中英文注释特别长，如果想搞懂，需要动手写。
+:::: code-group
+::: code-group-item PromiseA.js
 ```js
 // A promise must be in one of three states: pending, fulfilled, or rejected.
 // 一个 Promise 的当前状态必须为以下三种状态中的一种：等待态（Pending）、执行态（Fulfilled）和拒绝态（Rejected）。
@@ -397,6 +399,8 @@ PromiseA.deferred = function() {
 
 module.exports = PromiseA
 ```
+:::
+::::
 ### 测试
 安装promises-aplus-tests
 > npm install -g promises-aplus-tests
