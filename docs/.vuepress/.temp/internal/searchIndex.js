@@ -211,7 +211,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "事件机制/Event loop",
+    "title": "事件循环机制/Event loop",
     "headers": [
       {
         "level": 2,
@@ -727,15 +727,45 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "",
-    "headers": [],
-    "path": "/zh/security/auth2.0%E4%B8%8Ejwt.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "",
-    "headers": [],
+    "title": "cookie 和 session",
+    "headers": [
+      {
+        "level": 2,
+        "title": "cookie",
+        "slug": "cookie",
+        "link": "#cookie",
+        "children": [
+          {
+            "level": 3,
+            "title": "基础",
+            "slug": "基础",
+            "link": "#基础",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "关键字",
+            "slug": "关键字",
+            "link": "#关键字",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "SameSite",
+            "slug": "samesite",
+            "link": "#samesite",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "session",
+        "slug": "session",
+        "link": "#session",
+        "children": []
+      }
+    ],
     "path": "/zh/security/cookie%E5%92%8Csession.html",
     "pathLocale": "/",
     "extraFields": []
@@ -744,25 +774,40 @@ export const searchIndex = [
     "title": "跨域请求",
     "headers": [
       {
-        "level": 3,
-        "title": "java Springboot后端解决跨域",
-        "slug": "java-springboot后端解决跨域",
-        "link": "#java-springboot后端解决跨域",
+        "level": 2,
+        "title": "描述",
+        "slug": "描述",
+        "link": "#描述",
         "children": []
       },
       {
-        "level": 3,
-        "title": "nginx解决跨域",
-        "slug": "nginx解决跨域",
-        "link": "#nginx解决跨域",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "浏览器安装插件解决跨域",
-        "slug": "浏览器安装插件解决跨域",
-        "link": "#浏览器安装插件解决跨域",
-        "children": []
+        "level": 2,
+        "title": "解决跨域",
+        "slug": "解决跨域",
+        "link": "#解决跨域",
+        "children": [
+          {
+            "level": 3,
+            "title": "java Springboot后端解决跨域",
+            "slug": "java-springboot后端解决跨域",
+            "link": "#java-springboot后端解决跨域",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "nginx解决跨域",
+            "slug": "nginx解决跨域",
+            "link": "#nginx解决跨域",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "浏览器安装插件解决跨域",
+            "slug": "浏览器安装插件解决跨域",
+            "link": "#浏览器安装插件解决跨域",
+            "children": []
+          }
+        ]
       }
     ],
     "path": "/zh/security/cors%E8%AF%B7%E6%B1%82.html",
@@ -770,9 +815,133 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "",
-    "headers": [],
+    "title": "oauth2.0和jwt",
+    "headers": [
+      {
+        "level": 2,
+        "title": "auth2.0",
+        "slug": "auth2-0",
+        "link": "#auth2-0",
+        "children": []
+      }
+    ],
+    "path": "/zh/security/oauth2.0%E5%92%8Cjwt.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "XSS和CSRF",
+    "headers": [
+      {
+        "level": 2,
+        "title": "XSS",
+        "slug": "xss",
+        "link": "#xss",
+        "children": [
+          {
+            "level": 3,
+            "title": "简介",
+            "slug": "简介",
+            "link": "#简介",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "XSS漏洞产生的原因",
+            "slug": "xss漏洞产生的原因",
+            "link": "#xss漏洞产生的原因",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "分类与示例",
+            "slug": "分类与示例",
+            "link": "#分类与示例",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "防御XSS",
+        "slug": "防御xss",
+        "link": "#防御xss",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "CSRF",
+        "slug": "csrf",
+        "link": "#csrf",
+        "children": [
+          {
+            "level": 3,
+            "title": "特征",
+            "slug": "特征",
+            "link": "#特征",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CSRF 防御",
+            "slug": "csrf-防御",
+            "link": "#csrf-防御",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
     "path": "/zh/security/xss%E4%B8%8Ecsrf.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "http",
+    "headers": [
+      {
+        "level": 2,
+        "title": "http1.1",
+        "slug": "http1-1",
+        "link": "#http1-1",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "http2",
+        "slug": "http2",
+        "link": "#http2",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "http3",
+        "slug": "http3",
+        "link": "#http3",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "https",
+        "slug": "https",
+        "link": "#https",
+        "children": []
+      }
+    ],
+    "path": "/zh/network/http.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "TCP/UDP",
+    "headers": [],
+    "path": "/zh/network/tcp,udp.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -820,23 +989,178 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "webpack5",
-    "headers": [],
-    "path": "/zh/web/webpack.html",
+    "title": "webpack",
+    "headers": [
+      {
+        "level": 2,
+        "title": "常用loader",
+        "slug": "常用loader",
+        "link": "#常用loader",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "常用plugin",
+        "slug": "常用plugin",
+        "link": "#常用plugin",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "loader的原理",
+        "slug": "loader的原理",
+        "link": "#loader的原理",
+        "children": [
+          {
+            "level": 3,
+            "title": "实现一个最简单的loader",
+            "slug": "实现一个最简单的loader",
+            "link": "#实现一个最简单的loader",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "plugin的原理",
+        "slug": "plugin的原理",
+        "link": "#plugin的原理",
+        "children": [
+          {
+            "level": 3,
+            "title": "实现一个最简单的plugin",
+            "slug": "实现一个最简单的plugin",
+            "link": "#实现一个最简单的plugin",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "webpack5的对比4的新特性",
+        "slug": "webpack5的对比4的新特性",
+        "link": "#webpack5的对比4的新特性",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "webpack性能优化",
+        "slug": "webpack性能优化",
+        "link": "#webpack性能优化",
+        "children": [
+          {
+            "level": 3,
+            "title": "terser-webpack-plugin 优化代码的流程主要体现在这几个方面",
+            "slug": "terser-webpack-plugin-优化代码的流程主要体现在这几个方面",
+            "link": "#terser-webpack-plugin-优化代码的流程主要体现在这几个方面",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "gzip进行压缩",
+            "slug": "gzip进行压缩",
+            "link": "#gzip进行压缩",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/web/webpack1.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "",
-    "headers": [],
-    "path": "/zh/network/http.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "",
-    "headers": [],
-    "path": "/zh/network/tcp,udp.html",
+    "title": "webpack 和 vite",
+    "headers": [
+      {
+        "level": 2,
+        "title": "两者有什么区别",
+        "slug": "两者有什么区别",
+        "link": "#两者有什么区别",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "vite和webpack5的缓存",
+        "slug": "vite和webpack5的缓存",
+        "link": "#vite和webpack5的缓存",
+        "children": [
+          {
+            "level": 3,
+            "title": "vite缓存",
+            "slug": "vite缓存",
+            "link": "#vite缓存",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "webpack缓存",
+            "slug": "webpack缓存",
+            "link": "#webpack缓存",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "vite为啥比webpack快？",
+        "slug": "vite为啥比webpack快",
+        "link": "#vite为啥比webpack快",
+        "children": [
+          {
+            "level": 3,
+            "title": "vite开发时快在哪？",
+            "slug": "vite开发时快在哪",
+            "link": "#vite开发时快在哪",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "webpack开发时慢在哪？",
+            "slug": "webpack开发时慢在哪",
+            "link": "#webpack开发时慢在哪",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "HMR 热更新原理",
+        "slug": "hmr-热更新原理",
+        "link": "#hmr-热更新原理",
+        "children": [
+          {
+            "level": 3,
+            "title": "webpack热更新",
+            "slug": "webpack热更新",
+            "link": "#webpack热更新",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "vite 热更新",
+            "slug": "vite-热更新",
+            "link": "#vite-热更新",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/web/webpack2.html",
     "pathLocale": "/",
     "extraFields": []
   },

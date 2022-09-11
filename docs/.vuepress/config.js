@@ -33,7 +33,6 @@ export default defineUserConfig({
                 '/zh/js/promise2.md',
                 '/zh/js/scope.md',
                 '/zh/js/new.md',
-                '/zh/js/gc.md',
                 '/zh/js/let,var.md',
                 '/zh/js/bind.md',
                 '/zh/js/apply.md',
@@ -50,7 +49,8 @@ export default defineUserConfig({
             },
             {
               text: '前端相关', children: [
-                '/zh/web/webpack.md',
+                '/zh/web/webpack1.md',
+                '/zh/web/webpack2.md',
                 '/zh/web/url.md',
                 '/zh/web/babel.md',
               ]
@@ -60,7 +60,7 @@ export default defineUserConfig({
                 '/zh/security/xss与csrf.md',
                 '/zh/security/cors请求.md',
                 '/zh/security/cookie和session.md',
-                '/zh/security/auth2.0和jwt.md',
+                '/zh/security/oauth2.0和jwt.md',
               ]
             },
             

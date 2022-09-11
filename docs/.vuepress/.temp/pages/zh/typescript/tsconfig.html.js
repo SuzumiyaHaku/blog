@@ -1,4 +1,4 @@
-export const data = JSON.parse("{\"key\":\"v-63109158\",\"path\":\"/zh/security/auth2.0%E4%B8%8Ejwt.html\",\"title\":\"auth2.0与jwt\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[],\"git\":{},\"filePathRelative\":\"zh/security/auth2.0与jwt.md\"}")
+export const data = JSON.parse("{\"key\":\"v-935157d4\",\"path\":\"/zh/typescript/tsconfig.html\",\"title\":\"tsconfig.json\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[],\"git\":{},\"filePathRelative\":\"zh/typescript/tsconfig.md\"}")
 
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept()

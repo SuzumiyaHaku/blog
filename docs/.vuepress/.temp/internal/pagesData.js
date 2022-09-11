@@ -29,14 +29,18 @@ export const pagesData = {
   "v-258d6f63": () => import(/* webpackChunkName: "v-258d6f63" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/js/scope.html.js").then(({ data }) => data),
   // path: /zh/js/this.html
   "v-02d76e46": () => import(/* webpackChunkName: "v-02d76e46" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/js/this.html.js").then(({ data }) => data),
-  // path: /zh/security/auth2.0%E4%B8%8Ejwt.html
-  "v-63109158": () => import(/* webpackChunkName: "v-63109158" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/auth2.0与jwt.html.js").then(({ data }) => data),
   // path: /zh/security/cookie%E5%92%8Csession.html
   "v-3a181142": () => import(/* webpackChunkName: "v-3a181142" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/cookie和session.html.js").then(({ data }) => data),
   // path: /zh/security/cors%E8%AF%B7%E6%B1%82.html
   "v-dee07fe8": () => import(/* webpackChunkName: "v-dee07fe8" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/cors请求.html.js").then(({ data }) => data),
+  // path: /zh/security/oauth2.0%E5%92%8Cjwt.html
+  "v-40aa5795": () => import(/* webpackChunkName: "v-40aa5795" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/oauth2.0和jwt.html.js").then(({ data }) => data),
   // path: /zh/security/xss%E4%B8%8Ecsrf.html
   "v-c99957ca": () => import(/* webpackChunkName: "v-c99957ca" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/xss与csrf.html.js").then(({ data }) => data),
+  // path: /zh/network/http.html
+  "v-9b9baaf0": () => import(/* webpackChunkName: "v-9b9baaf0" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/network/http.html.js").then(({ data }) => data),
+  // path: /zh/network/tcp,udp.html
+  "v-1343528c": () => import(/* webpackChunkName: "v-1343528c" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/network/tcp,udp.html.js").then(({ data }) => data),
   // path: /zh/typescript/base.html
   "v-3aa4b4c6": () => import(/* webpackChunkName: "v-3aa4b4c6" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/typescript/base.html.js").then(({ data }) => data),
   // path: /zh/typescript/gymnastics.html
@@ -47,12 +51,12 @@ export const pagesData = {
   "v-c5c8b01c": () => import(/* webpackChunkName: "v-c5c8b01c" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/web/babel.html.js").then(({ data }) => data),
   // path: /zh/web/url.html
   "v-08dcf64d": () => import(/* webpackChunkName: "v-08dcf64d" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/web/url.html.js").then(({ data }) => data),
-  // path: /zh/web/webpack.html
-  "v-d1b224e2": () => import(/* webpackChunkName: "v-d1b224e2" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/web/webpack.html.js").then(({ data }) => data),
-  // path: /zh/network/http.html
-  "v-9b9baaf0": () => import(/* webpackChunkName: "v-9b9baaf0" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/network/http.html.js").then(({ data }) => data),
-  // path: /zh/network/tcp,udp.html
-  "v-1343528c": () => import(/* webpackChunkName: "v-1343528c" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/network/tcp,udp.html.js").then(({ data }) => data),
+  // path: /zh/web/webpack1.html
+  "v-4f9ea152": () => import(/* webpackChunkName: "v-4f9ea152" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/web/webpack1.html.js").then(({ data }) => data),
+  // path: /zh/web/webpack2.html
+  "v-515379f1": () => import(/* webpackChunkName: "v-515379f1" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/web/webpack2.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
+  // path: /zh/typescript/tsconfig.html
+  "v-935157d4": () => import(/* webpackChunkName: "v-935157d4" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/typescript/tsconfig.html.js").then(({ data }) => data),
 }

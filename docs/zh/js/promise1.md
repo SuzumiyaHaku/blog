@@ -1,11 +1,7 @@
 # 深入Promise--上
-### 阅读前你需要掌握的知识
-- Promise的基本使用
-- js的事件循环，宏任务微任务
-- npm的使用
 
 
-### PromiseA+
+## PromiseA+
 [PromiseA+英文规范](https://promisesaplus.com/)
 下面是中文的翻译:
 
@@ -16,15 +12,15 @@ Promise 表示一个异步操作的最终结果，与之进行交互的方式主
 从历史上说，本规范实际上是把之前 Promise/A 规范 中的建议明确成为了行为标准：我们一方面扩展了原有规范约定俗成的行为，一方面删减了原规范的一些特例情况和有问题的部分。
 
 最后，核心的 Promises/A+ 规范不设计如何创建、解决和拒绝 promise，而是专注于提供一个通用的 then 方法。上述对于 promises 的操作方法将来在其他规范中可能会提及。
-#### 1. 术语
+### 1. 术语
 - `解决（fulfill）`：指一个 promise 成功时进行的一系列操作，如状态的改变、回调的执行。虽然规范中用 fulfill 来表示解决，但在后世的 promise 实现多以 resolve 来指代之。
 - `拒绝（reject）`：指一个 promise 失败时进行的一系列操作。
 - `终值（eventual value）`：所谓终值，指的是 promise 被解决时传递给解决回调的值，由于 promise 有一次性的特征，因此当这个值被传递时，标志着 promise 等待态的结束，故称之终值，有时也直接简称为值（value）。
 - `拒因（reason）`：也就是拒绝原因，指在 promise 被拒绝时传递给拒绝回调的值。
 
-#### 2. 要求
+### 2. 要求
 
-##### 2.1. Promise状态
+#### 2.1. Promise状态
 一个 Promise 的当前状态必须为以下三种状态中的一种：等待态（Pending）、执行态（Fulfilled）和拒绝态（Rejected）。
 - `2.1.1` 处于等待态时，promise 需满足以下条件：
     - `2.1.1.1` 可以迁移至执行态或拒绝态
@@ -35,7 +31,7 @@ Promise 表示一个异步操作的最终结果，与之进行交互的方式主
     - `2.1.3.1` 不能迁移至其他任何状态
     - `2.1.3.2` 必须拥有一个不可变的拒因
 这里的不可变指的是恒等（即可用 === 判断相等），而不是意味着更深层次的不可变（**译者注：**盖指当 value 或 reason 不是基本值时，只要求其引用地址相等，但属性值可被更改）。
-##### 2.2. then方法
+#### 2.2. then方法
 一个 promise 必须提供一个 then 方法以访问其当前值、终值和拒因。
 promise 的 then 方法接受两个参数：
 ```js
@@ -73,7 +69,7 @@ promise.then(onFulfilled, onRejected)
 
 **译者注：**理解上面的“返回”部分非常重要，即：不论 promise1 被 reject 还是被 resolve 时 promise2 都会被 resolve，只有出现异常时才会被 rejected。
 
-##### 2.3. Promise 解决过程
+#### 2.3. Promise 解决过程
 Promise 解决过程 是一个抽象的操作，其需输入一个 promise 和一个值，我们表示为 [[Resolve]](promise, x)，如果 x 有 then 方法且看上去像一个 Promise ，解决程序即尝试使 promise 接受 x 的状态；否则其用 x 的值来执行 promise 。
 
 这种 thenable 的特性使得 Promise 的实现更具有通用性：只要其暴露出一个遵循 Promise/A+ 协议的 then 方法即可；这同时也使遵循 Promise/A+ 规范的实现可以与那些不太规范但可用的实现能良好共存。

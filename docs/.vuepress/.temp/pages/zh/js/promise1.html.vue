@@ -1,26 +1,20 @@
 <template><div><h1 id="深入promise-上" tabindex="-1"><a class="header-anchor" href="#深入promise-上" aria-hidden="true">#</a> 深入Promise--上</h1>
-<h3 id="阅读前你需要掌握的知识" tabindex="-1"><a class="header-anchor" href="#阅读前你需要掌握的知识" aria-hidden="true">#</a> 阅读前你需要掌握的知识</h3>
-<ul>
-<li>Promise的基本使用</li>
-<li>js的事件循环，宏任务微任务</li>
-<li>npm的使用</li>
-</ul>
-<h3 id="promisea" tabindex="-1"><a class="header-anchor" href="#promisea" aria-hidden="true">#</a> PromiseA+</h3>
+<h2 id="promisea" tabindex="-1"><a class="header-anchor" href="#promisea" aria-hidden="true">#</a> PromiseA+</h2>
 <p><a href="https://promisesaplus.com/" target="_blank" rel="noopener noreferrer">PromiseA+英文规范<ExternalLinkIcon/></a>
 下面是中文的翻译:</p>
 <p>Promise 表示一个异步操作的最终结果，与之进行交互的方式主要是 then 方法，该方法注册了两个回调函数，用于接收 promise 的终值或本 promise 不能执行的原因。</p>
 <p>本规范详细列出了 then 方法的执行过程，所有遵循 Promises/A+ 规范实现的 promise 均可以本标准作为参照基础来实施 then 方法。因而本规范是十分稳定的。尽管 Promise/A+ 组织有时可能会修订本规范，但主要是为了处理一些特殊的边界情况，且这些改动都是微小且向下兼容的。如果我们要进行大规模不兼容的更新，我们一定会在事先进行谨慎地考虑、详尽的探讨和严格的测试。</p>
 <p>从历史上说，本规范实际上是把之前 Promise/A 规范 中的建议明确成为了行为标准：我们一方面扩展了原有规范约定俗成的行为，一方面删减了原规范的一些特例情况和有问题的部分。</p>
 <p>最后，核心的 Promises/A+ 规范不设计如何创建、解决和拒绝 promise，而是专注于提供一个通用的 then 方法。上述对于 promises 的操作方法将来在其他规范中可能会提及。</p>
-<h4 id="_1-术语" tabindex="-1"><a class="header-anchor" href="#_1-术语" aria-hidden="true">#</a> 1. 术语</h4>
+<h3 id="_1-术语" tabindex="-1"><a class="header-anchor" href="#_1-术语" aria-hidden="true">#</a> 1. 术语</h3>
 <ul>
 <li><code v-pre>解决（fulfill）</code>：指一个 promise 成功时进行的一系列操作，如状态的改变、回调的执行。虽然规范中用 fulfill 来表示解决，但在后世的 promise 实现多以 resolve 来指代之。</li>
 <li><code v-pre>拒绝（reject）</code>：指一个 promise 失败时进行的一系列操作。</li>
 <li><code v-pre>终值（eventual value）</code>：所谓终值，指的是 promise 被解决时传递给解决回调的值，由于 promise 有一次性的特征，因此当这个值被传递时，标志着 promise 等待态的结束，故称之终值，有时也直接简称为值（value）。</li>
 <li><code v-pre>拒因（reason）</code>：也就是拒绝原因，指在 promise 被拒绝时传递给拒绝回调的值。</li>
 </ul>
-<h4 id="_2-要求" tabindex="-1"><a class="header-anchor" href="#_2-要求" aria-hidden="true">#</a> 2. 要求</h4>
-<h5 id="_2-1-promise状态" tabindex="-1"><a class="header-anchor" href="#_2-1-promise状态" aria-hidden="true">#</a> 2.1. Promise状态</h5>
+<h3 id="_2-要求" tabindex="-1"><a class="header-anchor" href="#_2-要求" aria-hidden="true">#</a> 2. 要求</h3>
+<h4 id="_2-1-promise状态" tabindex="-1"><a class="header-anchor" href="#_2-1-promise状态" aria-hidden="true">#</a> 2.1. Promise状态</h4>
 <p>一个 Promise 的当前状态必须为以下三种状态中的一种：等待态（Pending）、执行态（Fulfilled）和拒绝态（Rejected）。</p>
 <ul>
 <li><code v-pre>2.1.1</code> 处于等待态时，promise 需满足以下条件：
@@ -42,7 +36,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="_2-2-then方法" tabindex="-1"><a class="header-anchor" href="#_2-2-then方法" aria-hidden="true">#</a> 2.2. then方法</h5>
+<h4 id="_2-2-then方法" tabindex="-1"><a class="header-anchor" href="#_2-2-then方法" aria-hidden="true">#</a> 2.2. then方法</h4>
 <p>一个 promise 必须提供一个 then 方法以访问其当前值、终值和拒因。
 promise 的 then 方法接受两个参数：</p>
 <div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code>promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>onFulfilled<span class="token punctuation">,</span> onRejected<span class="token punctuation">)</span>
@@ -100,7 +94,7 @@ promise 的 then 方法接受两个参数：</p>
 </li>
 </ul>
 <p>**译者注：**理解上面的“返回”部分非常重要，即：不论 promise1 被 reject 还是被 resolve 时 promise2 都会被 resolve，只有出现异常时才会被 rejected。</p>
-<h5 id="_2-3-promise-解决过程" tabindex="-1"><a class="header-anchor" href="#_2-3-promise-解决过程" aria-hidden="true">#</a> 2.3. Promise 解决过程</h5>
+<h4 id="_2-3-promise-解决过程" tabindex="-1"><a class="header-anchor" href="#_2-3-promise-解决过程" aria-hidden="true">#</a> 2.3. Promise 解决过程</h4>
 <p>Promise 解决过程 是一个抽象的操作，其需输入一个 promise 和一个值，我们表示为 [[Resolve]](promise, x)，如果 x 有 then 方法且看上去像一个 Promise ，解决程序即尝试使 promise 接受 x 的状态；否则其用 x 的值来执行 promise 。</p>
 <p>这种 thenable 的特性使得 Promise 的实现更具有通用性：只要其暴露出一个遵循 Promise/A+ 协议的 then 方法即可；这同时也使遵循 Promise/A+ 规范的实现可以与那些不太规范但可用的实现能良好共存。</p>
 <p>运行 [[Resolve]](promise, x) 需遵循以下步骤：</p>
