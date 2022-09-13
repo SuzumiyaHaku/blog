@@ -1,4 +1,4 @@
-<template><div><h1 id="深入promise-上" tabindex="-1"><a class="header-anchor" href="#深入promise-上" aria-hidden="true">#</a> 深入Promise--上</h1>
+<template><div><h1 id="promise-上" tabindex="-1"><a class="header-anchor" href="#promise-上" aria-hidden="true">#</a> Promise--上</h1>
 <h2 id="promisea" tabindex="-1"><a class="header-anchor" href="#promisea" aria-hidden="true">#</a> PromiseA+</h2>
 <p><a href="https://promisesaplus.com/" target="_blank" rel="noopener noreferrer">PromiseA+英文规范<ExternalLinkIcon/></a>
 下面是中文的翻译:</p>

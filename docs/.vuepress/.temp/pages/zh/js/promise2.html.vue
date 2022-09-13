@@ -1,4 +1,4 @@
-<template><div><h1 id="深入promise-下" tabindex="-1"><a class="header-anchor" href="#深入promise-下" aria-hidden="true">#</a> 深入Promise--下</h1>
+<template><div><h1 id="promise-下" tabindex="-1"><a class="header-anchor" href="#promise-下" aria-hidden="true">#</a> Promise--下</h1>
 <h2 id="分析一道promise打印顺序的题" tabindex="-1"><a class="header-anchor" href="#分析一道promise打印顺序的题" aria-hidden="true">#</a> 分析一道promise打印顺序的题</h2>
 <CodeGroup>
 <CodeGroupItem title="promise">

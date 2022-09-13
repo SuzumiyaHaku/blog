@@ -11,9 +11,10 @@
 - [`MessageChannel`: Channel Messaging API 的**MessageChannel** 接口允许我们创建一个新的消息通道，并通过它的两个MessagePort 属性发送数据。](https://developer.mozilla.org/zh-CN/docs/Web/API/MessageChannel)
 
 ### 微任务
-- [`new Promise().then()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [`Promise.then`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [`MutationObserver(浏览器)`: MutationObserver 接口提供了监视对 DOM 树所做更改的能力。它被设计为旧的 Mutation Events 功能的替代品，该功能是 DOM3 Events 规范的一部分。](https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver)
 - [`process.nextTick(Node)`](http://nodejs.cn/learn/understanding-process-nexttick)
+- [`queueMicrotask(浏览器)`](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)
 - Object.observe（已废弃；Proxy 对象替代）
 
 ## I/O
@@ -325,9 +326,123 @@ console.log('最开始执行')
 调用的情况。
 
 
+## 宏/微任务的优先级
+### 浏览器里
+浏览器里，微任务优先级高于宏任务
+[queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide)和Promise.resolve().then同级的，意思谁放前面谁先执行。
+```js
+setTimeout(() => {
+  console.log('3 setTimeout')
+}, 0)
+queueMicrotask(() => {
+  console.log('1 queueMicrotask')
+})
+Promise.resolve().then(() => {
+  console.log('2 Promise.resolve().then')
+})
+console.log(0)
+```
+执行结果:
+```js
+0
+1 queueMicrotask
+2 Promise.resolve().then
+3 setTimeout
+```
+### node里
+1. 代码块1
+```js
+setImmediate(() => {
+  console.log("4 setImmediate")
+})
+setTimeout(() => {
+  console.log('3 setTimeout')
+}, 0)
+Promise.resolve().then(() => {
+  console.log('2 Promise.resolve().then')
+})
 
-## Node与浏览器的 Event Loop 差异
+process.nextTick(() => {
+  console.log(`1 process.nextTick`)
+})
 
+console.log(0)
+```
+执行结果：
+```js
+0
+1 process.nextTick
+2 Promise.resolve().then
+3 setTimeout
+4 setImmediate
+```
+___
+2. 在Promise.resolve().then里，Promise.resolve().then会优先执行
+```js
+Promise.resolve().then(() => {
+  console.log('1 Promise.resolve().then')
+  process.nextTick(() => {
+    console.log(`3 process.nextTick`)
+  })
+  Promise.resolve().then(() => {
+    console.log('2 Promise.resolve().then')
+  })
+  process.nextTick(() => {
+    console.log(`4 process.nextTick`)
+  })
+})
+
+console.log(0)
+```
+执行结果：
+```js
+0
+1 Promise.resolve().then
+2 Promise.resolve().then
+3 process.nextTick
+4 process.nextTick
+```
+
+3. 在process.nextTick里，process.nextTick会优先执行
+```js
+process.nextTick(() => {
+  console.log('1 process.nextTick')
+  process.nextTick(() => {
+    console.log(`2 process.nextTick`)
+  })
+  Promise.resolve().then(() => {
+    console.log('3 Promise.resolve().then')
+  })
+  process.nextTick(() => {
+    console.log(`3 process.nextTick`)
+  })
+  Promise.resolve().then(() => {
+    console.log('4 Promise.resolve().then')
+  })
+})
+
+console.log(0)
+```
+执行结果：
+```js
+0
+1 process.nextTick
+2 process.nextTick
+3 process.nextTick
+3 Promise.resolve().then
+4 Promise.resolve().then
+```
+
+::: warning 提示
+这里要注意的点是，process.nextTick和Promise.resolve().then无论写了多少，他们都是在一次tick循环里全部执行了的。
+:::
+
+## 浏览器的 Event Loop
+比起Node里，浏览器的事件循环就少了些许功能。
+- 浏览器里主线程执行完毕后，就检查有没有`微任务队列`。
+- 有`微任务队列`，就依次执行所有`微任务`。
+- `微任务`执行完毕。检查有没有`宏任务`，有就执行它。
+- 执行`宏任务`的过程是，每执行一次`宏任务`就要检查`微任务队列`里有没有`微任务`，有就先执行`微任务`
 ## 参考
 - 《深入浅出nodejs - 朴灵》
 - [libuv](https://docs.libuv.org/en/v1.x/)

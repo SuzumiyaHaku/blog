@@ -2,7 +2,7 @@
 ## 参考
 - [ts官方文档 英文](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
 ## 分配率
-
+发生在exends表达式里，传入的联合类型(union type)的时候
 ```ts
 type ToArray<T> = T extends any ? T[] : never
 type D5 = ToArray<string | number> // string[] | number[]
@@ -17,6 +17,14 @@ type D55 = toArray2<string | number> // (string | number)[]
 ```
 
 ## 递归
+递归深度最大不超过1000
+
+实现输入数字，返回一个数组用0填充。（类似Array(3).fill(0)的功能）
+```ts
+type Tupler<N, Arr extends Array<number> = []> = Arr['length'] extends N ? Arr : Tupler<N, [...Arr, 0]>
+```
+
+实现一个把数组里的类型，按照如果是number转为'yes'字符串否则就转为'no'的type。
 ```ts
 type T1 = [string, number, boolean, void, Function]
 type T2<key> = key extends number ? 'yes' : 'no'
@@ -34,6 +42,7 @@ type T4 = T3<T1>
 ```
 
 ## 笛卡尔积
+使用联合类型（union type）在字符串模板合并会发生笛卡尔积的现象
 ```ts
 type A1 = 'a' | 'b'
 type A2 = 'd' | 'e'
@@ -131,7 +140,7 @@ function foo(): never {
   }
 }
 ```
-当有个兜底的情况。
+当有个"兜底"的情况。
 ```ts
 interface Foo {
   type: 'foo'
@@ -160,10 +169,9 @@ function handleValue(val: All) {
   }
 }
 ```
-## unknown类型
-
 
 ## 元组
+定义一个数组里每项的类型
 ```ts
 type tuple = [number, string]
 let arr: Array<tuple> = []
@@ -173,6 +181,7 @@ let a: tuple = [233, 'tom']
 ```
 
 ## 泛型
+当一个函数，我们想传 number、string、或者你自己定义的类型。那么就需要写成泛型，意思代表传入时，我们先标记（声明）好类型。传参就要按照我们标记（声明）的类型传。
 ```ts
 function foo1<T, U>(a: T, b: U): T & U{
   return {
@@ -181,7 +190,7 @@ function foo1<T, U>(a: T, b: U): T & U{
   }
 }
 
-foo1<string, number>("4", 2);
+foo1<string, number>("4", 2);// 标记(声明)foo1传入的两个参数的类型，第一个为string，第二个是number。
 ```
 ```ts
 let map: Map<number, string> = new Map<number, string>();
@@ -199,6 +208,9 @@ list.push('23') // Argument of type 'string' is not assignable to parameter of t
 console.log(list)
 ```
 ## in
+
+如下代码里 keyof User得到的就是 name | age
+
 ```ts
 interface User {
   name?: string
@@ -218,6 +230,7 @@ type User3 = {
 ```
 
 ## infer
+类似于变量占位的感觉。
 ```ts
 type Arr = [1, 2, 3, 4]
 
@@ -237,6 +250,7 @@ type R = Arr extends [infer M, ...infer N] ? M : N
 ```
 
 ## extends
+
 ```ts
 interface A1 {
   name: string
@@ -255,13 +269,18 @@ type D1 = B1 extends A1 ? 'yes' : 'no' // yes
 type D2 = A1 extends B1 ? 'yes' : 'no' // no
 
 type D3 = (A1 & A2) extends B1 ? 'yes' : 'no' // yes
-type D4 = (number & string) extends number ? 'yes' : 'no' // yes
+type D4 = number & string extends number ? 'yes' : 'no' // yes
+type D5 = number | string extends number ? 'yes' : 'no' // no
+type D6 = number extends number | string ? 'yes' : 'no' // yes 
 
-
+type B = 2 extends 0 ? true : false // false  这里意思就是值比较是否相等
 ```
 
 
 ## ThisType
+需要在tsconfig.json开启noImplicitThis: true
+
+给this加上属性
 ```ts
 interface Aa {
   a: string

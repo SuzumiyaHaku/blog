@@ -29,6 +29,638 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "http",
+    "headers": [
+      {
+        "level": 2,
+        "title": "http1.1",
+        "slug": "http1-1",
+        "link": "#http1-1",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "http2",
+        "slug": "http2",
+        "link": "#http2",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "http3",
+        "slug": "http3",
+        "link": "#http3",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "https",
+        "slug": "https",
+        "link": "#https",
+        "children": []
+      }
+    ],
+    "path": "/zh/network/http.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "TCP/UDP",
+    "headers": [],
+    "path": "/zh/network/tcp,udp.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "typescript基础",
+    "headers": [
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "分配率",
+        "slug": "分配率",
+        "link": "#分配率",
+        "children": [
+          {
+            "level": 3,
+            "title": "去掉分配律的方式",
+            "slug": "去掉分配律的方式",
+            "link": "#去掉分配律的方式",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "递归",
+        "slug": "递归",
+        "link": "#递归",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "笛卡尔积",
+        "slug": "笛卡尔积",
+        "link": "#笛卡尔积",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "枚举类型",
+        "slug": "枚举类型",
+        "link": "#枚举类型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "函数重载",
+        "slug": "函数重载",
+        "link": "#函数重载",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Never类型",
+        "slug": "never类型",
+        "link": "#never类型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "unknown类型",
+        "slug": "unknown类型",
+        "link": "#unknown类型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "元组",
+        "slug": "元组",
+        "link": "#元组",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "泛型",
+        "slug": "泛型",
+        "link": "#泛型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "in",
+        "slug": "in",
+        "link": "#in",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "infer",
+        "slug": "infer",
+        "link": "#infer",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "extends",
+        "slug": "extends",
+        "link": "#extends",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "ThisType",
+        "slug": "thistype",
+        "link": "#thistype",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "单词字符大小写操作",
+        "slug": "单词字符大小写操作",
+        "link": "#单词字符大小写操作",
+        "children": [
+          {
+            "level": 3,
+            "title": "Uppercase",
+            "slug": "uppercase",
+            "link": "#uppercase",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "lowercase",
+            "slug": "lowercase",
+            "link": "#lowercase",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Capitalize",
+            "slug": "capitalize",
+            "link": "#capitalize",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Uncapitalize",
+            "slug": "uncapitalize",
+            "link": "#uncapitalize",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/zh/typescript/base.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "ts类型体操训练",
+    "headers": [],
+    "path": "/zh/typescript/gymnastics.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "模拟实现",
+    "headers": [],
+    "path": "/zh/typescript/polyfill.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "tsconfig.json",
+    "headers": [],
+    "path": "/zh/typescript/tsconfig.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "babel",
+    "headers": [
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/web/babel.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "浏览器从输入url发生了什么",
+    "headers": [],
+    "path": "/zh/web/url.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "webpack",
+    "headers": [
+      {
+        "level": 2,
+        "title": "常用loader",
+        "slug": "常用loader",
+        "link": "#常用loader",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "常用plugin",
+        "slug": "常用plugin",
+        "link": "#常用plugin",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "loader的原理",
+        "slug": "loader的原理",
+        "link": "#loader的原理",
+        "children": [
+          {
+            "level": 3,
+            "title": "实现一个最简单的loader",
+            "slug": "实现一个最简单的loader",
+            "link": "#实现一个最简单的loader",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "plugin的原理",
+        "slug": "plugin的原理",
+        "link": "#plugin的原理",
+        "children": [
+          {
+            "level": 3,
+            "title": "实现一个最简单的plugin",
+            "slug": "实现一个最简单的plugin",
+            "link": "#实现一个最简单的plugin",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "webpack5的对比4的新特性",
+        "slug": "webpack5的对比4的新特性",
+        "link": "#webpack5的对比4的新特性",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "webpack性能优化",
+        "slug": "webpack性能优化",
+        "link": "#webpack性能优化",
+        "children": [
+          {
+            "level": 3,
+            "title": "terser-webpack-plugin 优化代码的流程主要体现在这几个方面",
+            "slug": "terser-webpack-plugin-优化代码的流程主要体现在这几个方面",
+            "link": "#terser-webpack-plugin-优化代码的流程主要体现在这几个方面",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "gzip进行压缩",
+            "slug": "gzip进行压缩",
+            "link": "#gzip进行压缩",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/web/webpack1.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "webpack 和 vite",
+    "headers": [
+      {
+        "level": 2,
+        "title": "两者有什么区别",
+        "slug": "两者有什么区别",
+        "link": "#两者有什么区别",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "vite和webpack5的缓存",
+        "slug": "vite和webpack5的缓存",
+        "link": "#vite和webpack5的缓存",
+        "children": [
+          {
+            "level": 3,
+            "title": "vite缓存",
+            "slug": "vite缓存",
+            "link": "#vite缓存",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "webpack缓存",
+            "slug": "webpack缓存",
+            "link": "#webpack缓存",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "vite为啥比webpack快？",
+        "slug": "vite为啥比webpack快",
+        "link": "#vite为啥比webpack快",
+        "children": [
+          {
+            "level": 3,
+            "title": "vite开发时快在哪？",
+            "slug": "vite开发时快在哪",
+            "link": "#vite开发时快在哪",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "webpack开发时慢在哪？",
+            "slug": "webpack开发时慢在哪",
+            "link": "#webpack开发时慢在哪",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "HMR 热更新原理",
+        "slug": "hmr-热更新原理",
+        "link": "#hmr-热更新原理",
+        "children": [
+          {
+            "level": 3,
+            "title": "webpack热更新",
+            "slug": "webpack热更新",
+            "link": "#webpack热更新",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "vite 热更新",
+            "slug": "vite-热更新",
+            "link": "#vite-热更新",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/web/webpack2.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "cookie 和 session",
+    "headers": [
+      {
+        "level": 2,
+        "title": "cookie",
+        "slug": "cookie",
+        "link": "#cookie",
+        "children": [
+          {
+            "level": 3,
+            "title": "基础",
+            "slug": "基础",
+            "link": "#基础",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "关键字",
+            "slug": "关键字",
+            "link": "#关键字",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "SameSite",
+            "slug": "samesite",
+            "link": "#samesite",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "session",
+        "slug": "session",
+        "link": "#session",
+        "children": []
+      }
+    ],
+    "path": "/zh/security/cookie%E5%92%8Csession.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "跨域请求",
+    "headers": [
+      {
+        "level": 2,
+        "title": "描述",
+        "slug": "描述",
+        "link": "#描述",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "解决跨域",
+        "slug": "解决跨域",
+        "link": "#解决跨域",
+        "children": [
+          {
+            "level": 3,
+            "title": "java Springboot后端解决跨域",
+            "slug": "java-springboot后端解决跨域",
+            "link": "#java-springboot后端解决跨域",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "nginx解决跨域",
+            "slug": "nginx解决跨域",
+            "link": "#nginx解决跨域",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "浏览器安装插件解决跨域",
+            "slug": "浏览器安装插件解决跨域",
+            "link": "#浏览器安装插件解决跨域",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/zh/security/cors%E8%AF%B7%E6%B1%82.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "OAuth2.0和JWT",
+    "headers": [
+      {
+        "level": 2,
+        "title": "OAuth2.0",
+        "slug": "oauth2-0",
+        "link": "#oauth2-0",
+        "children": [
+          {
+            "level": 3,
+            "title": "场景",
+            "slug": "场景",
+            "link": "#场景",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "OAuth2.0协议流程",
+            "slug": "oauth2-0协议流程",
+            "link": "#oauth2-0协议流程",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "JWT是什么",
+        "slug": "jwt是什么",
+        "link": "#jwt是什么",
+        "children": [
+          {
+            "level": 3,
+            "title": "JWT的组成",
+            "slug": "jwt的组成",
+            "link": "#jwt的组成",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Springboot添加JWT",
+            "slug": "springboot添加jwt",
+            "link": "#springboot添加jwt",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/security/oauth2.0%E5%92%8Cjwt.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "XSS和CSRF",
+    "headers": [
+      {
+        "level": 2,
+        "title": "XSS",
+        "slug": "xss",
+        "link": "#xss",
+        "children": [
+          {
+            "level": 3,
+            "title": "简介",
+            "slug": "简介",
+            "link": "#简介",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "XSS漏洞产生的原因",
+            "slug": "xss漏洞产生的原因",
+            "link": "#xss漏洞产生的原因",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "分类与示例",
+            "slug": "分类与示例",
+            "link": "#分类与示例",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "防御XSS",
+        "slug": "防御xss",
+        "link": "#防御xss",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "CSRF",
+        "slug": "csrf",
+        "link": "#csrf",
+        "children": [
+          {
+            "level": 3,
+            "title": "特征",
+            "slug": "特征",
+            "link": "#特征",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CSRF 防御",
+            "slug": "csrf-防御",
+            "link": "#csrf-防御",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/security/xss%E4%B8%8Ecsrf.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "call、apply",
     "headers": [
       {
@@ -557,32 +1189,40 @@ export const searchIndex = [
     "title": "深入Promise--上",
     "headers": [
       {
-        "level": 3,
-        "title": "阅读前你需要掌握的知识",
-        "slug": "阅读前你需要掌握的知识",
-        "link": "#阅读前你需要掌握的知识",
-        "children": []
-      },
-      {
-        "level": 3,
+        "level": 2,
         "title": "PromiseA+",
         "slug": "promisea",
         "link": "#promisea",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "对照规范实现PromiseA+",
-        "slug": "对照规范实现promisea",
-        "link": "#对照规范实现promisea",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "测试",
-        "slug": "测试",
-        "link": "#测试",
-        "children": []
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 术语",
+            "slug": "_1-术语",
+            "link": "#_1-术语",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 要求",
+            "slug": "_2-要求",
+            "link": "#_2-要求",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "对照规范实现PromiseA+",
+            "slug": "对照规范实现promisea",
+            "link": "#对照规范实现promisea",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "测试",
+            "slug": "测试",
+            "link": "#测试",
+            "children": []
+          }
+        ]
       },
       {
         "level": 2,
@@ -723,444 +1363,6 @@ export const searchIndex = [
       }
     ],
     "path": "/zh/js/this.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "cookie 和 session",
-    "headers": [
-      {
-        "level": 2,
-        "title": "cookie",
-        "slug": "cookie",
-        "link": "#cookie",
-        "children": [
-          {
-            "level": 3,
-            "title": "基础",
-            "slug": "基础",
-            "link": "#基础",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "关键字",
-            "slug": "关键字",
-            "link": "#关键字",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "SameSite",
-            "slug": "samesite",
-            "link": "#samesite",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "session",
-        "slug": "session",
-        "link": "#session",
-        "children": []
-      }
-    ],
-    "path": "/zh/security/cookie%E5%92%8Csession.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "跨域请求",
-    "headers": [
-      {
-        "level": 2,
-        "title": "描述",
-        "slug": "描述",
-        "link": "#描述",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "解决跨域",
-        "slug": "解决跨域",
-        "link": "#解决跨域",
-        "children": [
-          {
-            "level": 3,
-            "title": "java Springboot后端解决跨域",
-            "slug": "java-springboot后端解决跨域",
-            "link": "#java-springboot后端解决跨域",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "nginx解决跨域",
-            "slug": "nginx解决跨域",
-            "link": "#nginx解决跨域",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "浏览器安装插件解决跨域",
-            "slug": "浏览器安装插件解决跨域",
-            "link": "#浏览器安装插件解决跨域",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/zh/security/cors%E8%AF%B7%E6%B1%82.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "oauth2.0和jwt",
-    "headers": [
-      {
-        "level": 2,
-        "title": "auth2.0",
-        "slug": "auth2-0",
-        "link": "#auth2-0",
-        "children": []
-      }
-    ],
-    "path": "/zh/security/oauth2.0%E5%92%8Cjwt.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "XSS和CSRF",
-    "headers": [
-      {
-        "level": 2,
-        "title": "XSS",
-        "slug": "xss",
-        "link": "#xss",
-        "children": [
-          {
-            "level": 3,
-            "title": "简介",
-            "slug": "简介",
-            "link": "#简介",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "XSS漏洞产生的原因",
-            "slug": "xss漏洞产生的原因",
-            "link": "#xss漏洞产生的原因",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "分类与示例",
-            "slug": "分类与示例",
-            "link": "#分类与示例",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "防御XSS",
-        "slug": "防御xss",
-        "link": "#防御xss",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "CSRF",
-        "slug": "csrf",
-        "link": "#csrf",
-        "children": [
-          {
-            "level": 3,
-            "title": "特征",
-            "slug": "特征",
-            "link": "#特征",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CSRF 防御",
-            "slug": "csrf-防御",
-            "link": "#csrf-防御",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/zh/security/xss%E4%B8%8Ecsrf.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "http",
-    "headers": [
-      {
-        "level": 2,
-        "title": "http1.1",
-        "slug": "http1-1",
-        "link": "#http1-1",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "http2",
-        "slug": "http2",
-        "link": "#http2",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "http3",
-        "slug": "http3",
-        "link": "#http3",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "https",
-        "slug": "https",
-        "link": "#https",
-        "children": []
-      }
-    ],
-    "path": "/zh/network/http.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "TCP/UDP",
-    "headers": [],
-    "path": "/zh/network/tcp,udp.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "typescript基础",
-    "headers": [],
-    "path": "/zh/typescript/base.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "ts类型体操训练",
-    "headers": [],
-    "path": "/zh/typescript/gymnastics.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "模拟实现",
-    "headers": [],
-    "path": "/zh/typescript/polyfill.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "babel",
-    "headers": [
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/zh/web/babel.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "浏览器从输入url发生了什么",
-    "headers": [],
-    "path": "/zh/web/url.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "webpack",
-    "headers": [
-      {
-        "level": 2,
-        "title": "常用loader",
-        "slug": "常用loader",
-        "link": "#常用loader",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "常用plugin",
-        "slug": "常用plugin",
-        "link": "#常用plugin",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "loader的原理",
-        "slug": "loader的原理",
-        "link": "#loader的原理",
-        "children": [
-          {
-            "level": 3,
-            "title": "实现一个最简单的loader",
-            "slug": "实现一个最简单的loader",
-            "link": "#实现一个最简单的loader",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "plugin的原理",
-        "slug": "plugin的原理",
-        "link": "#plugin的原理",
-        "children": [
-          {
-            "level": 3,
-            "title": "实现一个最简单的plugin",
-            "slug": "实现一个最简单的plugin",
-            "link": "#实现一个最简单的plugin",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "webpack5的对比4的新特性",
-        "slug": "webpack5的对比4的新特性",
-        "link": "#webpack5的对比4的新特性",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "webpack性能优化",
-        "slug": "webpack性能优化",
-        "link": "#webpack性能优化",
-        "children": [
-          {
-            "level": 3,
-            "title": "terser-webpack-plugin 优化代码的流程主要体现在这几个方面",
-            "slug": "terser-webpack-plugin-优化代码的流程主要体现在这几个方面",
-            "link": "#terser-webpack-plugin-优化代码的流程主要体现在这几个方面",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "gzip进行压缩",
-            "slug": "gzip进行压缩",
-            "link": "#gzip进行压缩",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/zh/web/webpack1.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "webpack 和 vite",
-    "headers": [
-      {
-        "level": 2,
-        "title": "两者有什么区别",
-        "slug": "两者有什么区别",
-        "link": "#两者有什么区别",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "vite和webpack5的缓存",
-        "slug": "vite和webpack5的缓存",
-        "link": "#vite和webpack5的缓存",
-        "children": [
-          {
-            "level": 3,
-            "title": "vite缓存",
-            "slug": "vite缓存",
-            "link": "#vite缓存",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "webpack缓存",
-            "slug": "webpack缓存",
-            "link": "#webpack缓存",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "vite为啥比webpack快？",
-        "slug": "vite为啥比webpack快",
-        "link": "#vite为啥比webpack快",
-        "children": [
-          {
-            "level": 3,
-            "title": "vite开发时快在哪？",
-            "slug": "vite开发时快在哪",
-            "link": "#vite开发时快在哪",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "webpack开发时慢在哪？",
-            "slug": "webpack开发时慢在哪",
-            "link": "#webpack开发时慢在哪",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "HMR 热更新原理",
-        "slug": "hmr-热更新原理",
-        "link": "#hmr-热更新原理",
-        "children": [
-          {
-            "level": 3,
-            "title": "webpack热更新",
-            "slug": "webpack热更新",
-            "link": "#webpack热更新",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "vite 热更新",
-            "slug": "vite-热更新",
-            "link": "#vite-热更新",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/zh/web/webpack2.html",
     "pathLocale": "/",
     "extraFields": []
   },

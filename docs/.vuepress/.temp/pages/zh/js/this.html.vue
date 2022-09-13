@@ -1,6 +1,10 @@
 <template><div><h1 id="this" tabindex="-1"><a class="header-anchor" href="#this" aria-hidden="true">#</a> this</h1>
-<h2 id="简介" tabindex="-1"><a class="header-anchor" href="#简介" aria-hidden="true">#</a> 简介</h2>
-<p>this是在运行调用的时候才会被确认的。this指向谁完全是运行的时候才会确定。</p>
+<h2 id="摘要" tabindex="-1"><a class="header-anchor" href="#摘要" aria-hidden="true">#</a> 摘要</h2>
+<p>this是在运行时进行绑定的，并不是在编写时绑定，它的上下文取决于函数调
+用时的各种条件。this的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式。
+当一个函数被调用时，会创建一个活动记录（有时候也称为执行上下文)。这个记录会包
+含函数在哪里被调用（调用栈)、函数的调用方法、传人的参数等信息。this 就是记录的
+其中一个属性，会在函数执行的过程中用到。</p>
 <h2 id="this的四种绑定规则" tabindex="-1"><a class="header-anchor" href="#this的四种绑定规则" aria-hidden="true">#</a> this的四种绑定规则</h2>
 <h3 id="_1-默认绑定" tabindex="-1"><a class="header-anchor" href="#_1-默认绑定" aria-hidden="true">#</a> 1.默认绑定</h3>
 <p>默认指向window，严格模式指向undefined</p>

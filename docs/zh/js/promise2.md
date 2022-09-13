@@ -1,4 +1,4 @@
-# 深入Promise--下
+# Promise--下
 
 ## 分析一道promise打印顺序的题
 :::: code-group

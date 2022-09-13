@@ -1,4 +1,4 @@
-# 深入Promise--上
+# Promise--上
 
 
 ## PromiseA+

@@ -42,6 +42,7 @@ export default defineUserConfig({
             
             {
               text: 'typescript', children: [
+                `/zh/typescript/tsconfig.md`,
                 '/zh/typescript/base.md',
                 '/zh/typescript/polyfill.md',
                 '/zh/typescript/gymnastics.md',
