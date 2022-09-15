@@ -1,4 +1,4 @@
-<template><div><h1 id="浏览器从输入url发生了什么" tabindex="-1"><a class="header-anchor" href="#浏览器从输入url发生了什么" aria-hidden="true">#</a> 浏览器从输入url发生了什么</h1>
+<template><div><h1 id="浏览器从输入url发生了什么-未完" tabindex="-1"><a class="header-anchor" href="#浏览器从输入url发生了什么-未完" aria-hidden="true">#</a> 浏览器从输入url发生了什么[未完...]</h1>
 <h2 id="输入的域名解析" tabindex="-1"><a class="header-anchor" href="#输入的域名解析" aria-hidden="true">#</a> 输入的域名解析</h2>
 <ol>
 <li>浏览器会对输入的url进行解析。缺的部分浏览器会尝试进行补全得到一个合法的URL地址。</li>
@@ -64,48 +64,7 @@
 <li>对两端的身份进行认证</li>
 <li>生成临时会话秘钥，以便加密信道</li>
 </ul>
-<div class="custom-container tip"><p class="custom-container-title">此处为TLS1.2版本详细过程：</p>
-<ol>
-<li>
-<p>客户端发送<code v-pre>Client Hello</code>、<code v-pre>客户端支持的TLS版本</code>、<code v-pre>支持的加密套件</code>、随机数1给服务器。</p>
-</li>
-<li>
-<p><strong>服务器发送<code v-pre>Server Hello</code>、确认支持的<code v-pre>TLS版本</code>、选择的<code v-pre>加密套件</code>、随机数2给客户端。</strong></p>
-</li>
-<li>
-<p><strong>服务器发送<code v-pre>Certificate</code>、<code v-pre>自己的证书</code>给客户端。(客户端根据自己证书的信任列表来确认这个服务器是否可信)</strong></p>
-</li>
-<li>
-<p><strong>服务器发送<code v-pre>Server Key Exchange</code>、<code v-pre>公钥</code>发给客户端。(如果服务器需要客户端的证书，就可以在这里发出请求。)</strong></p>
-</li>
-<li>
-<p><strong>服务器最后就发送<code v-pre>Server Hello Done</code>表示自己发完了。</strong></p>
-</li>
-<li>
-<p>客户端收完后发送这三段给服务器。</p>
-<ul>
-<li><code v-pre>Client Key Exchange</code>，包含用刚刚服务器发的<code v-pre>公钥</code>加密新生成随机数3（也叫做<code v-pre>预主秘钥</code>）得到的结果。</li>
-<li><code v-pre>Change Cipher Spec</code>（告诉服务器后面的数据用商议好的算法和秘钥加密）</li>
-<li><code v-pre>Encrypted Handshake Message</code>（表示客户端没有啥问题了）</li>
-</ul>
-</li>
-<li>
-<p><strong>服务器发送Encrypted Handshake Message字符串，表示自己准备好了。</strong></p>
-</li>
-</ol>
-<blockquote>
-<p>至此TLS已经握手成功。</p>
-</blockquote>
-<ol start="8">
-<li>
-<p>服务器收到加密后的<code v-pre>预主秘钥</code>会用自己的私钥解密得到<code v-pre>预主秘钥</code>。</p>
-</li>
-<li>
-<p>客户端和服务端都用<code v-pre>预主秘钥</code>、随机数1、随机数2计算出<code v-pre>会话秘钥</code>。两者得到的<code v-pre>会话秘钥</code>是相同的而且只在当前会话阶段生效。然后客户端和服务端就能用对称加密愉快的交流了。</p>
-</li>
-</ol>
-<p><strong>这个过程看得出前面<code v-pre>非对称加密</code>消耗了很多资源，是为了得到一个会话秘钥。得到秘钥后，就变<code v-pre>对称加密</code>了</strong>。</p>
-</div>
+<p>详细见<RouterLink to="/zh/network/http.html#ssl%E6%8F%A1%E6%89%8B">计算机网络相关/https/TLS握手部分</RouterLink></p>
 <h2 id="tcp" tabindex="-1"><a class="header-anchor" href="#tcp" aria-hidden="true">#</a> TCP</h2>
 <p>服务器和客户端的状态有：</p>
 <ul>
@@ -284,14 +243,15 @@ http1.1
 <h3 id="_3-默认" tabindex="-1"><a class="header-anchor" href="#_3-默认" aria-hidden="true">#</a> 3. 默认</h3>
 <p>如果什么缓存策略都不设置。这种情况，浏览器会采用一个启发式的算法，通常会取响应头中的 Date 减去 Last-Modified 值的 10% 作为缓存时间</p>
 <h2 id="网页渲染" tabindex="-1"><a class="header-anchor" href="#网页渲染" aria-hidden="true">#</a> 网页渲染</h2>
-<p>webkit 流程
-<img src="@source/zh/assets/chrome_webkit.png.png" alt="image">
-Mozilla 的Geoko的主要流程
-<img src="@source/zh/assets/firefox_geoko.png" alt="image">
-Gecko 里把格式化好的可视元素称做“帧树”（Frame tree）。每个元素就是一个帧（frame）。 webkit
+<p>webkit 流程</p>
+<p><img src="@source/zh/assets/chrome_webkit.png" alt="image"></p>
+<p>Mozilla 的Geoko的主要流程</p>
+<p><img src="@source/zh/assets/firefox_geoko.png" alt="image"></p>
+<p>Gecko 里把格式化好的可视元素称做“帧树”（Frame tree）。每个元素就是一个帧（frame）。 webkit
 则使用”渲染树”这个术语，渲染树由”渲染对象”组成。webkit
 里使用”layout”表示元素的布局，Gecko则称为”reflow”。Webkit使用”Attachment”来连接DOM节点与可视化信息以构建渲染树。一个非语义上的小差别是Gecko在HTML与DOM树之间有一个附加的层
 ，称作”content sink”，是创建DOM对象的工厂。</p>
+<p>CSSOM (CSS Object DOM、CSS对象模型) 提供了接口让js获得修改css代码设置的样式信息。对于内部和外部的样式表，CSSOM (CSS Object DOM、CSS对象模型)提供了样式表接口，称为CSSStyleSheet</p>
 <h3 id="构建dom树和style-rules" tabindex="-1"><a class="header-anchor" href="#构建dom树和style-rules" aria-hidden="true">#</a> 构建DOM树和Style Rules</h3>
 <p>浏览器会将HTML资源自上而下开始解析成一个DOM树，DOM 树的构建过程是一个深度遍历过程：当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点。
 如果遇到 style 的内联样式和 link 会将 css 交由 css 渲染器构建 css 规则树； 其中加载 link 引入的外部样式文件是异步加载的，并且整个 css 规则树也是与 dom 树的构建是并行的；</p>
@@ -305,7 +265,7 @@ Gecko 里把格式化好的可视元素称做“帧树”（Frame tree）。每�
 </ul>
 <p>使用了 src 属性的标签中再包含其他 JavaScript 代码。如果两者都提供的话，则浏览器只会下载并执行脚本文件，从而忽略行内代码。</p>
 <p>JavaScript的加载、解析与执行会阻塞DOM的构建，也就是说，在构建DOM时，HTML解析器若遇到了JavaScript，那么它会暂停构建DOM，将控制权移交给JavaScript引擎，等JavaScript引擎运行完毕，浏览器再从中断的地方恢复DOM构建。</p>
-<p>这是因为JavaScript不只是可以改DOM，它还可以更改样式，也就是它可以更改CSSOM。前面我们介绍，不完整的CSSOM是无法使用的，但JavaScript中想访问CSSOM并更改它，那么在执行JavaScript时，必须要能拿到完整的CSSOM。所以就导致了一个现象，如果浏览器尚未完成CSSOM的下载和构建，而我们却想在此时运行脚本，那么浏览器将延迟脚本执行和DOM构建，直至其完成CSSOM的下载和构建。也就是说，在这种情况下，浏览器会先下载和构建CSSOM，然后再执行JavaScript，最后在继续构建DOM。</p>
+<p>这是因为JavaScript不只是可以改DOM，它还可以更改样式，也就是它可以更改CSSOM（CSS Object Model，CSS对象模型）。前面我们介绍，不完整的CSSOM（CSS Object Model，CSS对象模型）是无法使用的，但JavaScript中想访问CSSOM（CSS Object Model，CSS对象模型）并更改它，那么在执行JavaScript时，必须要能拿到完整的CSSOM（CSS Object Model，CSS对象模型）。所以就导致了一个现象，如果浏览器尚未完成CSSOM（CSS Object Model，CSS对象模型）的下载和构建，而我们却想在此时运行脚本，那么浏览器将延迟脚本执行和DOM构建，直至其完成CSSOM（CSS Object Model，CSS对象模型）的下载和构建。也就是说，在这种情况下，浏览器会先下载和构建CSSOM（CSS Object Model，CSS对象模型），然后再执行JavaScript，最后在继续构建DOM。</p>
 <p>为了更好的用户体验，渲染引擎将会尽可能早的将内容呈现到屏幕上，并不会等到所有的html都解析完成之后再去构建和布局render树。它是解析完一部分内容就显示一部分内容，同时，可能还在通过网络下载其余内容。</p>
 <h3 id="render-tree的构建" tabindex="-1"><a class="header-anchor" href="#render-tree的构建" aria-hidden="true">#</a> render tree的构建</h3>
 <h3 id="页面绘制" tabindex="-1"><a class="header-anchor" href="#页面绘制" aria-hidden="true">#</a> 页面绘制</h3>
@@ -315,6 +275,7 @@ Gecko 里把格式化好的可视元素称做“帧树”（Frame tree）。每�
 <h2 id="参考" tabindex="-1"><a class="header-anchor" href="#参考" aria-hidden="true">#</a> 参考</h2>
 <ul>
 <li>《HTTP权威指南》</li>
+<li>《图解HTTP》</li>
 <li>《TCP-IP详解卷一：协议》</li>
 <li>《JavaScript高级编程第四版》</li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching#%E6%A6%82%E8%A7%88" target="_blank" rel="noopener noreferrer">MDN HTTP缓存<ExternalLinkIcon/></a></li>

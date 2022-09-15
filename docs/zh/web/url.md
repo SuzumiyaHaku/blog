@@ -1,4 +1,4 @@
-# 浏览器从输入url发生了什么
+# 浏览器从输入url发生了什么[未完...]
 
 ## 输入的域名解析
 1. 浏览器会对输入的url进行解析。缺的部分浏览器会尝试进行补全得到一个合法的URL地址。
@@ -72,30 +72,7 @@ http在网络七层协议中，属于应用层。是建立在http1.1和2.0是建
 - 对两端的身份进行认证
 - 生成临时会话秘钥，以便加密信道
 
-:::: tip 此处为TLS1.2版本详细过程：
-1. 客户端发送`Client Hello`、`客户端支持的TLS版本`、`支持的加密套件`、随机数1给服务器。
-2. __服务器发送`Server Hello`、确认支持的`TLS版本`、选择的`加密套件`、随机数2给客户端。__
-2. __服务器发送`Certificate`、`自己的证书`给客户端。(客户端根据自己证书的信任列表来确认这个服务器是否可信)__
-2. __服务器发送`Server Key Exchange`、`公钥`发给客户端。(如果服务器需要客户端的证书，就可以在这里发出请求。)__
-2. __服务器最后就发送`Server Hello Done`表示自己发完了。__
-
-3. 客户端收完后发送这三段给服务器。
-    - `Client Key Exchange`，包含用刚刚服务器发的`公钥`加密新生成随机数3（也叫做`预主秘钥`）得到的结果。
-    - `Change Cipher Spec`（告诉服务器后面的数据用商议好的算法和秘钥加密）
-    - `Encrypted Handshake Message`（表示客户端没有啥问题了）
-
-4. __服务器发送Encrypted Handshake Message字符串，表示自己准备好了。__
-
-> 至此TLS已经握手成功。
-
-
-8. 服务器收到加密后的`预主秘钥`会用自己的私钥解密得到`预主秘钥`。
-
-9. 客户端和服务端都用`预主秘钥`、随机数1、随机数2计算出`会话秘钥`。两者得到的`会话秘钥`是相同的而且只在当前会话阶段生效。然后客户端和服务端就能用对称加密愉快的交流了。
-
-
-__这个过程看得出前面`非对称加密`消耗了很多资源，是为了得到一个会话秘钥。得到秘钥后，就变`对称加密`了__。
-::::
+详细见[计算机网络相关/https/TLS握手部分](/zh/network/http.html#ssl握手)
 
 
 ## TCP
@@ -211,14 +188,20 @@ ETag更精确，性能上Last-Modified好点
 
 ## 网页渲染
 webkit 流程
-![image](../assets/chrome_webkit.png.png)
+
+![image](../assets/chrome_webkit.png)
+
 Mozilla 的Geoko的主要流程
+
 ![image](../assets/firefox_geoko.png)
+
 Gecko 里把格式化好的可视元素称做“帧树”（Frame tree）。每个元素就是一个帧（frame）。 webkit
 则使用”渲染树”这个术语，渲染树由”渲染对象”组成。webkit
 里使用”layout”表示元素的布局，Gecko则称为”reflow”。Webkit使用”Attachment”来连接DOM节点与可视化信息以构建渲染树。一个非语义上的小差别是Gecko在HTML与DOM树之间有一个附加的层
 ，称作”content sink”，是创建DOM对象的工厂。
 
+
+CSSOM (CSS Object DOM、CSS对象模型) 提供了接口让js获得修改css代码设置的样式信息。对于内部和外部的样式表，CSSOM (CSS Object DOM、CSS对象模型)提供了样式表接口，称为CSSStyleSheet
 
 
 ### 构建DOM树和Style Rules
@@ -236,7 +219,7 @@ Gecko 里把格式化好的可视元素称做“帧树”（Frame tree）。每�
 
 JavaScript的加载、解析与执行会阻塞DOM的构建，也就是说，在构建DOM时，HTML解析器若遇到了JavaScript，那么它会暂停构建DOM，将控制权移交给JavaScript引擎，等JavaScript引擎运行完毕，浏览器再从中断的地方恢复DOM构建。
 
-这是因为JavaScript不只是可以改DOM，它还可以更改样式，也就是它可以更改CSSOM。前面我们介绍，不完整的CSSOM是无法使用的，但JavaScript中想访问CSSOM并更改它，那么在执行JavaScript时，必须要能拿到完整的CSSOM。所以就导致了一个现象，如果浏览器尚未完成CSSOM的下载和构建，而我们却想在此时运行脚本，那么浏览器将延迟脚本执行和DOM构建，直至其完成CSSOM的下载和构建。也就是说，在这种情况下，浏览器会先下载和构建CSSOM，然后再执行JavaScript，最后在继续构建DOM。
+这是因为JavaScript不只是可以改DOM，它还可以更改样式，也就是它可以更改CSSOM（CSS Object Model，CSS对象模型）。前面我们介绍，不完整的CSSOM（CSS Object Model，CSS对象模型）是无法使用的，但JavaScript中想访问CSSOM（CSS Object Model，CSS对象模型）并更改它，那么在执行JavaScript时，必须要能拿到完整的CSSOM（CSS Object Model，CSS对象模型）。所以就导致了一个现象，如果浏览器尚未完成CSSOM（CSS Object Model，CSS对象模型）的下载和构建，而我们却想在此时运行脚本，那么浏览器将延迟脚本执行和DOM构建，直至其完成CSSOM（CSS Object Model，CSS对象模型）的下载和构建。也就是说，在这种情况下，浏览器会先下载和构建CSSOM（CSS Object Model，CSS对象模型），然后再执行JavaScript，最后在继续构建DOM。
 
 
 为了更好的用户体验，渲染引擎将会尽可能早的将内容呈现到屏幕上，并不会等到所有的html都解析完成之后再去构建和布局render树。它是解析完一部分内容就显示一部分内容，同时，可能还在通过网络下载其余内容。
@@ -252,6 +235,7 @@ JavaScript的加载、解析与执行会阻塞DOM的构建，也就是说，在�
 
 ## 参考
 - 《HTTP权威指南》
+- 《图解HTTP》
 - 《TCP-IP详解卷一：协议》
 - 《JavaScript高级编程第四版》
 - [MDN HTTP缓存](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching#%E6%A6%82%E8%A7%88)
