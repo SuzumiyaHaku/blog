@@ -83,6 +83,9 @@ N个用户试图访问服务器的话，代理最多要维持2N条到任意服�
 <p>使用<a href="https://httpwg.org/specs/rfc7541.html" target="_blank" rel="noopener noreferrer">HPACK<ExternalLinkIcon/></a>这是一种用于高效表示HTTP头字段的压缩格式。里面采用了三种压缩方式：静态表、动态表、压缩算法(Huffman/哈夫曼编码，最高压缩比8:5)。</p>
 <p><code v-pre>静态表</code>类似，用<code v-pre>2</code>代表<code v-pre>GET</code>请求、<code v-pre>31</code>代表<code v-pre>content-type</code>字段，这样key-value对应的表。</p>
 <p><code v-pre>动态表</code>可以简单理解为在请求过程中映射的 <code v-pre>索引表</code>，比如第一个请求<code v-pre>帧（frame）</code> 使用 <code v-pre>静态表</code>+ <code v-pre>Huffman算法</code> 构成的索引表（<code v-pre>静态表</code>+<code v-pre>动态表</code>）可以在下一次请求 <code v-pre>帧（frame）</code> 中只需要传递新增的内容使用<code v-pre>Huffman算法</code>，不变的内容就可以使用 <code v-pre>索引表</code> 中的值（和<code v-pre>静态表</code>类似）替代。</p>
+<blockquote>
+<p>HTTP/3头部压缩是用的<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-qpack" target="_blank" rel="noopener noreferrer">QPACK<ExternalLinkIcon/></a></p>
+</blockquote>
 <h3 id="流与二进制分帧" tabindex="-1"><a class="header-anchor" href="#流与二进制分帧" aria-hidden="true">#</a> 流与二进制分帧</h3>
 <p>帧是数据传输的最小单位，以二进制传输代替原本的明文传输，原本的报文消息被划分为更小的数据帧。
 HTTP 2就是在应用层上模拟了一下传输层TCP中“流”的概念，从而解决了HTTP 1.x协议中的队头拥塞的问题，在1.x协议中，HTTP 协议是一个个消息组成的，同一条TCP连接上，前面一个消息的响应没有回来，后续的消息是不可以发送的。在HTTP 2中，取消了这个限制，将所谓的“消息”定义成“流”，流跟流之间的顺序可以是错乱的，但是流里面的帧的顺序是不可以错乱的。</p>
@@ -154,17 +157,16 @@ HTTP/2 支持 Server-Push，相比较内联优势更大效果更好。而且内�
 <p>HTTP/3是在UDP之上构建的，HTTP/3更快，因为就像是UDP一样没有等待握手、队头阻塞。这个说法是错误的。UDP被QUIC使用，主要是因为UDP在互联网上（几乎）所有设备上能用。QUIC基本重新实现了TCP的功能。只不过这些实现，比TCP更智能，更高效。所以QUIC任然会建立连接，并具有高度复杂的握手。HTTP/3并不比HTTP/2快，因为我们把TCP换成了UDP，并重新实现了更高级版本的TCP版本，将其称为QUIC。因为想让QUIC容易部署，所以通过UDP运行它。</p>
 <p>QUIC已经深度集成TLS1.3了。</p>
 <div class="custom-container tip"><p class="custom-container-title">关键词</p>
-<p><code v-pre>RTT(Round-Trip Time)</code>: 往返时延。
-<code v-pre>HOL</code>: 队头</p>
+<p><code v-pre>RTT(Round-Trip Time)</code>: 往返时延。</p>
 <p><code v-pre>QUIC</code>的全称是(Quick UDP Internet Connections)，是由 Google 从 2013 年开始研究的基于 UDP 的可靠传输协议，它最早的原型是 SPDY + QUIC-Crypto + Reliable UDP，后来经历了 SPDY 转型为 2015 年 5 月 IETF 正式发布的 HTTP/2.0，以及 2016 年 TLS/1.3 的正式发布。2016 年成立，IETF 的 QUIC 标准化工作组启动，考虑到 HTTP/2.0 和 TLS/1.3 的发布，它的核心协议族逐步进化为现在的 HTTP/3.0 + TLS/1.3 + QUIC-Transport 的组合。</p>
 </div>
 <h3 id="拥赛控制" tabindex="-1"><a class="header-anchor" href="#拥赛控制" aria-hidden="true">#</a> 拥赛控制</h3>
-<p>从理论上讲，QUIC受到的数据包丢失（和相关线路负责人(HOL）阻塞）的影响较小，因为它独立处理每个资源字节流的数据包丢失。此外，QUIC运行在用户数据报协议(UDP)上，与TCP不同，该协议没有内置<code v-pre>拥塞控制</code>功能：它允许您尝试以任何您想要的速度发送，并且不会重新传输丢失的数据。</p>
-<p>这导致许多文章声称QUIC也不使用<code v-pre>拥塞控制</code>，QUIC可以开始以比UDP更高的速度发送数据（取决于删除HOL阻止来处理数据包丢失），这就是为什么QUIC比TCP快得多。</p>
+<p>从理论上讲，QUIC受到的数据包丢失（和相关线路负责人队头阻塞）的影响较小，因为它独立处理每个资源字节流的数据包丢失。此外，QUIC运行在用户数据报协议(UDP)上，与TCP不同，该协议没有内置<code v-pre>拥塞控制</code>功能：它允许您尝试以任何您想要的速度发送，并且不会重新传输丢失的数据。</p>
+<p>这导致许多文章声称QUIC也不使用<code v-pre>拥塞控制</code>，QUIC可以开始以比UDP更高的速度发送数据（取决于删除队头阻止来处理数据包丢失），这就是为什么QUIC比TCP快得多。</p>
 <p>实际上，没有什么比这更离事实了。QUIC实际上使用与TCP非常相似的带宽管理技术。它也从较低的发送速率开始，并随着时间的推移而增长，使用确认作为衡量网络容量的关键机制。这是（除其他原因外）是因为QUIC需要可靠才能对HTTP等有用，因为它需要对其他QUIC(和TCP!）公平连接，并且因为它的HOI阻塞删除实际上并不能很好地防止数据包丢失。</p>
 <p>然而，这并不意味着QUIC不能比TCP更聪明地管理带宽。这主要是因为QUIC比TCP更灵活，更容易进化。正如我们所说，<code v-pre>拥塞控制</code>算法今天仍在大幅发展，例如，我们可能需要调整一些东西来充分利用5G。</p>
 <p>QUIC的灵活性将带来更多的实验和更好的<code v-pre>拥塞控制</code>算法，这反过来也可以反向移植到TCP来改进它。</p>
-<p>意思，QUIC并不会比TCP更快地下载网站资源。但是它的灵活性意味着尝试新的<code v-pre>拥塞控制</code>算法将变得更容易，未来可能会改善TCP和QUIC的情况。</p>
+<p>意思QUIC并不会比TCP更快地下载网站资源。但是它的灵活性意味着尝试新的<code v-pre>拥塞控制</code>算法将变得更容易，未来可能会改善TCP和QUIC的情况。</p>
 <div class="custom-container warning"><p class="custom-container-title">提示</p>
 <p><strong>拥塞控制</strong>和<strong>流量控制</strong>是两个不同的功能。对于网页加载来说，流量控制作用要小很多。</p>
 </div>
@@ -183,10 +185,70 @@ HTTP/2 支持 Server-Push，相比较内联优势更大效果更好。而且内�
 秒<code v-pre>RIT的卫星网络</code>），或者如果您通常不发送太多数据，此功能就变得耀眼。后者的一些例子是大量缓存的网站，以及通过API和其他协议（如<code v-pre>DNS-over-QUIC</code>）定期获取小更新的单页应用程序。在其他情况下，您充其量只能获得几十毫秒的提升，如果您已经在使用CDN，则更少。</p>
 </div>
 <h3 id="连接迁移" tabindex="-1"><a class="header-anchor" href="#连接迁移" aria-hidden="true">#</a> 连接迁移</h3>
-<p>TCP 连接基于四元组（源 IP、源端口、目的 IP、目的端口），切换网络时至少会有一个因素发生变化，导致连接发生变化。当连接发生变化时，如果还使用原来的 TCP 连接，则会导致连接失败，就得等原来的连接超时后重新建立连接，所以我们有时候发现切换到一个新网络时，即使新网络状况良好，但内容还是需要加载很久。如果实现得好，当检测到网络变化时立刻建立新的 TCP 连接，即使这样，建立新的连接还是需要几百毫秒的时间。
+<p>TCP 连接基于四元组（源 IP、源端口、目的 IP、目的端口），切换网络连接时至少会有一个因素发生变化，导致连接发生变化。当连接发生变化时，如果还使用原来的 TCP 连接，则会导致连接失败，就得等原来的连接超时后重新建立连接，所以我们有时候发现切换到一个新网络时，即使新网络状况良好，但内容还是需要加载很久。如果实现得好，当检测到网络变化时立刻建立新的 TCP 连接，即使这样，建立新的连接还是需要几百毫秒的时间。
 基于TCP四元组确定一个连接，这种诞生于有线网络的设计，并不适合移动状态下的无线网络，这意味着IP地址的频繁变动会导致TCP连接、TLS会话反复握手，成本高昂。</p>
 <p>QUIC 的连接不受四元组的影响，当这四个元素发生变化时，原连接依然维持。那这是怎么做到的呢？道理很简单，QUIC 连接不以四元组作为标识，而是使用一个 64 位的随机数，这个随机数被称为 Connection ID，即使 IP 或者端口发生变化，只要 Connection ID 没有变化，那么连接依然可以维持。</p>
-<h3 id="队头阻塞移除" tabindex="-1"><a class="header-anchor" href="#队头阻塞移除" aria-hidden="true">#</a> 队头阻塞移除</h3>
+<p>但是切换网络，连接也需要重置其发送速率。这项技术会用在大文件下载、实时视频会议和流媒体。切换网络，不能保证新网络和旧网络的带宽一样。因此即使连接完好无损，QUIC服务器也不能一直高速发送数据。相反，为了避免新网络过载，它需要重置（或降低）发送速率，并在<code v-pre>拥塞控制</code>的<code v-pre>慢启动</code>阶段重新启动。
+因为这个初始发送速率通常太低，无法真正支持视频流，所以即使在QUIC上，您也会看到一些质量损失之类的小问题。在某种程度上，<code v-pre>连接迁移</code>更多的是防止<code v-pre>连接上下文</code>的失效增加服务器的开销。而不是为了提高性能。</p>
+<h3 id="队头阻塞消除" tabindex="-1"><a class="header-anchor" href="#队头阻塞消除" aria-hidden="true">#</a> 队头阻塞消除</h3>
+<div class="custom-container tip"><p class="custom-container-title">提示</p>
+<ul>
+<li>HTTP/1.1 有队头阻塞，因为它需要完整地发送响应，并且不能多路复用它们</li>
+<li>HTTP/2 通过引入“帧”（frames）标识每个资源块属于哪个“流”（stream）来解决这个问题
+然而，TCP 不知道这些单独的“流”（streams），只是把所有的东西看作一个大流（1 big stream）</li>
+<li>如果一个 TCP 包丢失，所有后续的包都需要等待它的重传，即使它们包含来自不同流的无关联数据。TCP 具有传输层队头阻塞。</li>
+</ul>
+</div>
+<p>假设我们有两个数据(两条流)，A1代表第一条流的第一个数据帧，总的有三个数据帧。</p>
+<ul>
+<li>A1 A2 A3</li>
+<li>B1 B2 B3</li>
+</ul>
+<p>数据在TCP的传输里，如下所示。它的数据传输是有顺序的，如果传A3给丢包丢了，就要等A3好。</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>- 待传：       A3 
+        B1 B2 B3
+- 已传： A1 A2
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在QUIC里传的时候，数据包就知道自己属于那条流上的。这就是QUIC比TCP聪明的地方。</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>- 待传： [] A2 A3
+        [] B2 B3
+- 已传： A1 [] []
+        B1 [] []
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果传A2的过程，数据包A2丢失了，他就不用等就继续传A3的，到时候A2好了自己传过来到对应的位置。</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>- 待传： [] A2 A3
+        [] B2 B3
+- 已传： A1 [] A3
+        B1 [] []
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>然后就变成这样</p>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>- 待传： [] [] A3
+        [] B2 B3
+- 已传： A1 A2 A3
+        B1 [] []
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这种方式，就会导致QUIC数据可能不能再以发送时完全相同的顺序发送到浏览器, 用上面的例子就是先发的A在发的B，有可能会先是B的流发送完了，A才好。TCP的队头阻塞就是以完全相同的顺序发送的。</p>
+<p>看起来上面的方式消除了<code v-pre>队头阻塞</code>, 但那是在两种流的情况，要是我数据只有一个文件(一种流)，那还是必须等的。也就是说，这个<code v-pre>队头阻塞消除</code>需要建立在多个资源流的情况才有效。
+所以关键的问题来了，要是网页不需要多个资源并行加载的时候，多路复用的模式就得需要不同的策略了。</p>
+<h4 id="多路复用的问题" tabindex="-1"><a class="header-anchor" href="#多路复用的问题" aria-hidden="true">#</a> 多路复用的问题</h4>
+<p>不同的多路复用，可能会对不同浏览器中的加载产生不同的影响。原因很复杂看这两文章：
+<a href="https://h3.edm.uhasselt.be/files/ResourceMultiplexing_H2andH3_Marx2020.pdf" target="_blank" rel="noopener noreferrer">文章1<ExternalLinkIcon/></a>，<a href="https://speeder.edm.uhasselt.be/www18/files/h2priorities_mwijnants_www2018.pdf" target="_blank" rel="noopener noreferrer">文章2<ExternalLinkIcon/></a></p>
+<p>造成这样的结果很容易解释，因为网页里的js,css文件需要是完整的网页才能绘制页面和执行js。虽然使用<code v-pre>多路复用</code>会可能导致每个资源总体完成时间的延迟。但是对于大多数网页资源来讲，<code v-pre>顺序多路复用</code>效果是最好的。</p>
+<p>假设，我们要传三组数据，下面每个字母代表一个数据包。</p>
+<ul>
+<li>AAAA</li>
+<li>BBBB</li>
+<li>CCCC</li>
+</ul>
+<ol>
+<li>循环多路复用</li>
+</ol>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>ABCABCABCABC
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>实际上会延迟每个资源的总完成时间，因为它们都需要与其他资源共享带宽。如果是网页的资源就一定需要等待（js文件，css文件的<code v-pre>数据包</code>）全部加载完毕才可以把<code v-pre>数据包</code>组成文件。这样的话，就等同于，把资源加载完了，才开始运行网页，这样网页就是啥反应没有突然间渲染好了，会给用户有很大延迟的感觉。</p>
+<ol start="2">
+<li>顺序多路复用</li>
+</ol>
+<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>AAAABBBBCCCC
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>对于顺序多路复用，网页可以先加载好可用的那一部分，给到用户的反馈，这样用户有感知，就觉得网页是一直加载中的。即使它和<code v-pre>循环多路复用</code>加载到网页渲染的时间是一样的，但是用户还是觉得有反馈的感觉会更快。</p>
+<div class="custom-container danger"><p class="custom-container-title">DANGER</p>
+<p>目前这块东西也在处于一个探索阶段，没有万精油。</p>
+</div>
 <h2 id="https" tabindex="-1"><a class="header-anchor" href="#https" aria-hidden="true">#</a> https</h2>
 <p>HTTPS就是在安全的传输层上发送的HTTP。HTTPS没有将未加密的HTTP报
 文发送给TCP，并通过世界范围内的因特网进行传输，它在将
@@ -280,6 +342,9 @@ HTTP报文发送给TCP之前，先将其发送给了一个安全层，对其进�
 <p><a href="https://www.smashingmagazine.com/2021/09/http3-practical-deployment-options-part3/" target="_blank" rel="noopener noreferrer">HTTP/3: Practical Deployment Options (Part 3) - 作者Robin Marx（HTTP/3和QUIC工作组成员<ExternalLinkIcon/></a></p>
 </li>
 <li>
+<p><a href="https://calendar.perfplanet.com/2020/head-of-line-blocking-in-quic-and-http-3-the-details/" target="_blank" rel="noopener noreferrer">Head-of-Line Blocking in QUIC and HTTP/3: The Details  - 作者Robin Marx（HTTP/3和QUIC工作组成员<ExternalLinkIcon/></a></p>
+</li>
+<li>
 <p><a href="https://juejin.cn/post/7120549550292467742" target="_blank" rel="noopener noreferrer">对话Robin Marx：HTTP/3和QUIC将带来重大机遇和挑战<ExternalLinkIcon/></a></p>
 </li>
 <li>
@@ -297,6 +362,15 @@ HTTP报文发送给TCP之前，先将其发送给了一个安全层，对其进�
 </li>
 <li>
 <p><a href="https://datatracker.ietf.org/doc/html/rfc7541" target="_blank" rel="noopener noreferrer">HPACK: Header Compression for HTTP/2<ExternalLinkIcon/></a></p>
+</li>
+<li>
+<p><a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-qpack" target="_blank" rel="noopener noreferrer">QPACK: Header Compression for HTTP/3 draft-ietf-quic-qpack-21<ExternalLinkIcon/></a></p>
+</li>
+<li>
+<p><a href="https://speeder.edm.uhasselt.be/www18/files/h2priorities_mwijnants_www2018.pdf" target="_blank" rel="noopener noreferrer">HTTP/2 Prioritization and its Impact on Web Performance<ExternalLinkIcon/></a></p>
+</li>
+<li>
+<p><a href="https://h3.edm.uhasselt.be/files/ResourceMultiplexing_H2andH3_Marx2020.pdf" target="_blank" rel="noopener noreferrer">Resource Multiplexing and Prioritization in HTTP/2 over TCP versus HTTP/3 over QUIC<ExternalLinkIcon/></a></p>
 </li>
 </ul>
 </div></template>

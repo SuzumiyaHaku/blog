@@ -7,49 +7,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "http",
-    "headers": [
-      {
-        "level": 2,
-        "title": "http1.1",
-        "slug": "http1-1",
-        "link": "#http1-1",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "http2",
-        "slug": "http2",
-        "link": "#http2",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "http3",
-        "slug": "http3",
-        "link": "#http3",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "https",
-        "slug": "https",
-        "link": "#https",
-        "children": []
-      }
-    ],
-    "path": "/zh/network/http.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "TCP/UDP",
-    "headers": [],
-    "path": "/zh/network/tcp,udp.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "springboot",
     "headers": [
       {
@@ -68,6 +25,180 @@ export const searchIndex = [
       }
     ],
     "path": "/zh/java/springboot.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "http",
+    "headers": [
+      {
+        "level": 2,
+        "title": "http1.1",
+        "slug": "http1-1",
+        "link": "#http1-1",
+        "children": [
+          {
+            "level": 3,
+            "title": "持久连接(persistent connection)",
+            "slug": "持久连接-persistent-connection",
+            "link": "#持久连接-persistent-connection",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "持久连接的限制和规则",
+            "slug": "持久连接的限制和规则",
+            "link": "#持久连接的限制和规则",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "管道化连接",
+            "slug": "管道化连接",
+            "link": "#管道化连接",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "队头阻塞问题",
+            "slug": "队头阻塞问题",
+            "link": "#队头阻塞问题",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "http2.0",
+        "slug": "http2-0",
+        "link": "#http2-0",
+        "children": [
+          {
+            "level": 3,
+            "title": "多路复用",
+            "slug": "多路复用",
+            "link": "#多路复用",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "头部压缩",
+            "slug": "头部压缩",
+            "link": "#头部压缩",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "流与二进制分帧",
+            "slug": "流与二进制分帧",
+            "link": "#流与二进制分帧",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "流量控制",
+            "slug": "流量控制",
+            "link": "#流量控制",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "服务端推送",
+            "slug": "服务端推送",
+            "link": "#服务端推送",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "最佳实践",
+            "slug": "最佳实践",
+            "link": "#最佳实践",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "http3.0",
+        "slug": "http3-0",
+        "link": "#http3-0",
+        "children": [
+          {
+            "level": 3,
+            "title": "拥赛控制",
+            "slug": "拥赛控制",
+            "link": "#拥赛控制",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "连接迁移",
+            "slug": "连接迁移",
+            "link": "#连接迁移",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "队头阻塞移除",
+            "slug": "队头阻塞移除",
+            "link": "#队头阻塞移除",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "https",
+        "slug": "https",
+        "link": "#https",
+        "children": [
+          {
+            "level": 3,
+            "title": "TLS/SSL握手",
+            "slug": "tls-ssl握手",
+            "link": "#tls-ssl握手",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "扩展链接",
+        "slug": "扩展链接",
+        "link": "#扩展链接",
+        "children": []
+      }
+    ],
+    "path": "/zh/network/http.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "TCP/UDP",
+    "headers": [
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "扩展链接",
+        "slug": "扩展链接",
+        "link": "#扩展链接",
+        "children": []
+      }
+    ],
+    "path": "/zh/network/tcp,udp.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -1020,6 +1151,393 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "babel",
+    "headers": [
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/web/babel.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "浏览器从输入url发生了什么[未完...]",
+    "headers": [
+      {
+        "level": 2,
+        "title": "输入的域名解析",
+        "slug": "输入的域名解析",
+        "link": "#输入的域名解析",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "进入hosts文件（操作系统缓存）",
+        "slug": "进入hosts文件-操作系统缓存",
+        "link": "#进入hosts文件-操作系统缓存",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "DNS解析",
+        "slug": "dns解析",
+        "link": "#dns解析",
+        "children": [
+          {
+            "level": 3,
+            "title": "查询",
+            "slug": "查询",
+            "link": "#查询",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "http请求",
+        "slug": "http请求",
+        "link": "#http请求",
+        "children": [
+          {
+            "level": 3,
+            "title": "SSL/TLS",
+            "slug": "ssl-tls",
+            "link": "#ssl-tls",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "TCP",
+        "slug": "tcp",
+        "link": "#tcp",
+        "children": [
+          {
+            "level": 3,
+            "title": "（TCP的连接过程）三次握手",
+            "slug": "tcp的连接过程-三次握手",
+            "link": "#tcp的连接过程-三次握手",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "（TCP断开的过程）四次挥手",
+            "slug": "tcp断开的过程-四次挥手",
+            "link": "#tcp断开的过程-四次挥手",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "浏览器资源缓存策略",
+        "slug": "浏览器资源缓存策略",
+        "link": "#浏览器资源缓存策略",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 强缓存",
+            "slug": "_1-强缓存",
+            "link": "#_1-强缓存",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 协商缓存",
+            "slug": "_2-协商缓存",
+            "link": "#_2-协商缓存",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 默认",
+            "slug": "_3-默认",
+            "link": "#_3-默认",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "网页渲染",
+        "slug": "网页渲染",
+        "link": "#网页渲染",
+        "children": [
+          {
+            "level": 3,
+            "title": "构建DOM树和Style Rules",
+            "slug": "构建dom树和style-rules",
+            "link": "#构建dom树和style-rules",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "render tree的构建",
+            "slug": "render-tree的构建",
+            "link": "#render-tree的构建",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "页面绘制",
+            "slug": "页面绘制",
+            "link": "#页面绘制",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "分层",
+        "slug": "分层",
+        "link": "#分层",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "图层绘制",
+        "slug": "图层绘制",
+        "link": "#图层绘制",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "GPU光栅化",
+        "slug": "gpu光栅化",
+        "link": "#gpu光栅化",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/web/url.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "vue3",
+    "headers": [
+      {
+        "level": 2,
+        "title": "模块",
+        "slug": "模块",
+        "link": "#模块",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Tree-Shaking副作用移除注释",
+        "slug": "tree-shaking副作用移除注释",
+        "link": "#tree-shaking副作用移除注释",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "特性开关",
+        "slug": "特性开关",
+        "link": "#特性开关",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "错误处理",
+        "slug": "错误处理",
+        "link": "#错误处理",
+        "children": []
+      }
+    ],
+    "path": "/zh/web/vue3.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "webpack",
+    "headers": [
+      {
+        "level": 2,
+        "title": "常用loader",
+        "slug": "常用loader",
+        "link": "#常用loader",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "常用plugin",
+        "slug": "常用plugin",
+        "link": "#常用plugin",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "loader的原理",
+        "slug": "loader的原理",
+        "link": "#loader的原理",
+        "children": [
+          {
+            "level": 3,
+            "title": "实现一个最简单的loader",
+            "slug": "实现一个最简单的loader",
+            "link": "#实现一个最简单的loader",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "plugin的原理",
+        "slug": "plugin的原理",
+        "link": "#plugin的原理",
+        "children": [
+          {
+            "level": 3,
+            "title": "实现一个最简单的plugin",
+            "slug": "实现一个最简单的plugin",
+            "link": "#实现一个最简单的plugin",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "webpack5的对比4的新特性",
+        "slug": "webpack5的对比4的新特性",
+        "link": "#webpack5的对比4的新特性",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "webpack性能优化",
+        "slug": "webpack性能优化",
+        "link": "#webpack性能优化",
+        "children": [
+          {
+            "level": 3,
+            "title": "terser-webpack-plugin 优化代码的流程主要体现在这几个方面",
+            "slug": "terser-webpack-plugin-优化代码的流程主要体现在这几个方面",
+            "link": "#terser-webpack-plugin-优化代码的流程主要体现在这几个方面",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "gzip进行压缩",
+            "slug": "gzip进行压缩",
+            "link": "#gzip进行压缩",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/web/webpack1.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "webpack 和 vite",
+    "headers": [
+      {
+        "level": 2,
+        "title": "两者有什么区别",
+        "slug": "两者有什么区别",
+        "link": "#两者有什么区别",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "vite和webpack5的缓存",
+        "slug": "vite和webpack5的缓存",
+        "link": "#vite和webpack5的缓存",
+        "children": [
+          {
+            "level": 3,
+            "title": "vite缓存",
+            "slug": "vite缓存",
+            "link": "#vite缓存",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "webpack缓存",
+            "slug": "webpack缓存",
+            "link": "#webpack缓存",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "vite为啥比webpack快？",
+        "slug": "vite为啥比webpack快",
+        "link": "#vite为啥比webpack快",
+        "children": [
+          {
+            "level": 3,
+            "title": "vite开发时快在哪？",
+            "slug": "vite开发时快在哪",
+            "link": "#vite开发时快在哪",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "webpack开发时慢在哪？",
+            "slug": "webpack开发时慢在哪",
+            "link": "#webpack开发时慢在哪",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "HMR 热更新原理",
+        "slug": "hmr-热更新原理",
+        "link": "#hmr-热更新原理",
+        "children": [
+          {
+            "level": 3,
+            "title": "webpack热更新",
+            "slug": "webpack热更新",
+            "link": "#webpack热更新",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "vite 热更新",
+            "slug": "vite-热更新",
+            "link": "#vite-热更新",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/zh/web/webpack2.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "typescript基础",
     "headers": [
       {
@@ -1077,6 +1595,13 @@ export const searchIndex = [
         "title": "Never类型",
         "slug": "never类型",
         "link": "#never类型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "unknown",
+        "slug": "unknown",
+        "link": "#unknown",
         "children": []
       },
       {
@@ -1354,357 +1879,6 @@ export const searchIndex = [
     "title": "tsconfig.json配置",
     "headers": [],
     "path": "/zh/typescript/tsconfig.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "babel",
-    "headers": [
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/zh/web/babel.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "浏览器从输入url发生了什么",
-    "headers": [
-      {
-        "level": 2,
-        "title": "输入的域名解析",
-        "slug": "输入的域名解析",
-        "link": "#输入的域名解析",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "进入hosts文件（操作系统缓存）",
-        "slug": "进入hosts文件-操作系统缓存",
-        "link": "#进入hosts文件-操作系统缓存",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "DNS解析",
-        "slug": "dns解析",
-        "link": "#dns解析",
-        "children": [
-          {
-            "level": 3,
-            "title": "查询",
-            "slug": "查询",
-            "link": "#查询",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "http请求",
-        "slug": "http请求",
-        "link": "#http请求",
-        "children": [
-          {
-            "level": 3,
-            "title": "SSL/TLS",
-            "slug": "ssl-tls",
-            "link": "#ssl-tls",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "TCP",
-        "slug": "tcp",
-        "link": "#tcp",
-        "children": [
-          {
-            "level": 3,
-            "title": "（TCP的连接过程）三次握手",
-            "slug": "tcp的连接过程-三次握手",
-            "link": "#tcp的连接过程-三次握手",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "（TCP断开的过程）四次挥手",
-            "slug": "tcp断开的过程-四次挥手",
-            "link": "#tcp断开的过程-四次挥手",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "浏览器资源缓存策略",
-        "slug": "浏览器资源缓存策略",
-        "link": "#浏览器资源缓存策略",
-        "children": [
-          {
-            "level": 3,
-            "title": "1. 强缓存",
-            "slug": "_1-强缓存",
-            "link": "#_1-强缓存",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "2. 协商缓存",
-            "slug": "_2-协商缓存",
-            "link": "#_2-协商缓存",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "3. 默认",
-            "slug": "_3-默认",
-            "link": "#_3-默认",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "网页渲染",
-        "slug": "网页渲染",
-        "link": "#网页渲染",
-        "children": [
-          {
-            "level": 3,
-            "title": "构建DOM树和Style Rules",
-            "slug": "构建dom树和style-rules",
-            "link": "#构建dom树和style-rules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "render tree的构建",
-            "slug": "render-tree的构建",
-            "link": "#render-tree的构建",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "页面绘制",
-            "slug": "页面绘制",
-            "link": "#页面绘制",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "分层",
-        "slug": "分层",
-        "link": "#分层",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "图层绘制",
-        "slug": "图层绘制",
-        "link": "#图层绘制",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "GPU光栅化",
-        "slug": "gpu光栅化",
-        "link": "#gpu光栅化",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/zh/web/url.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "webpack",
-    "headers": [
-      {
-        "level": 2,
-        "title": "常用loader",
-        "slug": "常用loader",
-        "link": "#常用loader",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "常用plugin",
-        "slug": "常用plugin",
-        "link": "#常用plugin",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "loader的原理",
-        "slug": "loader的原理",
-        "link": "#loader的原理",
-        "children": [
-          {
-            "level": 3,
-            "title": "实现一个最简单的loader",
-            "slug": "实现一个最简单的loader",
-            "link": "#实现一个最简单的loader",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "plugin的原理",
-        "slug": "plugin的原理",
-        "link": "#plugin的原理",
-        "children": [
-          {
-            "level": 3,
-            "title": "实现一个最简单的plugin",
-            "slug": "实现一个最简单的plugin",
-            "link": "#实现一个最简单的plugin",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "webpack5的对比4的新特性",
-        "slug": "webpack5的对比4的新特性",
-        "link": "#webpack5的对比4的新特性",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "webpack性能优化",
-        "slug": "webpack性能优化",
-        "link": "#webpack性能优化",
-        "children": [
-          {
-            "level": 3,
-            "title": "terser-webpack-plugin 优化代码的流程主要体现在这几个方面",
-            "slug": "terser-webpack-plugin-优化代码的流程主要体现在这几个方面",
-            "link": "#terser-webpack-plugin-优化代码的流程主要体现在这几个方面",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "gzip进行压缩",
-            "slug": "gzip进行压缩",
-            "link": "#gzip进行压缩",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/zh/web/webpack1.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "webpack 和 vite",
-    "headers": [
-      {
-        "level": 2,
-        "title": "两者有什么区别",
-        "slug": "两者有什么区别",
-        "link": "#两者有什么区别",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "vite和webpack5的缓存",
-        "slug": "vite和webpack5的缓存",
-        "link": "#vite和webpack5的缓存",
-        "children": [
-          {
-            "level": 3,
-            "title": "vite缓存",
-            "slug": "vite缓存",
-            "link": "#vite缓存",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "webpack缓存",
-            "slug": "webpack缓存",
-            "link": "#webpack缓存",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "vite为啥比webpack快？",
-        "slug": "vite为啥比webpack快",
-        "link": "#vite为啥比webpack快",
-        "children": [
-          {
-            "level": 3,
-            "title": "vite开发时快在哪？",
-            "slug": "vite开发时快在哪",
-            "link": "#vite开发时快在哪",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "webpack开发时慢在哪？",
-            "slug": "webpack开发时慢在哪",
-            "link": "#webpack开发时慢在哪",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "HMR 热更新原理",
-        "slug": "hmr-热更新原理",
-        "link": "#hmr-热更新原理",
-        "children": [
-          {
-            "level": 3,
-            "title": "webpack热更新",
-            "slug": "webpack热更新",
-            "link": "#webpack热更新",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "vite 热更新",
-            "slug": "vite-热更新",
-            "link": "#vite-热更新",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/zh/web/webpack2.html",
     "pathLocale": "/",
     "extraFields": []
   },

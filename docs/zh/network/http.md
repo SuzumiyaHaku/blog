@@ -71,6 +71,8 @@ HTTP/1.1允许在持久连接上可选地使用请求管道。这是在keep-aliv
 
 `动态表`可以简单理解为在请求过程中映射的 `索引表`，比如第一个请求`帧（frame）` 使用 `静态表`+ `Huffman算法` 构成的索引表（`静态表`+`动态表`）可以在下一次请求 `帧（frame）` 中只需要传递新增的内容使用`Huffman算法`，不变的内容就可以使用 `索引表` 中的值（和`静态表`类似）替代。
 
+> HTTP/3头部压缩是用的[QPACK](https://datatracker.ietf.org/doc/html/draft-ietf-quic-qpack)
+
 ### 流与二进制分帧
 帧是数据传输的最小单位，以二进制传输代替原本的明文传输，原本的报文消息被划分为更小的数据帧。
 HTTP 2就是在应用层上模拟了一下传输层TCP中“流”的概念，从而解决了HTTP 1.x协议中的队头拥塞的问题，在1.x协议中，HTTP 协议是一个个消息组成的，同一条TCP连接上，前面一个消息的响应没有回来，后续的消息是不可以发送的。在HTTP 2中，取消了这个限制，将所谓的“消息”定义成“流”，流跟流之间的顺序可以是错乱的，但是流里面的帧的顺序是不可以错乱的。
@@ -139,16 +141,15 @@ QUIC已经深度集成TLS1.3了。
 
 ::: tip 关键词
 `RTT(Round-Trip Time)`: 往返时延。
-`HOL`: 队头
 
 `QUIC`的全称是(Quick UDP Internet Connections)，是由 Google 从 2013 年开始研究的基于 UDP 的可靠传输协议，它最早的原型是 SPDY + QUIC-Crypto + Reliable UDP，后来经历了 SPDY 转型为 2015 年 5 月 IETF 正式发布的 HTTP/2.0，以及 2016 年 TLS/1.3 的正式发布。2016 年成立，IETF 的 QUIC 标准化工作组启动，考虑到 HTTP/2.0 和 TLS/1.3 的发布，它的核心协议族逐步进化为现在的 HTTP/3.0 + TLS/1.3 + QUIC-Transport 的组合。
 :::
 
 ### 拥赛控制
 
-从理论上讲，QUIC受到的数据包丢失（和相关线路负责人(HOL）阻塞）的影响较小，因为它独立处理每个资源字节流的数据包丢失。此外，QUIC运行在用户数据报协议(UDP)上，与TCP不同，该协议没有内置`拥塞控制`功能：它允许您尝试以任何您想要的速度发送，并且不会重新传输丢失的数据。
+从理论上讲，QUIC受到的数据包丢失（和相关线路负责人队头阻塞）的影响较小，因为它独立处理每个资源字节流的数据包丢失。此外，QUIC运行在用户数据报协议(UDP)上，与TCP不同，该协议没有内置`拥塞控制`功能：它允许您尝试以任何您想要的速度发送，并且不会重新传输丢失的数据。
 
-这导致许多文章声称QUIC也不使用`拥塞控制`，QUIC可以开始以比UDP更高的速度发送数据（取决于删除HOL阻止来处理数据包丢失），这就是为什么QUIC比TCP快得多。
+这导致许多文章声称QUIC也不使用`拥塞控制`，QUIC可以开始以比UDP更高的速度发送数据（取决于删除队头阻止来处理数据包丢失），这就是为什么QUIC比TCP快得多。
 
 实际上，没有什么比这更离事实了。QUIC实际上使用与TCP非常相似的带宽管理技术。它也从较低的发送速率开始，并随着时间的推移而增长，使用确认作为衡量网络容量的关键机制。这是（除其他原因外）是因为QUIC需要可靠才能对HTTP等有用，因为它需要对其他QUIC(和TCP!）公平连接，并且因为它的HOI阻塞删除实际上并不能很好地防止数据包丢失。
 
@@ -156,7 +157,7 @@ QUIC已经深度集成TLS1.3了。
 
 QUIC的灵活性将带来更多的实验和更好的`拥塞控制`算法，这反过来也可以反向移植到TCP来改进它。
 
-意思，QUIC并不会比TCP更快地下载网站资源。但是它的灵活性意味着尝试新的`拥塞控制`算法将变得更容易，未来可能会改善TCP和QUIC的情况。
+意思QUIC并不会比TCP更快地下载网站资源。但是它的灵活性意味着尝试新的`拥塞控制`算法将变得更容易，未来可能会改善TCP和QUIC的情况。
 
 ::: warning 提示
 **拥塞控制**和**流量控制**是两个不同的功能。对于网页加载来说，流量控制作用要小很多。
@@ -183,15 +184,88 @@ QUIC使用。o-RTT进行更快的连接设置实际上更像是一种微观优�
 :::
 
 ### 连接迁移
-TCP 连接基于四元组（源 IP、源端口、目的 IP、目的端口），切换网络时至少会有一个因素发生变化，导致连接发生变化。当连接发生变化时，如果还使用原来的 TCP 连接，则会导致连接失败，就得等原来的连接超时后重新建立连接，所以我们有时候发现切换到一个新网络时，即使新网络状况良好，但内容还是需要加载很久。如果实现得好，当检测到网络变化时立刻建立新的 TCP 连接，即使这样，建立新的连接还是需要几百毫秒的时间。
+TCP 连接基于四元组（源 IP、源端口、目的 IP、目的端口），切换网络连接时至少会有一个因素发生变化，导致连接发生变化。当连接发生变化时，如果还使用原来的 TCP 连接，则会导致连接失败，就得等原来的连接超时后重新建立连接，所以我们有时候发现切换到一个新网络时，即使新网络状况良好，但内容还是需要加载很久。如果实现得好，当检测到网络变化时立刻建立新的 TCP 连接，即使这样，建立新的连接还是需要几百毫秒的时间。
 基于TCP四元组确定一个连接，这种诞生于有线网络的设计，并不适合移动状态下的无线网络，这意味着IP地址的频繁变动会导致TCP连接、TLS会话反复握手，成本高昂。
 
 
 QUIC 的连接不受四元组的影响，当这四个元素发生变化时，原连接依然维持。那这是怎么做到的呢？道理很简单，QUIC 连接不以四元组作为标识，而是使用一个 64 位的随机数，这个随机数被称为 Connection ID，即使 IP 或者端口发生变化，只要 Connection ID 没有变化，那么连接依然可以维持。
 
-### 队头阻塞移除
+但是切换网络，连接也需要重置其发送速率。这项技术会用在大文件下载、实时视频会议和流媒体。切换网络，不能保证新网络和旧网络的带宽一样。因此即使连接完好无损，QUIC服务器也不能一直高速发送数据。相反，为了避免新网络过载，它需要重置（或降低）发送速率，并在`拥塞控制`的`慢启动`阶段重新启动。
+因为这个初始发送速率通常太低，无法真正支持视频流，所以即使在QUIC上，您也会看到一些质量损失之类的小问题。在某种程度上，`连接迁移`更多的是防止`连接上下文`的失效增加服务器的开销。而不是为了提高性能。
+
+### 队头阻塞消除
+::: tip 提示
+- HTTP/1.1 有队头阻塞，因为它需要完整地发送响应，并且不能多路复用它们
+- HTTP/2 通过引入“帧”（frames）标识每个资源块属于哪个“流”（stream）来解决这个问题
+然而，TCP 不知道这些单独的“流”（streams），只是把所有的东西看作一个大流（1 big stream）
+- 如果一个 TCP 包丢失，所有后续的包都需要等待它的重传，即使它们包含来自不同流的无关联数据。TCP 具有传输层队头阻塞。
+:::
+
+假设我们有两个数据(两条流)，A1代表第一条流的第一个数据帧，总的有三个数据帧。
+- A1 A2 A3
+- B1 B2 B3
+
+数据在TCP的传输里，如下所示。它的数据传输是有顺序的，如果传A3给丢包丢了，就要等A3好。
+```
+- 待传：       A3 
+        B1 B2 B3
+- 已传： A1 A2
+```
+
+在QUIC里传的时候，数据包就知道自己属于那条流上的。这就是QUIC比TCP聪明的地方。
+```
+- 待传： [] A2 A3
+        [] B2 B3
+- 已传： A1 [] []
+        B1 [] []
+```
+如果传A2的过程，数据包A2丢失了，他就不用等就继续传A3的，到时候A2好了自己传过来到对应的位置。
+```
+- 待传： [] A2 A3
+        [] B2 B3
+- 已传： A1 [] A3
+        B1 [] []
+```
+然后就变成这样
+```
+- 待传： [] [] A3
+        [] B2 B3
+- 已传： A1 A2 A3
+        B1 [] []
+```
+
+这种方式，就会导致QUIC数据可能不能再以发送时完全相同的顺序发送到浏览器, 用上面的例子就是先发的A在发的B，有可能会先是B的流发送完了，A才好。TCP的队头阻塞就是以完全相同的顺序发送的。
+
+看起来上面的方式消除了`队头阻塞`, 但那是在两种流的情况，要是我数据只有一个文件(一种流)，那还是必须等的。也就是说，这个`队头阻塞消除`需要建立在多个资源流的情况才有效。
+所以关键的问题来了，要是网页不需要多个资源并行加载的时候，多路复用的模式就得需要不同的策略了。
+
+#### 多路复用的问题
+不同的多路复用，可能会对不同浏览器中的加载产生不同的影响。原因很复杂看这两文章：
+[文章1](https://h3.edm.uhasselt.be/files/ResourceMultiplexing_H2andH3_Marx2020.pdf)，[文章2](https://speeder.edm.uhasselt.be/www18/files/h2priorities_mwijnants_www2018.pdf)
+
+造成这样的结果很容易解释，因为网页里的js,css文件需要是完整的网页才能绘制页面和执行js。虽然使用`多路复用`会可能导致每个资源总体完成时间的延迟。但是对于大多数网页资源来讲，`顺序多路复用`效果是最好的。
+
+假设，我们要传三组数据，下面每个字母代表一个数据包。
+- AAAA
+- BBBB
+- CCCC
+1. 循环多路复用
+```
+ABCABCABCABC
+```
+实际上会延迟每个资源的总完成时间，因为它们都需要与其他资源共享带宽。如果是网页的资源就一定需要等待（js文件，css文件的`数据包`）全部加载完毕才可以把`数据包`组成文件。这样的话，就等同于，把资源加载完了，才开始运行网页，这样网页就是啥反应没有突然间渲染好了，会给用户有很大延迟的感觉。
 
 
+2. 顺序多路复用
+```
+AAAABBBBCCCC
+```
+对于顺序多路复用，网页可以先加载好可用的那一部分，给到用户的反馈，这样用户有感知，就觉得网页是一直加载中的。即使它和`循环多路复用`加载到网页渲染的时间是一样的，但是用户还是觉得有反馈的感觉会更快。
+
+
+::: danger
+目前这块东西也在处于一个探索阶段，没有万精油。
+:::
 ## https
 HTTPS就是在安全的传输层上发送的HTTP。HTTPS没有将未加密的HTTP报
 文发送给TCP，并通过世界范围内的因特网进行传输，它在将
@@ -241,6 +315,7 @@ __这个过程看得出前面`非对称加密`消耗了很多资源，是为了�
 - [HTTP/3 From A To Z: Core Concepts - 作者Robin Marx（HTTP/3和QUIC工作组成员）](https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/)
 - [HTTP/3: Performance Improvements (Part 2) - 作者Robin Marx（HTTP/3和QUIC工作组成员）](https://www.smashingmagazine.com/2021/08/http3-performance-improvements-part2/)
 - [HTTP/3: Practical Deployment Options (Part 3) - 作者Robin Marx（HTTP/3和QUIC工作组成员](https://www.smashingmagazine.com/2021/09/http3-practical-deployment-options-part3/)
+- [Head-of-Line Blocking in QUIC and HTTP/3: The Details  - 作者Robin Marx（HTTP/3和QUIC工作组成员](https://calendar.perfplanet.com/2020/head-of-line-blocking-in-quic-and-http-3-the-details/)
 
 - [对话Robin Marx：HTTP/3和QUIC将带来重大机遇和挑战](https://juejin.cn/post/7120549550292467742)
 - [QUIC: A UDP-Based Multiplexed and Secure Transport](https://www.rfc-editor.org/rfc/rfc9000.html#name-cryptographic-and-transport)
@@ -253,3 +328,6 @@ __这个过程看得出前面`非对称加密`消耗了很多资源，是为了�
 - [RFC2068是HTTP/1.1协议的1997年的版本](http://www.ietf.org/rfc/rfc2068.txt)，其中包含了RFC2616中没有的、对HTTP/1.0+keep-alive连接的解释。
 
 - [HPACK: Header Compression for HTTP/2](https://datatracker.ietf.org/doc/html/rfc7541)
+- [QPACK: Header Compression for HTTP/3 draft-ietf-quic-qpack-21](https://datatracker.ietf.org/doc/html/draft-ietf-quic-qpack)
+- [HTTP/2 Prioritization and its Impact on Web Performance](https://speeder.edm.uhasselt.be/www18/files/h2priorities_mwijnants_www2018.pdf)
+- [Resource Multiplexing and Prioritization in HTTP/2 over TCP versus HTTP/3 over QUIC](https://h3.edm.uhasselt.be/files/ResourceMultiplexing_H2andH3_Marx2020.pdf)
