@@ -218,7 +218,7 @@ HTTP/2 支持 Server-Push，相比较内联优势更大效果更好。而且内�
         [] B2 B3
 - 已传： A1 [] A3
         B1 [] []
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>然后就变成这样</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>然后等A2好了，就变成这样</p>
 <div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>- 待传： [] [] A3
         [] B2 B3
 - 已传： A1 A2 A3
