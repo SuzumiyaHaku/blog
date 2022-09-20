@@ -6,6 +6,7 @@ import clientConfig4 from '/Users/dragon/workspace/node/work/vue_press/blog/node
 import clientConfig5 from '/Users/dragon/workspace/node/work/vue_press/blog/node_modules/.pnpm/@vuepress+plugin-theme-data@2.0.0-beta.51/node_modules/@vuepress/plugin-theme-data/lib/client/config.js'
 import clientConfig6 from '/Users/dragon/workspace/node/work/vue_press/blog/node_modules/.pnpm/@vuepress+theme-default@2.0.0-beta.51/node_modules/@vuepress/theme-default/lib/client/config.js'
 import clientConfig7 from '/Users/dragon/workspace/node/work/vue_press/blog/node_modules/.pnpm/@vuepress+plugin-search@2.0.0-beta.51/node_modules/@vuepress/plugin-search/lib/client/config.js'
+import clientConfig8 from '/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/client.js'
 
 export const clientConfigs = [
   clientConfig0,
@@ -16,4 +17,5 @@ export const clientConfigs = [
   clientConfig5,
   clientConfig6,
   clientConfig7,
+  clientConfig8,
 ]

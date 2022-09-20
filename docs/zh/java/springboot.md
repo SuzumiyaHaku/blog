@@ -1,5 +1,36 @@
 # springboot
 
+## 项目结构
+```java
+./
+├── java
+│   └── com
+│       └── example
+│           └── erciyuan
+│               ├── ErciyuanApplication.java
+│               ├── bean
+│               ├── common
+│               ├── config
+│               ├── controller
+│               ├── mapper
+│               ├── service
+│               │   ├── UserService.java
+│               │   └── impl
+│               │       └── UserServiceImpl.java
+│               └── utils
+│                   └── CORSInterceptor.java
+└── resources
+    ├── application.properties
+    ├── application.yml
+    ├── mybatis
+    │   ├── mapper
+    │   │   └── UserMapper.xml
+    │   └── mybatis-config.xml
+    ├── static
+    │   └── test.html
+    └── templates
+        └── index.html
+```
 ## pom.xml
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

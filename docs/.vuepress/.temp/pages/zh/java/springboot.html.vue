@@ -1,5 +1,34 @@
 <template><div><h1 id="springboot" tabindex="-1"><a class="header-anchor" href="#springboot" aria-hidden="true">#</a> springboot</h1>
-<h2 id="pom-xml" tabindex="-1"><a class="header-anchor" href="#pom-xml" aria-hidden="true">#</a> pom.xml</h2>
+<h2 id="项目结构" tabindex="-1"><a class="header-anchor" href="#项目结构" aria-hidden="true">#</a> 项目结构</h2>
+<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token punctuation">.</span>/
+├── java
+│   └── com
+│       └── example
+│           └── erciyuan
+│               ├── <span class="token class-name">ErciyuanApplication</span><span class="token punctuation">.</span>java
+│               ├── bean
+│               ├── common
+│               ├── config
+│               ├── controller
+│               ├── mapper
+│               ├── service
+│               │   ├── <span class="token class-name">UserService</span><span class="token punctuation">.</span>java
+│               │   └── impl
+│               │       └── <span class="token class-name">UserServiceImpl</span><span class="token punctuation">.</span>java
+│               └── utils
+│                   └── <span class="token class-name">CORSInterceptor</span><span class="token punctuation">.</span>java
+└── resources
+    ├── application<span class="token punctuation">.</span>properties
+    ├── application<span class="token punctuation">.</span>yml
+    ├── mybatis
+    │   ├── mapper
+    │   │   └── <span class="token class-name">UserMapper</span><span class="token punctuation">.</span>xml
+    │   └── mybatis<span class="token operator">-</span>config<span class="token punctuation">.</span>xml
+    ├── <span class="token keyword">static</span>
+    │   └── test<span class="token punctuation">.</span>html
+    └── templates
+        └── index<span class="token punctuation">.</span>html
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="pom-xml" tabindex="-1"><a class="header-anchor" href="#pom-xml" aria-hidden="true">#</a> pom.xml</h2>
 <div class="language-xml ext-xml line-numbers-mode"><pre v-pre class="language-xml"><code><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
 	<span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>

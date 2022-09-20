@@ -36,7 +36,9 @@ export default defineUserConfig({
                 '/zh/js/let,var.md',
                 '/zh/js/bind.md',
                 '/zh/js/apply.md',
+                '/zh/js/equal.md',
                 '/zh/js/assign.md',
+                '/zh/js/instanceof.md',
               ]
             },
             
@@ -54,6 +56,7 @@ export default defineUserConfig({
                 '/zh/web/webpack2.md',
                 '/zh/web/url.md',
                 '/zh/web/babel.md',
+                '/zh/web/webassembly.md',
               ]
             },
             {
@@ -88,7 +91,6 @@ export default defineUserConfig({
     searchPlugin({
       // 配置项
     }),
-
   ],
-
+  
 })
