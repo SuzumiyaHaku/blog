@@ -9,6 +9,14 @@ export const pagesComponents = {
   "v-9b9baaf0": defineAsyncComponent(() => import(/* webpackChunkName: "v-9b9baaf0" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/network/http.html.vue")),
   // path: /zh/network/tcp,udp.html
   "v-1343528c": defineAsyncComponent(() => import(/* webpackChunkName: "v-1343528c" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/network/tcp,udp.html.vue")),
+  // path: /zh/security/cookie%E5%92%8Csession.html
+  "v-3a181142": defineAsyncComponent(() => import(/* webpackChunkName: "v-3a181142" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/cookie和session.html.vue")),
+  // path: /zh/security/cors%E8%AF%B7%E6%B1%82.html
+  "v-dee07fe8": defineAsyncComponent(() => import(/* webpackChunkName: "v-dee07fe8" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/cors请求.html.vue")),
+  // path: /zh/security/oauth2.0%E5%92%8Cjwt.html
+  "v-40aa5795": defineAsyncComponent(() => import(/* webpackChunkName: "v-40aa5795" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/oauth2.0和jwt.html.vue")),
+  // path: /zh/security/xss%E4%B8%8Ecsrf.html
+  "v-c99957ca": defineAsyncComponent(() => import(/* webpackChunkName: "v-c99957ca" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/xss与csrf.html.vue")),
   // path: /zh/js/apply.html
   "v-36464a89": defineAsyncComponent(() => import(/* webpackChunkName: "v-36464a89" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/js/apply.html.vue")),
   // path: /zh/js/assign.html
@@ -39,14 +47,8 @@ export const pagesComponents = {
   "v-258d6f63": defineAsyncComponent(() => import(/* webpackChunkName: "v-258d6f63" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/js/scope.html.vue")),
   // path: /zh/js/this.html
   "v-02d76e46": defineAsyncComponent(() => import(/* webpackChunkName: "v-02d76e46" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/js/this.html.vue")),
-  // path: /zh/security/cookie%E5%92%8Csession.html
-  "v-3a181142": defineAsyncComponent(() => import(/* webpackChunkName: "v-3a181142" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/cookie和session.html.vue")),
-  // path: /zh/security/cors%E8%AF%B7%E6%B1%82.html
-  "v-dee07fe8": defineAsyncComponent(() => import(/* webpackChunkName: "v-dee07fe8" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/cors请求.html.vue")),
-  // path: /zh/security/oauth2.0%E5%92%8Cjwt.html
-  "v-40aa5795": defineAsyncComponent(() => import(/* webpackChunkName: "v-40aa5795" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/oauth2.0和jwt.html.vue")),
-  // path: /zh/security/xss%E4%B8%8Ecsrf.html
-  "v-c99957ca": defineAsyncComponent(() => import(/* webpackChunkName: "v-c99957ca" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/security/xss与csrf.html.vue")),
+  // path: /zh/structure/sort.html
+  "v-7fefa637": defineAsyncComponent(() => import(/* webpackChunkName: "v-7fefa637" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/structure/sort.html.vue")),
   // path: /zh/typescript/base.html
   "v-3aa4b4c6": defineAsyncComponent(() => import(/* webpackChunkName: "v-3aa4b4c6" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/zh/typescript/base.html.vue")),
   // path: /zh/typescript/gymnastics.html
