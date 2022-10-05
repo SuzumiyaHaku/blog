@@ -78,7 +78,7 @@ export default defineUserConfig({
             },
             {
               text: '数据结构与算法', children: [
-                '/zh/structure/sort.md'
+                '/zh/structure/sort.md',
               ]
             },
             {
