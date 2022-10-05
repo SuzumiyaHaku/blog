@@ -83,7 +83,7 @@ export default defineUserConfig({
             },
             {
               text: 'java', children: [
-                '/zh/java/springboot.md'
+                '/zh/java/springboot.md',
               ]
             }
           ],
