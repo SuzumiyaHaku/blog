@@ -86,7 +86,7 @@
 </ul>
 </div>
 <ol>
-<li>请求端发送<a href="#tcp">SYN 1000</a>。（一个<code v-pre>SYN（synchronization同步）</code>段指明客户打算连接的服务器的端口，以及初始序号为<a href="#tcp">1000</a>。</li>
+<li>请求端发送<a href="#tcp">SYN 1001</a>。（一个<code v-pre>SYN（synchronization同步）</code>段指明客户打算连接的服务器的端口，以及初始序号为<a href="#tcp">1001</a>。</li>
 </ol>
 <blockquote>
 <p>客户端进入 SYN_SEND （同步发送状态）</p>

@@ -57,6 +57,8 @@ export default defineUserConfig({
                 '/zh/web/url.md',
                 '/zh/web/babel.md',
                 '/zh/web/webassembly.md',
+                '/zh/web/vue3.md',
+                '/zh/web/react-hooks.md',
               ]
             },
             {

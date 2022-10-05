@@ -15,13 +15,13 @@ bar.call(foo); // 1
 
 ```js
 Function.prototype.myCall = function (context) {
-  var context = context || window;
+  var context = Object(context) || window;
   context.fn = this;
   var args = [];
   for(var i = 1, len = arguments.length; i < len; i++) {
     args.push('arguments[' + i + ']');
   }
-  var result = eval('context.fn(' + args +')');
+  var result = eval('context.fn(' + args +')');  // context.fn(arguments[1],arguments[2])
   delete context.fn
   return result;
 }
@@ -79,7 +79,7 @@ Function.prototype.myApply = function (context, arr) {
     for (var i = 0; i < arr.length; i++) {
       args.push('arr[' + i + ']');
     }
-    result = eval('context.fn(' + args + ')')
+    result = eval('context.fn(' + args + ')') // context.fn(arr[0],arr[1])
   }
 
   delete context.fn

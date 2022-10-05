@@ -45,10 +45,10 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> onUnmounted <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> reactive<span class="token punctuation">,</span> onUnmounted <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 要比较的值</span>
-<span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token punctuation">[</span>
+<span class="token keyword">const</span> keyVal <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token keyword">null</span><span class="token punctuation">,</span>
   <span class="token keyword">undefined</span><span class="token punctuation">,</span>
   <span class="token boolean">false</span><span class="token punctuation">,</span>
@@ -135,9 +135,9 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 初始化每个方块的数据</span>
-<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span>
-  value<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">v1<span class="token punctuation">,</span> k1</span><span class="token punctuation">)</span> <span class="token operator">=></span>
-    value<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">v2<span class="token punctuation">,</span> k2</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span>
+  keyVal<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">v1<span class="token punctuation">,</span> k1</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+  keyVal<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">v2<span class="token punctuation">,</span> k2</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
       <span class="token keyword">let</span> temp <span class="token operator">=</span> <span class="token function">structuredClone</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> leftStr <span class="token operator">=</span> keyStr<span class="token punctuation">[</span>k1<span class="token punctuation">]</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> rightStr <span class="token operator">=</span> keyStr<span class="token punctuation">[</span>k2<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -171,12 +171,12 @@
   <span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> ctrl <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 控制点击后，移动鼠标不改变current选中的值。默认移动可改current</span>
-<span class="token keyword">const</span> current <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>value<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 默认选中</span>
+<span class="token keyword">const</span> current <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 默认选中</span>
 
 <span class="token keyword">const</span> <span class="token function-variable function">mouseEvent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token comment">// 鼠标移入/移出事件，有值为移入</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>ctrl<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    current<span class="token punctuation">.</span>value <span class="token operator">=</span> item <span class="token operator">||</span> data<span class="token punctuation">.</span>value<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    current<span class="token punctuation">.</span>value <span class="token operator">=</span> item <span class="token operator">||</span> data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token function-variable function">handler</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>

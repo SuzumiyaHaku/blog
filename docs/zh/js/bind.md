@@ -19,23 +19,25 @@ bindFoo(); // 1
 ```js
 Function.prototype.mybind = function (context) {
 
-    if (typeof this !== "function") {
-      throw new Error("Function.prototype.bind - what is trying to be bound is not callable");
-    }
+  if (typeof this !== "function") {
+    throw new Error("Function.prototype.bind - what is trying to be bound is not callable");
+  }
 
-    var self = this;
-    var args = Array.prototype.slice.call(arguments, 1);
+  var self = this;
+  var args = Array.prototype.slice.call(arguments, 1); // 只截取.bind(this, ...args)里args的部分
 
-    var fNOP = function () {};
+  var fNOP = function () {};
 
-    var fBound = function () {
-      var bindArgs = Array.prototype.slice.call(arguments);
-      return self.apply(this instanceof fNOP ? this : context, args.concat(bindArgs));
-    }
+  var fBound = function () {
+    var bindArgs = Array.prototype.slice.call(arguments); // 合并运行时传入的参数
 
-    fNOP.prototype = this.prototype;
-    fBound.prototype = new fNOP();
-    return fBound;
+    // 没有传context的时候要指向当前this
+    return self.apply(this instanceof fNOP ? this : context, args.concat(bindArgs));
+  }
+
+  fNOP.prototype = this.prototype;
+  fBound.prototype = new fNOP(); // 用于instanceof判断
+  return fBound;
 }
 ```
 

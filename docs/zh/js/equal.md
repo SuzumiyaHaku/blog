@@ -49,10 +49,10 @@
   </div>
 </template>
 <script setup>
-import { ref, onUnmounted } from "vue";
+import { ref, reactive, onUnmounted } from "vue";
 
 // 要比较的值
-const value = [
+const keyVal = [
   null,
   undefined,
   false,
@@ -139,9 +139,9 @@ const getStyle = (value1, value2) => {
 };
 
 // 初始化每个方块的数据
-const data = ref(
-  value.map((v1, k1) =>
-    value.map((v2, k2) => {
+const data = reactive(
+  keyVal.map((v1, k1) =>
+  keyVal.map((v2, k2) => {
       let temp = structuredClone(v2);
       let leftStr = keyStr[k1];
       let rightStr = keyStr[k2];
@@ -175,12 +175,12 @@ const data = ref(
   )
 );
 const ctrl = ref(true); // 控制点击后，移动鼠标不改变current选中的值。默认移动可改current
-const current = ref(data.value[0][0]); // 默认选中
+const current = ref(data[0][0]); // 默认选中
 
 const mouseEvent = (item) => {
   // 鼠标移入/移出事件，有值为移入
   if (ctrl.value) {
-    current.value = item || data.value[0][0];
+    current.value = item || data[0][0];
   }
 };
 const handler = (key) => {
