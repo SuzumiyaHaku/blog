@@ -45,13 +45,9 @@ jobs:
     - name: npm version
       run: |
         npm -v
-
-    - name: npm install pnpm
-      run: |
-        npm install -g pnpm
         
-    - name: pnpm install  pnpm build
+    - name: npm install  npm build
       run: |
-        pnpm install
-        pnpm run docs:build --if-present
+        npm install
+        npm run docs:build --if-present
 
