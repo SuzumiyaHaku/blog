@@ -1,10 +1,9 @@
 import { defaultTheme, defineUserConfig } from 'vuepress'
 import { searchPlugin } from '@vuepress/plugin-search'
-
 export default defineUserConfig({
   lang: 'zh-CN',
-  title: '知识',
-  description: '计算机知识',
+  title: 'Blog',
+  description: 'Blog',
   base: '/',
   locales: {
     '/': {
@@ -13,77 +12,77 @@ export default defineUserConfig({
   },
   
   theme: defaultTheme({
-    docsDir: 'zh',
+    // docsDir: 'zh',
     lastUpdated: false,
     contributors: false,
-    // home: '/zh/js/event.html',
+    home: '/',
     locales: {
       '/': {
         sidebar: {
           // SidebarItem
-          '/zh/': [
+          '/': [
             {
               text: 'javascript', children: [
-                '/zh/js/this.md',
-                '/zh/js/class.md',
-                '/zh/js/event.md',
-                '/zh/js/function.md',
-                '/zh/js/module.md',
-                '/zh/js/promise1.md',
-                '/zh/js/promise2.md',
-                '/zh/js/scope.md',
-                '/zh/js/new.md',
-                '/zh/js/let,var.md',
-                '/zh/js/bind.md',
-                '/zh/js/apply.md',
-                '/zh/js/equal.md',
-                '/zh/js/assign.md',
-                '/zh/js/instanceof.md',
+                '/js/this.md',
+                '/js/class.md',
+                '/js/event.md',
+                '/js/function.md',
+                '/js/module.md',
+                '/js/promise1.md',
+                '/js/promise2.md',
+                '/js/scope.md',
+                '/js/new.md',
+                '/js/let,var.md',
+                '/js/bind.md',
+                '/js/apply.md',
+                '/js/equal.md',
+                '/js/assign.md',
+                '/js/instanceof.md',
               ]
             },
             
             {
               text: 'typescript', children: [
-                `/zh/typescript/tsconfig.md`,
-                '/zh/typescript/base.md',
-                '/zh/typescript/polyfill.md',
-                '/zh/typescript/gymnastics.md',
+                `/typescript/tsconfig.md`,
+                '/typescript/base.md',
+                '/typescript/polyfill.md',
+                '/typescript/gymnastics.md',
               ]
             },
             {
               text: '前端相关', children: [
-                '/zh/web/webpack1.md',
-                '/zh/web/webpack2.md',
-                '/zh/web/url.md',
-                '/zh/web/babel.md',
-                '/zh/web/webassembly.md',
-                '/zh/web/vue3.md',
-                '/zh/web/react-hooks.md',
+                '/web/webpack1.md',
+                '/web/webpack2.md',
+                '/web/url.md',
+                '/web/babel.md',
+                '/web/webassembly.md',
+                '/web/vue3.md',
+                '/web/react-hooks.md',
               ]
             },
             {
               text: 'web安全相关', children: [
-                '/zh/security/xss与csrf.md',
-                '/zh/security/cors请求.md',
-                '/zh/security/cookie和session.md',
-                '/zh/security/oauth2.0和jwt.md',
+                '/security/xss与csrf.md',
+                '/security/cors请求.md',
+                '/security/cookie和session.md',
+                '/security/oauth2.0和jwt.md',
               ]
             },
             
             {
               text: '计算机网络相关', children: [
-                '/zh/network/http.md',
-                '/zh/network/tcp,udp.md',
+                '/network/http.md',
+                '/network/tcp,udp.md',
               ]
             },
             {
               text: '数据结构与算法', children: [
-                '/zh/structure/sort.md',
+                '/structure/sort.md',
               ]
             },
             {
               text: 'java', children: [
-                '/zh/java/springboot.md',
+                '/java/springboot.md',
               ]
             }
           ],

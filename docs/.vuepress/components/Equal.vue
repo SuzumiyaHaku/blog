@@ -42,6 +42,7 @@
 </template>
 <script setup>
 import { ref, reactive, onUnmounted } from "vue";
+import { cloneDeep } from "lodash-es";
 
 // 要比较的值
 const keyVal = [
@@ -134,7 +135,7 @@ const getStyle = (value1, value2) => {
 const data = reactive(
   keyVal.map((v1, k1) =>
   keyVal.map((v2, k2) => {
-      let temp = structuredClone(v2);
+      let temp = cloneDeep(v2); // structuredClone(v2);
       let leftStr = keyStr[k1];
       let rightStr = keyStr[k2];
       return {
@@ -185,6 +186,7 @@ const handler = (key) => {
 const bodyListenerHandler = () => {
   ctrl.value = true;
 };
+
 document.body.addEventListener("click", bodyListenerHandler);
 onUnmounted(() => {
   document.body.removeEventListener("click", bodyListenerHandler);
