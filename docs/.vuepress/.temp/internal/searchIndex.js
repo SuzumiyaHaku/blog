@@ -1361,6 +1361,13 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "排序",
+    "headers": [],
+    "path": "/structure/sort.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "typescript基础",
     "headers": [
       {
@@ -1717,13 +1724,6 @@ export const searchIndex = [
     "title": "tsconfig.json配置",
     "headers": [],
     "path": "/typescript/tsconfig.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "排序",
-    "headers": [],
-    "path": "/structure/sort.html",
     "pathLocale": "/",
     "extraFields": []
   },
