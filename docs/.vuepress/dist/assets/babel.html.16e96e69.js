@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-af3277fa","path":"/web/babel.html","title":"babel","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"\u53C2\u8003","slug":"\u53C2\u8003","link":"#\u53C2\u8003","children":[]}],"git":{},"filePathRelative":"web/babel.md"}');export{e as data};

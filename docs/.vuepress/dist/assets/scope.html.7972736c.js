@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-5953e59c","path":"/js/scope.html","title":"\u4F5C\u7528\u57DF","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"\u53C2\u8003","slug":"\u53C2\u8003","link":"#\u53C2\u8003","children":[]}],"git":{},"filePathRelative":"js/scope.md"}');export{e as data};

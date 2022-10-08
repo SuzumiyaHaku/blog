@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-469f4ee7","path":"/typescript/tsconfig.html","title":"tsconfig.json\u914D\u7F6E","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[],"git":{},"filePathRelative":"typescript/tsconfig.md"}');export{t as data};
