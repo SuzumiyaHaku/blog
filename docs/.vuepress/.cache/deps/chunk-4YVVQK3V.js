@@ -40,9 +40,9 @@ import {
   toHandlerKey,
   toNumber,
   toRawType
-} from "./chunk-YTQSFUAA.js";
+} from "./chunk-XYQ66V4O.js";
 
-// node_modules/.pnpm/@vue+reactivity@3.2.39/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
+// node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 function warn(msg, ...args) {
   console.warn(`[Vue warn] ${msg}`, ...args);
 }
@@ -1049,7 +1049,7 @@ var _a$1;
 var tick = Promise.resolve();
 _a$1 = "__v_isReadonly";
 
-// node_modules/.pnpm/@vue+runtime-core@3.2.39/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
+// node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
 var stack = [];
 function pushWarningContext(vnode) {
   stack.push(vnode);
@@ -3199,7 +3199,7 @@ function injectHook(type, hook, target = currentInstance, prepend = false) {
     warn2(`${apiName} is called when there is no active component instance to be associated with. Lifecycle injection APIs can only be used during execution of setup(). If you are using async setup(), make sure to register lifecycle hooks before the first await statement.`);
   }
 }
-var createHook = (lifecycle) => (hook, target = currentInstance) => (!isInSSRComponentSetup || lifecycle === "sp") && injectHook(lifecycle, hook, target);
+var createHook = (lifecycle) => (hook, target = currentInstance) => (!isInSSRComponentSetup || lifecycle === "sp") && injectHook(lifecycle, (...args) => hook(...args), target);
 var onBeforeMount = createHook("bm");
 var onMounted = createHook("m");
 var onBeforeUpdate = createHook("bu");
@@ -3356,7 +3356,8 @@ function createSlots(slots, dynamicSlots) {
     } else if (slot) {
       slots[slot.name] = slot.key ? (...args) => {
         const res = slot.fn(...args);
-        res.key = slot.key;
+        if (res)
+          res.key = slot.key;
         return res;
       } : slot.fn;
     }
@@ -4671,7 +4672,7 @@ function createHydrationFunctions(rendererInternals) {
     const isFragmentStart = isComment(node) && node.data === "[";
     const onMismatch = () => handleMismatch(node, vnode, parentComponent, parentSuspense, slotScopeIds, isFragmentStart);
     const { type, ref: ref2, shapeFlag, patchFlag } = vnode;
-    const domType = node.nodeType;
+    let domType = node.nodeType;
     vnode.el = node;
     if (patchFlag === -2) {
       optimized = false;
@@ -4706,9 +4707,11 @@ function createHydrationFunctions(rendererInternals) {
         }
         break;
       case Static:
-        if (domType !== 1 && domType !== 3) {
-          nextNode = onMismatch();
-        } else {
+        if (isFragmentStart) {
+          node = nextSibling(node);
+          domType = node.nodeType;
+        }
+        if (domType === 1 || domType === 3) {
           nextNode = node;
           const needToAdoptContent = !vnode.children.length;
           for (let i = 0; i < vnode.staticCount; i++) {
@@ -4719,7 +4722,9 @@ function createHydrationFunctions(rendererInternals) {
             }
             nextNode = nextSibling(nextNode);
           }
-          return nextNode;
+          return isFragmentStart ? nextSibling(nextNode) : nextNode;
+        } else {
+          onMismatch();
         }
         break;
       case Fragment:
@@ -4977,7 +4982,7 @@ function baseCreateRenderer(options, createHydrationFns) {
   if (true) {
     setDevtoolsHook(target.__VUE_DEVTOOLS_GLOBAL_HOOK__, target);
   }
-  const { insert: hostInsert, remove: hostRemove, patchProp: hostPatchProp, createElement: hostCreateElement, createText: hostCreateText, createComment: hostCreateComment, setText: hostSetText, setElementText: hostSetElementText, parentNode: hostParentNode, nextSibling: hostNextSibling, setScopeId: hostSetScopeId = NOOP, cloneNode: hostCloneNode, insertStaticContent: hostInsertStaticContent } = options;
+  const { insert: hostInsert, remove: hostRemove, patchProp: hostPatchProp, createElement: hostCreateElement, createText: hostCreateText, createComment: hostCreateComment, setText: hostSetText, setElementText: hostSetElementText, parentNode: hostParentNode, nextSibling: hostNextSibling, setScopeId: hostSetScopeId = NOOP, insertStaticContent: hostInsertStaticContent } = options;
   const patch = (n1, n2, container, anchor = null, parentComponent = null, parentSuspense = null, isSVG = false, slotScopeIds = null, optimized = isHmrUpdating ? false : !!n2.dynamicChildren) => {
     if (n1 === n2) {
       return;
@@ -5085,34 +5090,30 @@ function baseCreateRenderer(options, createHydrationFns) {
   const mountElement = (vnode, container, anchor, parentComponent, parentSuspense, isSVG, slotScopeIds, optimized) => {
     let el;
     let vnodeHook;
-    const { type, props, shapeFlag, transition, patchFlag, dirs } = vnode;
-    if (false) {
-      el = vnode.el = hostCloneNode(vnode.el);
-    } else {
-      el = vnode.el = hostCreateElement(vnode.type, isSVG, props && props.is, props);
-      if (shapeFlag & 8) {
-        hostSetElementText(el, vnode.children);
-      } else if (shapeFlag & 16) {
-        mountChildren(vnode.children, el, null, parentComponent, parentSuspense, isSVG && type !== "foreignObject", slotScopeIds, optimized);
-      }
-      if (dirs) {
-        invokeDirectiveHook(vnode, null, parentComponent, "created");
-      }
-      if (props) {
-        for (const key in props) {
-          if (key !== "value" && !isReservedProp(key)) {
-            hostPatchProp(el, key, null, props[key], isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
-          }
-        }
-        if ("value" in props) {
-          hostPatchProp(el, "value", null, props.value);
-        }
-        if (vnodeHook = props.onVnodeBeforeMount) {
-          invokeVNodeHook(vnodeHook, parentComponent, vnode);
-        }
-      }
-      setScopeId(el, vnode, vnode.scopeId, slotScopeIds, parentComponent);
+    const { type, props, shapeFlag, transition, dirs } = vnode;
+    el = vnode.el = hostCreateElement(vnode.type, isSVG, props && props.is, props);
+    if (shapeFlag & 8) {
+      hostSetElementText(el, vnode.children);
+    } else if (shapeFlag & 16) {
+      mountChildren(vnode.children, el, null, parentComponent, parentSuspense, isSVG && type !== "foreignObject", slotScopeIds, optimized);
     }
+    if (dirs) {
+      invokeDirectiveHook(vnode, null, parentComponent, "created");
+    }
+    if (props) {
+      for (const key in props) {
+        if (key !== "value" && !isReservedProp(key)) {
+          hostPatchProp(el, key, null, props[key], isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
+        }
+      }
+      if ("value" in props) {
+        hostPatchProp(el, "value", null, props.value);
+      }
+      if (vnodeHook = props.onVnodeBeforeMount) {
+        invokeVNodeHook(vnodeHook, parentComponent, vnode);
+      }
+    }
+    setScopeId(el, vnode, vnode.scopeId, slotScopeIds, parentComponent);
     if (true) {
       Object.defineProperty(el, "__vnode", {
         value: vnode,
@@ -5243,6 +5244,13 @@ function baseCreateRenderer(options, createHydrationFns) {
   };
   const patchProps = (el, vnode, oldProps, newProps, parentComponent, parentSuspense, isSVG) => {
     if (oldProps !== newProps) {
+      if (oldProps !== EMPTY_OBJ) {
+        for (const key in oldProps) {
+          if (!isReservedProp(key) && !(key in newProps)) {
+            hostPatchProp(el, key, oldProps[key], null, isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
+          }
+        }
+      }
       for (const key in newProps) {
         if (isReservedProp(key))
           continue;
@@ -5250,13 +5258,6 @@ function baseCreateRenderer(options, createHydrationFns) {
         const prev = oldProps[key];
         if (next !== prev && key !== "value") {
           hostPatchProp(el, key, prev, next, isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
-        }
-      }
-      if (oldProps !== EMPTY_OBJ) {
-        for (const key in oldProps) {
-          if (!isReservedProp(key) && !(key in newProps)) {
-            hostPatchProp(el, key, oldProps[key], null, isSVG, vnode.children, parentComponent, parentSuspense, unmountChildren);
-          }
         }
       }
       if ("value" in newProps) {
@@ -6336,7 +6337,7 @@ function normalizeVNode(child) {
   }
 }
 function cloneIfMounted(child) {
-  return child.el === null || child.memo ? child : cloneVNode(child);
+  return child.el === null && child.patchFlag !== -1 || child.memo ? child : cloneVNode(child);
 }
 function normalizeChildren(vnode, children) {
   let type = 0;
@@ -7064,7 +7065,7 @@ function isMemoSame(cached, memo) {
   }
   return true;
 }
-var version = "3.2.39";
+var version = "3.2.40";
 var _ssrUtils = {
   createComponentInstance,
   setupComponent,
@@ -7077,7 +7078,7 @@ var ssrUtils = _ssrUtils;
 var resolveFilter = null;
 var compatUtils = null;
 
-// node_modules/.pnpm/@vue+runtime-dom@3.2.39/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js
+// node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js
 var svgNS = "http://www.w3.org/2000/svg";
 var doc = typeof document !== "undefined" ? document : null;
 var templateContainer = doc && doc.createElement("template");
@@ -7111,13 +7112,6 @@ var nodeOps = {
   querySelector: (selector) => doc.querySelector(selector),
   setScopeId(el, id) {
     el.setAttribute(id, "");
-  },
-  cloneNode(el) {
-    const cloned = el.cloneNode(true);
-    if (`_value` in el) {
-      cloned._value = el._value;
-    }
-    return cloned;
   },
   insertStaticContent(content, parent, anchor, isSVG, start, end) {
     const before = anchor ? anchor.previousSibling : parent.lastChild;
@@ -7277,7 +7271,7 @@ function patchDOMProp(el, key, value, prevChildren, parentComponent, parentSuspe
   try {
     el[key] = value;
   } catch (e) {
-    if (true) {
+    if (!needRemove) {
       warn2(`Failed setting prop "${key}" on <${el.tagName.toLowerCase()}>: value ${value} is invalid.`, e);
     }
   }
@@ -8459,7 +8453,7 @@ var initDirectivesForSSR = () => {
   }
 };
 
-// node_modules/.pnpm/vue@3.2.39/node_modules/vue/dist/vue.runtime.esm-bundler.js
+// node_modules/vue/dist/vue.runtime.esm-bundler.js
 function initDev() {
   {
     initCustomFormatter();
@@ -8614,4 +8608,4 @@ export {
   initDirectivesForSSR,
   compile2 as compile
 };
-//# sourceMappingURL=chunk-ZYRIB4P5.js.map
+//# sourceMappingURL=chunk-4YVVQK3V.js.map

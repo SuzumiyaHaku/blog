@@ -1,4 +1,4 @@
-// node_modules/.pnpm/@vue+shared@3.2.39/node_modules/@vue/shared/dist/shared.esm-bundler.js
+// node_modules/@vue/shared/dist/shared.esm-bundler.js
 function makeMap(str, expectsLowerCase) {
   const map = /* @__PURE__ */ Object.create(null);
   const list = str.split(",");
@@ -281,4 +281,4 @@ export {
   toNumber,
   getGlobalThis
 };
-//# sourceMappingURL=chunk-YTQSFUAA.js.map
+//# sourceMappingURL=chunk-XYQ66V4O.js.map
