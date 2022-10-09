@@ -228,6 +228,7 @@ ul {
   .container {
     display: grid;
     grid-row-gap: 1px;
+    grid-column-gap: 1px;
 
     .row {
       display: flex;
@@ -235,6 +236,7 @@ ul {
         width: 100px;
         padding-right: 5px;
         text-align: right;
+        line-height: 1;
       }
       .row-label-2 {
         width: @clubWdith;

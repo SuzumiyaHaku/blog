@@ -36,288 +36,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "http",
-    "headers": [
-      {
-        "level": 2,
-        "title": "http1.1",
-        "slug": "http1-1",
-        "link": "#http1-1",
-        "children": [
-          {
-            "level": 3,
-            "title": "持久连接(persistent connection)",
-            "slug": "持久连接-persistent-connection",
-            "link": "#持久连接-persistent-connection",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "持久连接的限制和规则",
-            "slug": "持久连接的限制和规则",
-            "link": "#持久连接的限制和规则",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "管道化连接",
-            "slug": "管道化连接",
-            "link": "#管道化连接",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "队头阻塞问题",
-            "slug": "队头阻塞问题",
-            "link": "#队头阻塞问题",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "http2.0",
-        "slug": "http2-0",
-        "link": "#http2-0",
-        "children": [
-          {
-            "level": 3,
-            "title": "多路复用",
-            "slug": "多路复用",
-            "link": "#多路复用",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "头部压缩",
-            "slug": "头部压缩",
-            "link": "#头部压缩",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "流与二进制分帧",
-            "slug": "流与二进制分帧",
-            "link": "#流与二进制分帧",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "流量控制",
-            "slug": "流量控制",
-            "link": "#流量控制",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "服务端推送",
-            "slug": "服务端推送",
-            "link": "#服务端推送",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "最佳实践",
-            "slug": "最佳实践",
-            "link": "#最佳实践",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "http3.0",
-        "slug": "http3-0",
-        "link": "#http3-0",
-        "children": [
-          {
-            "level": 3,
-            "title": "拥赛控制",
-            "slug": "拥赛控制",
-            "link": "#拥赛控制",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "连接迁移",
-            "slug": "连接迁移",
-            "link": "#连接迁移",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "队头阻塞消除",
-            "slug": "队头阻塞消除",
-            "link": "#队头阻塞消除",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "https",
-        "slug": "https",
-        "link": "#https",
-        "children": [
-          {
-            "level": 3,
-            "title": "TLS/SSL握手",
-            "slug": "tls-ssl握手",
-            "link": "#tls-ssl握手",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "扩展链接",
-        "slug": "扩展链接",
-        "link": "#扩展链接",
-        "children": []
-      }
-    ],
-    "path": "/network/http.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "TCP/UDP",
-    "headers": [
-      {
-        "level": 2,
-        "title": "TCP的可靠性",
-        "slug": "tcp的可靠性",
-        "link": "#tcp的可靠性",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "TCP滑动窗口",
-        "slug": "tcp滑动窗口",
-        "link": "#tcp滑动窗口",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "TCP拥塞控制",
-        "slug": "tcp拥塞控制",
-        "link": "#tcp拥塞控制",
-        "children": [
-          {
-            "level": 3,
-            "title": "流量控制",
-            "slug": "流量控制",
-            "link": "#流量控制",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "慢启动",
-            "slug": "慢启动",
-            "link": "#慢启动",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "延迟确认",
-            "slug": "延迟确认",
-            "link": "#延迟确认",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "拥塞预防",
-            "slug": "拥塞预防",
-            "link": "#拥塞预防",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "TCP队头阻塞",
-        "slug": "tcp队头阻塞",
-        "link": "#tcp队头阻塞",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "TCP快速重传和快速恢复",
-        "slug": "tcp快速重传和快速恢复",
-        "link": "#tcp快速重传和快速恢复",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "TCP的TIME_WAIT累积与端口耗尽",
-        "slug": "tcp的time-wait累积与端口耗尽",
-        "link": "#tcp的time-wait累积与端口耗尽",
-        "children": [
-          {
-            "level": 3,
-            "title": "TCP SYN洪水（SYN Flood)攻击",
-            "slug": "tcp-syn洪水-syn-flood-攻击",
-            "link": "#tcp-syn洪水-syn-flood-攻击",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "UDP",
-        "slug": "udp",
-        "link": "#udp",
-        "children": [
-          {
-            "level": 3,
-            "title": "TCP首部",
-            "slug": "tcp首部",
-            "link": "#tcp首部",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "UDP首部",
-            "slug": "udp首部",
-            "link": "#udp首部",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "TCP性能聚焦",
-        "slug": "tcp性能聚焦",
-        "link": "#tcp性能聚焦",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "扩展链接",
-        "slug": "扩展链接",
-        "link": "#扩展链接",
-        "children": []
-      }
-    ],
-    "path": "/network/tcp,udp.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "call、apply",
     "headers": [
       {
@@ -1141,6 +859,288 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "http",
+    "headers": [
+      {
+        "level": 2,
+        "title": "http1.1",
+        "slug": "http1-1",
+        "link": "#http1-1",
+        "children": [
+          {
+            "level": 3,
+            "title": "持久连接(persistent connection)",
+            "slug": "持久连接-persistent-connection",
+            "link": "#持久连接-persistent-connection",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "持久连接的限制和规则",
+            "slug": "持久连接的限制和规则",
+            "link": "#持久连接的限制和规则",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "管道化连接",
+            "slug": "管道化连接",
+            "link": "#管道化连接",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "队头阻塞问题",
+            "slug": "队头阻塞问题",
+            "link": "#队头阻塞问题",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "http2.0",
+        "slug": "http2-0",
+        "link": "#http2-0",
+        "children": [
+          {
+            "level": 3,
+            "title": "多路复用",
+            "slug": "多路复用",
+            "link": "#多路复用",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "头部压缩",
+            "slug": "头部压缩",
+            "link": "#头部压缩",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "流与二进制分帧",
+            "slug": "流与二进制分帧",
+            "link": "#流与二进制分帧",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "流量控制",
+            "slug": "流量控制",
+            "link": "#流量控制",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "服务端推送",
+            "slug": "服务端推送",
+            "link": "#服务端推送",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "最佳实践",
+            "slug": "最佳实践",
+            "link": "#最佳实践",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "http3.0",
+        "slug": "http3-0",
+        "link": "#http3-0",
+        "children": [
+          {
+            "level": 3,
+            "title": "拥赛控制",
+            "slug": "拥赛控制",
+            "link": "#拥赛控制",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "连接迁移",
+            "slug": "连接迁移",
+            "link": "#连接迁移",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "队头阻塞消除",
+            "slug": "队头阻塞消除",
+            "link": "#队头阻塞消除",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "https",
+        "slug": "https",
+        "link": "#https",
+        "children": [
+          {
+            "level": 3,
+            "title": "TLS/SSL握手",
+            "slug": "tls-ssl握手",
+            "link": "#tls-ssl握手",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "扩展链接",
+        "slug": "扩展链接",
+        "link": "#扩展链接",
+        "children": []
+      }
+    ],
+    "path": "/network/http.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "TCP/UDP",
+    "headers": [
+      {
+        "level": 2,
+        "title": "TCP的可靠性",
+        "slug": "tcp的可靠性",
+        "link": "#tcp的可靠性",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "TCP滑动窗口",
+        "slug": "tcp滑动窗口",
+        "link": "#tcp滑动窗口",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "TCP拥塞控制",
+        "slug": "tcp拥塞控制",
+        "link": "#tcp拥塞控制",
+        "children": [
+          {
+            "level": 3,
+            "title": "流量控制",
+            "slug": "流量控制",
+            "link": "#流量控制",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "慢启动",
+            "slug": "慢启动",
+            "link": "#慢启动",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "延迟确认",
+            "slug": "延迟确认",
+            "link": "#延迟确认",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "拥塞预防",
+            "slug": "拥塞预防",
+            "link": "#拥塞预防",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "TCP队头阻塞",
+        "slug": "tcp队头阻塞",
+        "link": "#tcp队头阻塞",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "TCP快速重传和快速恢复",
+        "slug": "tcp快速重传和快速恢复",
+        "link": "#tcp快速重传和快速恢复",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "TCP的TIME_WAIT累积与端口耗尽",
+        "slug": "tcp的time-wait累积与端口耗尽",
+        "link": "#tcp的time-wait累积与端口耗尽",
+        "children": [
+          {
+            "level": 3,
+            "title": "TCP SYN洪水（SYN Flood)攻击",
+            "slug": "tcp-syn洪水-syn-flood-攻击",
+            "link": "#tcp-syn洪水-syn-flood-攻击",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "UDP",
+        "slug": "udp",
+        "link": "#udp",
+        "children": [
+          {
+            "level": 3,
+            "title": "TCP首部",
+            "slug": "tcp首部",
+            "link": "#tcp首部",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "UDP首部",
+            "slug": "udp首部",
+            "link": "#udp首部",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "TCP性能聚焦",
+        "slug": "tcp性能聚焦",
+        "link": "#tcp性能聚焦",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "扩展链接",
+        "slug": "扩展链接",
+        "link": "#扩展链接",
+        "children": []
+      }
+    ],
+    "path": "/network/tcp,udp.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "cookie 和 session",
     "headers": [
       {
@@ -1357,6 +1357,366 @@ export const searchIndex = [
       }
     ],
     "path": "/security/xss%E4%B8%8Ecsrf.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "typescript基础",
+    "headers": [
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "分配率",
+        "slug": "分配率",
+        "link": "#分配率",
+        "children": [
+          {
+            "level": 3,
+            "title": "去掉分配律的方式",
+            "slug": "去掉分配律的方式",
+            "link": "#去掉分配律的方式",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "递归",
+        "slug": "递归",
+        "link": "#递归",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "笛卡尔积",
+        "slug": "笛卡尔积",
+        "link": "#笛卡尔积",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "枚举类型",
+        "slug": "枚举类型",
+        "link": "#枚举类型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "函数重载",
+        "slug": "函数重载",
+        "link": "#函数重载",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Never类型",
+        "slug": "never类型",
+        "link": "#never类型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "unknown",
+        "slug": "unknown",
+        "link": "#unknown",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "元组",
+        "slug": "元组",
+        "link": "#元组",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "泛型",
+        "slug": "泛型",
+        "link": "#泛型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "in",
+        "slug": "in",
+        "link": "#in",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "infer",
+        "slug": "infer",
+        "link": "#infer",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "extends",
+        "slug": "extends",
+        "link": "#extends",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "ThisType",
+        "slug": "thistype",
+        "link": "#thistype",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "单词字符大小写操作",
+        "slug": "单词字符大小写操作",
+        "link": "#单词字符大小写操作",
+        "children": [
+          {
+            "level": 3,
+            "title": "Uppercase",
+            "slug": "uppercase",
+            "link": "#uppercase",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "lowercase",
+            "slug": "lowercase",
+            "link": "#lowercase",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Capitalize",
+            "slug": "capitalize",
+            "link": "#capitalize",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Uncapitalize",
+            "slug": "uncapitalize",
+            "link": "#uncapitalize",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/typescript/base.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "ts类型体操训练",
+    "headers": [
+      {
+        "level": 2,
+        "title": "切割字符串",
+        "slug": "切割字符串",
+        "link": "#切割字符串",
+        "children": [
+          {
+            "level": 3,
+            "title": "题目",
+            "slug": "题目",
+            "link": "#题目",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "加法",
+        "slug": "加法",
+        "link": "#加法",
+        "children": [
+          {
+            "level": 3,
+            "title": "题目",
+            "slug": "题目-1",
+            "link": "#题目-1",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "提示",
+            "slug": "提示",
+            "link": "#提示",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "减法",
+        "slug": "减法",
+        "link": "#减法",
+        "children": [
+          {
+            "level": 3,
+            "title": "题目",
+            "slug": "题目-2",
+            "link": "#题目-2",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "提示",
+            "slug": "提示-1",
+            "link": "#提示-1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "两数和",
+        "slug": "两数和",
+        "link": "#两数和",
+        "children": [
+          {
+            "level": 3,
+            "title": "题目描述",
+            "slug": "题目描述",
+            "link": "#题目描述",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "提示",
+            "slug": "提示-2",
+            "link": "#提示-2",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "转驼峰",
+        "slug": "转驼峰",
+        "link": "#转驼峰",
+        "children": [
+          {
+            "level": 3,
+            "title": "题目描述",
+            "slug": "题目描述-1",
+            "link": "#题目描述-1",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/typescript/gymnastics.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "工具类的模拟实现",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Partial<Type>",
+        "slug": "partial-type",
+        "link": "#partial-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Required<Type>",
+        "slug": "required-type",
+        "link": "#required-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Readonly<Type>",
+        "slug": "readonly-type",
+        "link": "#readonly-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Record<Keys, Type>",
+        "slug": "record-keys-type",
+        "link": "#record-keys-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Pick<Type, Keys>",
+        "slug": "pick-type-keys",
+        "link": "#pick-type-keys",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Omit<Type, Keys>",
+        "slug": "omit-type-keys",
+        "link": "#omit-type-keys",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Exclude<UnionType, ExcludedMembers>",
+        "slug": "exclude-uniontype-excludedmembers",
+        "link": "#exclude-uniontype-excludedmembers",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Extract<Type, Union>",
+        "slug": "extract-type-union",
+        "link": "#extract-type-union",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "NonNullable<Type>",
+        "slug": "nonnullable-type",
+        "link": "#nonnullable-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Parameters<Type>",
+        "slug": "parameters-type",
+        "link": "#parameters-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "ConstructorParameters<Type>",
+        "slug": "constructorparameters-type",
+        "link": "#constructorparameters-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "ReturnType<Type>",
+        "slug": "returntype-type",
+        "link": "#returntype-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Readonly<Type>",
+        "slug": "readonly-type-1",
+        "link": "#readonly-type-1",
+        "children": []
+      }
+    ],
+    "path": "/typescript/polyfill.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "tsconfig.json配置",
+    "headers": [],
+    "path": "/typescript/tsconfig.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -1986,366 +2346,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "typescript基础",
-    "headers": [
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "分配率",
-        "slug": "分配率",
-        "link": "#分配率",
-        "children": [
-          {
-            "level": 3,
-            "title": "去掉分配律的方式",
-            "slug": "去掉分配律的方式",
-            "link": "#去掉分配律的方式",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "递归",
-        "slug": "递归",
-        "link": "#递归",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "笛卡尔积",
-        "slug": "笛卡尔积",
-        "link": "#笛卡尔积",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "枚举类型",
-        "slug": "枚举类型",
-        "link": "#枚举类型",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "函数重载",
-        "slug": "函数重载",
-        "link": "#函数重载",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Never类型",
-        "slug": "never类型",
-        "link": "#never类型",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "unknown",
-        "slug": "unknown",
-        "link": "#unknown",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "元组",
-        "slug": "元组",
-        "link": "#元组",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "泛型",
-        "slug": "泛型",
-        "link": "#泛型",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "in",
-        "slug": "in",
-        "link": "#in",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "infer",
-        "slug": "infer",
-        "link": "#infer",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "extends",
-        "slug": "extends",
-        "link": "#extends",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "ThisType",
-        "slug": "thistype",
-        "link": "#thistype",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "单词字符大小写操作",
-        "slug": "单词字符大小写操作",
-        "link": "#单词字符大小写操作",
-        "children": [
-          {
-            "level": 3,
-            "title": "Uppercase",
-            "slug": "uppercase",
-            "link": "#uppercase",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "lowercase",
-            "slug": "lowercase",
-            "link": "#lowercase",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Capitalize",
-            "slug": "capitalize",
-            "link": "#capitalize",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Uncapitalize",
-            "slug": "uncapitalize",
-            "link": "#uncapitalize",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/typescript/base.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "ts类型体操训练",
-    "headers": [
-      {
-        "level": 2,
-        "title": "切割字符串",
-        "slug": "切割字符串",
-        "link": "#切割字符串",
-        "children": [
-          {
-            "level": 3,
-            "title": "题目",
-            "slug": "题目",
-            "link": "#题目",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "加法",
-        "slug": "加法",
-        "link": "#加法",
-        "children": [
-          {
-            "level": 3,
-            "title": "题目",
-            "slug": "题目-1",
-            "link": "#题目-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "提示",
-            "slug": "提示",
-            "link": "#提示",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "减法",
-        "slug": "减法",
-        "link": "#减法",
-        "children": [
-          {
-            "level": 3,
-            "title": "题目",
-            "slug": "题目-2",
-            "link": "#题目-2",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "提示",
-            "slug": "提示-1",
-            "link": "#提示-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "两数和",
-        "slug": "两数和",
-        "link": "#两数和",
-        "children": [
-          {
-            "level": 3,
-            "title": "题目描述",
-            "slug": "题目描述",
-            "link": "#题目描述",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "提示",
-            "slug": "提示-2",
-            "link": "#提示-2",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "转驼峰",
-        "slug": "转驼峰",
-        "link": "#转驼峰",
-        "children": [
-          {
-            "level": 3,
-            "title": "题目描述",
-            "slug": "题目描述-1",
-            "link": "#题目描述-1",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/typescript/gymnastics.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "工具类的模拟实现",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Partial<Type>",
-        "slug": "partial-type",
-        "link": "#partial-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Required<Type>",
-        "slug": "required-type",
-        "link": "#required-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Readonly<Type>",
-        "slug": "readonly-type",
-        "link": "#readonly-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Record<Keys, Type>",
-        "slug": "record-keys-type",
-        "link": "#record-keys-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Pick<Type, Keys>",
-        "slug": "pick-type-keys",
-        "link": "#pick-type-keys",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Omit<Type, Keys>",
-        "slug": "omit-type-keys",
-        "link": "#omit-type-keys",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Exclude<UnionType, ExcludedMembers>",
-        "slug": "exclude-uniontype-excludedmembers",
-        "link": "#exclude-uniontype-excludedmembers",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Extract<Type, Union>",
-        "slug": "extract-type-union",
-        "link": "#extract-type-union",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "NonNullable<Type>",
-        "slug": "nonnullable-type",
-        "link": "#nonnullable-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Parameters<Type>",
-        "slug": "parameters-type",
-        "link": "#parameters-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "ConstructorParameters<Type>",
-        "slug": "constructorparameters-type",
-        "link": "#constructorparameters-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "ReturnType<Type>",
-        "slug": "returntype-type",
-        "link": "#returntype-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Readonly<Type>",
-        "slug": "readonly-type-1",
-        "link": "#readonly-type-1",
-        "children": []
-      }
-    ],
-    "path": "/typescript/polyfill.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "tsconfig.json配置",
-    "headers": [],
-    "path": "/typescript/tsconfig.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "",
     "headers": [],
     "path": "/404.html",
@@ -2353,3 +2353,16 @@ export const searchIndex = [
     "extraFields": []
   }
 ]
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateSearchIndex) {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ searchIndex }) => {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  })
+}
