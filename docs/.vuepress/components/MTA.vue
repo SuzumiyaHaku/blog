@@ -13,7 +13,7 @@ onMounted(() => {
     }
   } else {
     sessionStorage.setItem(key, new Date().getTime())
-    fetch(`//www.suzumiya.club:6936/mta/setCount?origin=${origin}&pathname=${pathname}`)
+    fetch(`//www.suzumiya.club:6935/mta/setCount?origin=${origin}&pathname=${pathname}`)
   }
 })
 </script>
