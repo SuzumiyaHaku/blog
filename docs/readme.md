@@ -1,1 +1,4 @@
 # dashboard
+<ClientOnly>
+  <MTA/>
+</ClientOnly>

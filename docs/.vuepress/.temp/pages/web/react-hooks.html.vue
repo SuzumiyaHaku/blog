@@ -1,4 +1,7 @@
 <template><div><h1 id="react-hooks源码" tabindex="-1"><a class="header-anchor" href="#react-hooks源码" aria-hidden="true">#</a> React Hooks源码</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="mount和update" tabindex="-1"><a class="header-anchor" href="#mount和update" aria-hidden="true">#</a> mount和update</h2>
 <p>react初始化的时候状态为mount，更新的时候为update。对于hook API来讲，如useState，对应了<code v-pre>mountState</code>和<code v-pre>updateState</code></p>
 <div class="language-typescript ext-ts line-numbers-mode"><pre v-pre class="language-typescript"><code><span class="token keyword">const</span> HooksDispatcherOnMount<span class="token operator">:</span> Dispatcher <span class="token operator">=</span> <span class="token punctuation">{</span>

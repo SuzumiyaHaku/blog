@@ -1,5 +1,9 @@
 # Promise--上
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
 
 ## PromiseA+
 [PromiseA+英文规范](https://promisesaplus.com/)

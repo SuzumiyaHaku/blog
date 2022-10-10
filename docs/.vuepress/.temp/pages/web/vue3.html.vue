@@ -1,4 +1,7 @@
 <template><div><h1 id="vue3源码-未完" tabindex="-1"><a class="header-anchor" href="#vue3源码-未完" aria-hidden="true">#</a> vue3源码[未完...]</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <p>《vue.js设计与实现》</p>
 <h2 id="模块" tabindex="-1"><a class="header-anchor" href="#模块" aria-hidden="true">#</a> 模块</h2>
 <p>带有-browser字样的esm资源是直接给&lt;script type =&quot;module&quot;&gt;使用的

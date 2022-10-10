@@ -1,4 +1,7 @@
 <template><div><h1 id="oauth2-0和jwt" tabindex="-1"><a class="header-anchor" href="#oauth2-0和jwt" aria-hidden="true">#</a> OAuth2.0和JWT</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="oauth2-0" tabindex="-1"><a class="header-anchor" href="#oauth2-0" aria-hidden="true">#</a> OAuth2.0</h2>
 <p>是目前最流行的第三方应用登录授权机制。</p>
 <p>OAuth2.0标准定义四种角色：</p>

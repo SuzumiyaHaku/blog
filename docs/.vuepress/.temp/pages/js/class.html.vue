@@ -1,4 +1,7 @@
 <template><div><h1 id="类" tabindex="-1"><a class="header-anchor" href="#类" aria-hidden="true">#</a> 类</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="es6-class" tabindex="-1"><a class="header-anchor" href="#es6-class" aria-hidden="true">#</a> es6 class</h2>
 <p>es6定义类两种方式：类声明和类表达式。</p>
 <div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// 类声明</span>

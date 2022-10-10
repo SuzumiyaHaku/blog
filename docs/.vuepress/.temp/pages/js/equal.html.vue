@@ -1,4 +1,7 @@
 <template><div><h1 id="隐式转换-和" tabindex="-1"><a class="header-anchor" href="#隐式转换-和" aria-hidden="true">#</a> 隐式转换 == 和 ===</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="对比" tabindex="-1"><a class="header-anchor" href="#对比" aria-hidden="true">#</a> 对比</h2>
 <h3 id="对比组件" tabindex="-1"><a class="header-anchor" href="#对比组件" aria-hidden="true">#</a> 对比组件</h3>
 <ClientOnly>

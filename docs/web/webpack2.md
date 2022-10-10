@@ -1,5 +1,10 @@
 # webpack 和 vite
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## webpack和vite两者有什么区别
 webpack core 是一个纯打包工具（对标 Rollup），而 Vite 其实是一个更上层的工具链方案，对标的是 （webpack + 针对 web 的常用配置 + webpack-dev-server）。
 

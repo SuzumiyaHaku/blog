@@ -1,5 +1,10 @@
 # React Hooks源码
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## mount和update
 react初始化的时候状态为mount，更新的时候为update。对于hook API来讲，如useState，对应了`mountState`和`updateState`
 ```ts{13,36}

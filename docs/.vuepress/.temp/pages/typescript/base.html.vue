@@ -1,4 +1,7 @@
 <template><div><h1 id="typescript基础" tabindex="-1"><a class="header-anchor" href="#typescript基础" aria-hidden="true">#</a> typescript基础</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="参考" tabindex="-1"><a class="header-anchor" href="#参考" aria-hidden="true">#</a> 参考</h2>
 <ul>
 <li><a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html" target="_blank" rel="noopener noreferrer">ts官方文档 英文<ExternalLinkIcon/></a></li>

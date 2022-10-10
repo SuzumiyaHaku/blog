@@ -1,5 +1,10 @@
 # XSS和CSRF
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## XSS
 ### 简介
 跨站脚本攻击，英文全称是Cross Site Script，本来缩写是CSS，但是为了和层叠样式表

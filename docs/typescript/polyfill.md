@@ -1,5 +1,10 @@
 # 工具类的模拟实现
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## Partial<Type\>
 功能：把属性的必选改为`?`
 ```ts

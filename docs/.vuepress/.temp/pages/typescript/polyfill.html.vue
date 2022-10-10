@@ -1,4 +1,7 @@
 <template><div><h1 id="工具类的模拟实现" tabindex="-1"><a class="header-anchor" href="#工具类的模拟实现" aria-hidden="true">#</a> 工具类的模拟实现</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="partial-type" tabindex="-1"><a class="header-anchor" href="#partial-type" aria-hidden="true">#</a> Partial&lt;Type&gt;</h2>
 <p>功能：把属性的必选改为<code v-pre>?</code></p>
 <div class="language-typescript ext-ts line-numbers-mode"><pre v-pre class="language-typescript"><code><span class="token keyword">type</span> <span class="token class-name">MyPartial<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span></span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">[</span>key <span class="token keyword">in</span> <span class="token keyword">keyof</span> <span class="token constant">T</span><span class="token punctuation">]</span><span class="token operator">?</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token punctuation">}</span>

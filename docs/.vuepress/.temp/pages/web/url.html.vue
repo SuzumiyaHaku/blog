@@ -1,4 +1,7 @@
 <template><div><h1 id="浏览器从输入url发生了什么-未完" tabindex="-1"><a class="header-anchor" href="#浏览器从输入url发生了什么-未完" aria-hidden="true">#</a> 浏览器从输入url发生了什么[未完...]</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="输入的域名解析" tabindex="-1"><a class="header-anchor" href="#输入的域名解析" aria-hidden="true">#</a> 输入的域名解析</h2>
 <ol>
 <li>浏览器会对输入的url进行解析。缺的部分浏览器会尝试进行补全得到一个合法的URL地址。</li>

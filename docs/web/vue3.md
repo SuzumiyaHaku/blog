@@ -1,5 +1,10 @@
 # vue3源码[未完...]
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 《vue.js设计与实现》
 ## 模块
 带有-browser字样的esm资源是直接给<script type ="module"\>使用的

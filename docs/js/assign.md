@@ -1,4 +1,10 @@
 # Object.assign和...（展开运算符/扩展运算符）的区别 [已发帖]
+
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## 1、基础
 "..."叫展开运算符（扩展运算符）的时候，大部分情况下： 
 1、{...obj} 同 Object.assign({}, obj)  

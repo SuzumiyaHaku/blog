@@ -1,4 +1,7 @@
 <template><div><h1 id="tsconfig-json配置" tabindex="-1"><a class="header-anchor" href="#tsconfig-json配置" aria-hidden="true">#</a> tsconfig.json配置</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
 

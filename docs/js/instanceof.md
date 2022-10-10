@@ -1,4 +1,10 @@
 # instanceof [已发帖]
+
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## 1、`instanceof`操作符可以用来确定一个对象实例的原型链上是否有原型XX。
 ``` javascript
 function Foo () {

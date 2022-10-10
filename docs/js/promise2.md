@@ -1,5 +1,10 @@
 # Promise--下
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## 分析一道promise打印顺序的题
 :::: code-group
 ::: code-group-item promise

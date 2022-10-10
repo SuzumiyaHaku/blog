@@ -1,4 +1,10 @@
 # webpack
+
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## 常用loader
 - `babel-loader` 语法转换
 - `sass-loader` sass转css

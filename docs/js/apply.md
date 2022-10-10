@@ -1,5 +1,9 @@
 # call、apply
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
 ## call
 ### call的模拟实现
 基本用法

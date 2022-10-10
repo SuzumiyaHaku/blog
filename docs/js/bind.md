@@ -1,4 +1,10 @@
 # bind
+
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## js模拟实现bind
 基本的bind用法
 ```js

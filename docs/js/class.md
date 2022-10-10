@@ -1,5 +1,10 @@
 # 类
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## es6 class
 es6定义类两种方式：类声明和类表达式。
 ```js

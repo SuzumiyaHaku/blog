@@ -1,4 +1,10 @@
 # 作用域
+
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 关于活动对象AO(activation object)和变量对象VO（variables object）看我这篇文章
 [es3的Scope chain的翻译](https://www.cnblogs.com/ruoyin/p/9034294.html)
 

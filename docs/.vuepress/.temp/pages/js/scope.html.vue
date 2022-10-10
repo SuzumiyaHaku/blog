@@ -1,4 +1,7 @@
 <template><div><h1 id="作用域" tabindex="-1"><a class="header-anchor" href="#作用域" aria-hidden="true">#</a> 作用域</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <p>关于活动对象AO(activation object)和变量对象VO（variables object）看我这篇文章
 <a href="https://www.cnblogs.com/ruoyin/p/9034294.html" target="_blank" rel="noopener noreferrer">es3的Scope chain的翻译<ExternalLinkIcon/></a></p>
 <p>JavaScript高级编程第四版：</p>

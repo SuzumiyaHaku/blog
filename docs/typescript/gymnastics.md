@@ -1,5 +1,10 @@
 # ts类型体操训练
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## 切割字符串
 ### 题目
 给定一个字符串，实现类似 "ABC".split("")的功能

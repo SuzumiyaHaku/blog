@@ -1,4 +1,7 @@
 <template><div><h1 id="webpack-和-vite" tabindex="-1"><a class="header-anchor" href="#webpack-和-vite" aria-hidden="true">#</a> webpack 和 vite</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="webpack和vite两者有什么区别" tabindex="-1"><a class="header-anchor" href="#webpack和vite两者有什么区别" aria-hidden="true">#</a> webpack和vite两者有什么区别</h2>
 <p>webpack core 是一个纯打包工具（对标 Rollup），而 Vite 其实是一个更上层的工具链方案，对标的是 （webpack + 针对 web 的常用配置 + webpack-dev-server）。</p>
 <p>意思两者不是同样的东西。vite被分为cli部分和api的部分，api的部分才和webpack相似。</p>

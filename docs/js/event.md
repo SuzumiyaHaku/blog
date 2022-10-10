@@ -1,5 +1,10 @@
 # 事件循环机制/Event loop
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## macro（宏任务）和micro（微任务）
 ### 宏任务
 - [`setTimeout`](https://developer.mozilla.org/zh-CN/docs/Web/API/setTimeout)

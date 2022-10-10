@@ -1,4 +1,7 @@
 <template><div><h1 id="this" tabindex="-1"><a class="header-anchor" href="#this" aria-hidden="true">#</a> this</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="摘要" tabindex="-1"><a class="header-anchor" href="#摘要" aria-hidden="true">#</a> 摘要</h2>
 <p>this是在运行时进行绑定的，并不是在编写时绑定，它的上下文取决于函数调
 用时的各种条件。this的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式。

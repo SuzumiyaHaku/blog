@@ -1,4 +1,7 @@
 <template><div><h1 id="ts类型体操训练" tabindex="-1"><a class="header-anchor" href="#ts类型体操训练" aria-hidden="true">#</a> ts类型体操训练</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="切割字符串" tabindex="-1"><a class="header-anchor" href="#切割字符串" aria-hidden="true">#</a> 切割字符串</h2>
 <h3 id="题目" tabindex="-1"><a class="header-anchor" href="#题目" aria-hidden="true">#</a> 题目</h3>
 <p>给定一个字符串，实现类似 &quot;ABC&quot;.split(&quot;&quot;)的功能</p>

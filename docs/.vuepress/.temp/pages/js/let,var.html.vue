@@ -1,4 +1,7 @@
 <template><div><h1 id="let和var" tabindex="-1"><a class="header-anchor" href="#let和var" aria-hidden="true">#</a> let和var</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="let和var的区别" tabindex="-1"><a class="header-anchor" href="#let和var的区别" aria-hidden="true">#</a> let和var的区别</h2>
 <p>let 声明的范围是块作用域，而 var 声明的范围是函数作用域。</p>
 <div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>

@@ -1,4 +1,10 @@
 # new
+
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## 模拟实现
 先看看new是做了什么
 ```js

@@ -1,4 +1,10 @@
 # typescript基础
+
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## 参考
 - [ts官方文档 英文](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
 ## 分配率

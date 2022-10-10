@@ -1,4 +1,7 @@
 <template><div><h1 id="函数" tabindex="-1"><a class="header-anchor" href="#函数" aria-hidden="true">#</a> 函数</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="为啥需要箭头函数" tabindex="-1"><a class="header-anchor" href="#为啥需要箭头函数" aria-hidden="true">#</a> 为啥需要箭头函数</h2>
 <p>var self = this 这种解决方案圆满解决了理解和正确使用this绑定的问题，并且没有把问题过于复杂化，它使用的是我们非常熟悉的工具：词法作用域。self 只是一个key通过此法总由于和闭包进行引用 的标识符，不关心this绑定过程中发生了什么。
 人们不喜欢写冗长的东西，尤其是一遍又一遍地写。因此 ES6 的一个初衷就是帮助人们减 少重复的场景，事实上包括修复某些习惯用法的问题，this 就是其中一个。</p>

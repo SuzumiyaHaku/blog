@@ -1,5 +1,10 @@
 # OAuth2.0和JWT
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## OAuth2.0
 是目前最流行的第三方应用登录授权机制。
 

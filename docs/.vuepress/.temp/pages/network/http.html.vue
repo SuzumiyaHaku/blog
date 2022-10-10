@@ -1,4 +1,7 @@
 <template><div><h1 id="http" tabindex="-1"><a class="header-anchor" href="#http" aria-hidden="true">#</a> http</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="http1-1" tabindex="-1"><a class="header-anchor" href="#http1-1" aria-hidden="true">#</a> http1.1</h2>
 <h3 id="持久连接-persistent-connection" tabindex="-1"><a class="header-anchor" href="#持久连接-persistent-connection" aria-hidden="true">#</a> 持久连接(persistent connection)</h3>
 <p>因为TCP每次建立和断开都增加计算机资源的消耗。所以就有了持久连接技术。它的特点是，只要任意一端没有明确的提出断开连接，则保持TCP连接状态。是取代http1.0+ keep-alive的改进型设计，两者目的相同，但是持久连接的工作机制更优。</p>
@@ -154,7 +157,7 @@ HTTP/2 支持 Server-Push，相比较内联优势更大效果更好。而且内�
 <h2 id="http3-0" tabindex="-1"><a class="header-anchor" href="#http3-0" aria-hidden="true">#</a> http3.0</h2>
 <p>http2.0与http3的结构
 <img src="@source/assets/http3.png" alt="image"></p>
-<p>HTTP/3是在UDP之上构建的，HTTP/3更快，因为就像是UDP一样没有等待握手、队头阻塞。这个说法是错误的。UDP被QUIC使用，主要是因为UDP在互联网上（几乎）所有设备上能用。QUIC基本重新实现了TCP的功能。只不过这些实现，比TCP更智能，更高效。所以QUIC任然会建立连接，并具有高度复杂的握手。HTTP/3并不比HTTP/2快，因为我们把TCP换成了UDP，并重新实现了更高级版本的TCP版本，将其称为QUIC。因为想让QUIC容易部署，所以通过UDP运行它。</p>
+<p>HTTP/3是在UDP之上构建的，HTTP/3更快，因为就像是UDP一样没有等待握手、队头阻塞。这个说法是问题的。UDP被QUIC使用，主要是因为UDP在互联网上（几乎）所有设备上能用。QUIC基本重新实现了TCP的功能。只不过这些实现，比TCP更智能，更高效。所以QUIC任然会建立连接，并具有高度复杂的握手。HTTP/3并不比HTTP/2快，因为我们把TCP换成了UDP，并重新实现了更高级版本的TCP版本，将其称为QUIC。因为想让QUIC容易部署，所以通过UDP运行它。</p>
 <p>QUIC已经深度集成TLS1.3了。</p>
 <div class="custom-container tip"><p class="custom-container-title">关键词</p>
 <p><code v-pre>RTT(Round-Trip Time)</code>: 往返时延。</p>

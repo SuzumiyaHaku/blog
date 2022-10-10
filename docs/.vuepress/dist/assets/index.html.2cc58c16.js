@@ -1,1 +1,0 @@
-import{_ as a,o as t,c as d,a as e,b as o}from"./app.4642679c.js";const r={},s=e("h1",{id:"dashboard",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#dashboard","aria-hidden":"true"},"#"),o(" dashboard")],-1),c=[s];function n(_,h){return t(),d("div",null,c)}const l=a(r,[["render",n],["__file","index.html.vue"]]);export{l as default};

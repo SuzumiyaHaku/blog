@@ -1,4 +1,7 @@
 <template><div><h1 id="xss和csrf" tabindex="-1"><a class="header-anchor" href="#xss和csrf" aria-hidden="true">#</a> XSS和CSRF</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="xss" tabindex="-1"><a class="header-anchor" href="#xss" aria-hidden="true">#</a> XSS</h2>
 <h3 id="简介" tabindex="-1"><a class="header-anchor" href="#简介" aria-hidden="true">#</a> 简介</h3>
 <p>跨站脚本攻击，英文全称是Cross Site Script，本来缩写是CSS，但是为了和层叠样式表

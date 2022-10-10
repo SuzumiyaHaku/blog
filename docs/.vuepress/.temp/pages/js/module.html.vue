@@ -1,4 +1,7 @@
 <template><div><h1 id="commonjs、amd、cmd、esm、umd" tabindex="-1"><a class="header-anchor" href="#commonjs、amd、cmd、esm、umd" aria-hidden="true">#</a> CommonJS、AMD、CMD、ESM、UMD</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <p>《深入浅出node.js》模块机制部分的阅读笔记</p>
 <h2 id="commonjs" tabindex="-1"><a class="header-anchor" href="#commonjs" aria-hidden="true">#</a> CommonJS</h2>
 <p>在模块中，上下文提供require()方法来引入外部模块。对应引入的功能，上下文提供了

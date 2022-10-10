@@ -1,4 +1,7 @@
 <template><div><h1 id="bind" tabindex="-1"><a class="header-anchor" href="#bind" aria-hidden="true">#</a> bind</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="js模拟实现bind" tabindex="-1"><a class="header-anchor" href="#js模拟实现bind" aria-hidden="true">#</a> js模拟实现bind</h2>
 <p>基本的bind用法</p>
 <div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token punctuation">{</span>

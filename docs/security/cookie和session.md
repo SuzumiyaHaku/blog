@@ -1,4 +1,10 @@
 # cookie 和 session
+
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## cookie
 cookie两类：会话cookie和持久cookie。用户退出浏览器，会话cookie就被删除。持久cookie生存时间长一些，它们存在硬盘。两者唯一的区别就是它们的过期时间。
 cookie本质就是一种有过期时间的存储方式，一个cookie只能存4kb。

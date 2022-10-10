@@ -1,4 +1,10 @@
 # 跨域请求
+
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## 描述
 CORS是一个W3C标准，全称是"跨域资源共享"（Cross-origin resource sharing）。是浏览器的资源策略之一。主要是以下的http请求头和响应头字段
 1. `Access-Control-Allow-Origin：* ` 该字段是必须的。它的值要么是请求时Origin字段的值，要么是一个*，表示接受任意域名的请求。

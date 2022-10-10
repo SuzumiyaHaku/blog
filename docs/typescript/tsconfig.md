@@ -1,5 +1,10 @@
 # tsconfig.json配置
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ```json
 {
   "compilerOptions": {

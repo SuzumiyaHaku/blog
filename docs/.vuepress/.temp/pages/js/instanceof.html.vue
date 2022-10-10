@@ -1,4 +1,7 @@
 <template><div><h1 id="instanceof-已发帖" tabindex="-1"><a class="header-anchor" href="#instanceof-已发帖" aria-hidden="true">#</a> instanceof [已发帖]</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="_1、instanceof操作符可以用来确定一个对象实例的原型链上是否有原型xx。" tabindex="-1"><a class="header-anchor" href="#_1、instanceof操作符可以用来确定一个对象实例的原型链上是否有原型xx。" aria-hidden="true">#</a> 1、<code v-pre>instanceof</code>操作符可以用来确定一个对象实例的原型链上是否有原型XX。</h2>
 <div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">Foo</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token punctuation">}</span>

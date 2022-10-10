@@ -1,4 +1,7 @@
 <template><div><h1 id="object-assign和-展开运算符-扩展运算符-的区别-已发帖" tabindex="-1"><a class="header-anchor" href="#object-assign和-展开运算符-扩展运算符-的区别-已发帖" aria-hidden="true">#</a> Object.assign和...（展开运算符/扩展运算符）的区别 [已发帖]</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="_1、基础" tabindex="-1"><a class="header-anchor" href="#_1、基础" aria-hidden="true">#</a> 1、基础</h2>
 <p>&quot;...&quot;叫展开运算符（扩展运算符）的时候，大部分情况下：
 1、{...obj} 同 Object.assign({}, obj)<br>

@@ -1,5 +1,10 @@
 # let和var
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 ## let和var的区别
 let 声明的范围是块作用域，而 var 声明的范围是函数作用域。
 ```js

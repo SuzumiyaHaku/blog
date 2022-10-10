@@ -1,4 +1,7 @@
 <template><div><h1 id="call、apply" tabindex="-1"><a class="header-anchor" href="#call、apply" aria-hidden="true">#</a> call、apply</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="call" tabindex="-1"><a class="header-anchor" href="#call" aria-hidden="true">#</a> call</h2>
 <h3 id="call的模拟实现" tabindex="-1"><a class="header-anchor" href="#call的模拟实现" aria-hidden="true">#</a> call的模拟实现</h3>
 <p>基本用法</p>

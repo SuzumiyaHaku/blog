@@ -1,4 +1,7 @@
 <template><div><h1 id="tcp-udp" tabindex="-1"><a class="header-anchor" href="#tcp-udp" aria-hidden="true">#</a> TCP/UDP</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="tcp的可靠性" tabindex="-1"><a class="header-anchor" href="#tcp的可靠性" aria-hidden="true">#</a> TCP的可靠性</h2>
 <p>尽管TCP和UDP都使用相同的网络层（IP），TCP却向应用层提供与UDP完全不同的服务。
 TCP提供一种面向连接的、可靠的字节流服务。</p>

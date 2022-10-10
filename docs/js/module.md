@@ -1,5 +1,10 @@
 # CommonJS、AMD、CMD、ESM、UMD
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
+
+
 《深入浅出node.js》模块机制部分的阅读笔记
 ## CommonJS
 在模块中，上下文提供require()方法来引入外部模块。对应引入的功能，上下文提供了

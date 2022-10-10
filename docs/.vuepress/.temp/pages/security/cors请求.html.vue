@@ -1,4 +1,7 @@
 <template><div><h1 id="跨域请求" tabindex="-1"><a class="header-anchor" href="#跨域请求" aria-hidden="true">#</a> 跨域请求</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="描述" tabindex="-1"><a class="header-anchor" href="#描述" aria-hidden="true">#</a> 描述</h2>
 <p>CORS是一个W3C标准，全称是&quot;跨域资源共享&quot;（Cross-origin resource sharing）。是浏览器的资源策略之一。主要是以下的http请求头和响应头字段</p>
 <ol>

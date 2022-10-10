@@ -1,4 +1,7 @@
 <template><div><h1 id="babel" tabindex="-1"><a class="header-anchor" href="#babel" aria-hidden="true">#</a> babel</h1>
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 <h2 id="参考" tabindex="-1"><a class="header-anchor" href="#参考" aria-hidden="true">#</a> 参考</h2>
 <ul>
 <li><a href="https://www.babeljs.cn/" target="_blank" rel="noopener noreferrer">babel<ExternalLinkIcon/></a></li>
