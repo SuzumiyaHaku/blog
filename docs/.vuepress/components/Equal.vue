@@ -228,7 +228,6 @@ ul {
   .container {
     display: grid;
     grid-row-gap: 1px;
-    grid-column-gap: 1px;
 
     .row {
       display: flex;

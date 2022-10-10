@@ -2,8 +2,8 @@ import { defaultTheme, defineUserConfig } from 'vuepress'
 import { searchPlugin } from '@vuepress/plugin-search'
 export default defineUserConfig({
   lang: 'zh-CN',
-  title: '哇',
-  description: '哇',
+  title: 'Dragon的博客',
+  description: 'Dragon的博客',
   base: '/',
   locales: {
     '/': {

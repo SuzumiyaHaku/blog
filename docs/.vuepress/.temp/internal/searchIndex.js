@@ -1361,373 +1361,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "排序",
-    "headers": [],
-    "path": "/structure/sort.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "typescript基础",
-    "headers": [
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "分配率",
-        "slug": "分配率",
-        "link": "#分配率",
-        "children": [
-          {
-            "level": 3,
-            "title": "去掉分配律的方式",
-            "slug": "去掉分配律的方式",
-            "link": "#去掉分配律的方式",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "递归",
-        "slug": "递归",
-        "link": "#递归",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "笛卡尔积",
-        "slug": "笛卡尔积",
-        "link": "#笛卡尔积",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "枚举类型",
-        "slug": "枚举类型",
-        "link": "#枚举类型",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "函数重载",
-        "slug": "函数重载",
-        "link": "#函数重载",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Never类型",
-        "slug": "never类型",
-        "link": "#never类型",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "unknown",
-        "slug": "unknown",
-        "link": "#unknown",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "元组",
-        "slug": "元组",
-        "link": "#元组",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "泛型",
-        "slug": "泛型",
-        "link": "#泛型",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "in",
-        "slug": "in",
-        "link": "#in",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "infer",
-        "slug": "infer",
-        "link": "#infer",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "extends",
-        "slug": "extends",
-        "link": "#extends",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "ThisType",
-        "slug": "thistype",
-        "link": "#thistype",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "单词字符大小写操作",
-        "slug": "单词字符大小写操作",
-        "link": "#单词字符大小写操作",
-        "children": [
-          {
-            "level": 3,
-            "title": "Uppercase",
-            "slug": "uppercase",
-            "link": "#uppercase",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "lowercase",
-            "slug": "lowercase",
-            "link": "#lowercase",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Capitalize",
-            "slug": "capitalize",
-            "link": "#capitalize",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Uncapitalize",
-            "slug": "uncapitalize",
-            "link": "#uncapitalize",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/typescript/base.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "ts类型体操训练",
-    "headers": [
-      {
-        "level": 2,
-        "title": "切割字符串",
-        "slug": "切割字符串",
-        "link": "#切割字符串",
-        "children": [
-          {
-            "level": 3,
-            "title": "题目",
-            "slug": "题目",
-            "link": "#题目",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "加法",
-        "slug": "加法",
-        "link": "#加法",
-        "children": [
-          {
-            "level": 3,
-            "title": "题目",
-            "slug": "题目-1",
-            "link": "#题目-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "提示",
-            "slug": "提示",
-            "link": "#提示",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "减法",
-        "slug": "减法",
-        "link": "#减法",
-        "children": [
-          {
-            "level": 3,
-            "title": "题目",
-            "slug": "题目-2",
-            "link": "#题目-2",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "提示",
-            "slug": "提示-1",
-            "link": "#提示-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "两数和",
-        "slug": "两数和",
-        "link": "#两数和",
-        "children": [
-          {
-            "level": 3,
-            "title": "题目描述",
-            "slug": "题目描述",
-            "link": "#题目描述",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "提示",
-            "slug": "提示-2",
-            "link": "#提示-2",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "转驼峰",
-        "slug": "转驼峰",
-        "link": "#转驼峰",
-        "children": [
-          {
-            "level": 3,
-            "title": "题目描述",
-            "slug": "题目描述-1",
-            "link": "#题目描述-1",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/typescript/gymnastics.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "工具类的模拟实现",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Partial<Type>",
-        "slug": "partial-type",
-        "link": "#partial-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Required<Type>",
-        "slug": "required-type",
-        "link": "#required-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Readonly<Type>",
-        "slug": "readonly-type",
-        "link": "#readonly-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Record<Keys, Type>",
-        "slug": "record-keys-type",
-        "link": "#record-keys-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Pick<Type, Keys>",
-        "slug": "pick-type-keys",
-        "link": "#pick-type-keys",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Omit<Type, Keys>",
-        "slug": "omit-type-keys",
-        "link": "#omit-type-keys",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Exclude<UnionType, ExcludedMembers>",
-        "slug": "exclude-uniontype-excludedmembers",
-        "link": "#exclude-uniontype-excludedmembers",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Extract<Type, Union>",
-        "slug": "extract-type-union",
-        "link": "#extract-type-union",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "NonNullable<Type>",
-        "slug": "nonnullable-type",
-        "link": "#nonnullable-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Parameters<Type>",
-        "slug": "parameters-type",
-        "link": "#parameters-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "ConstructorParameters<Type>",
-        "slug": "constructorparameters-type",
-        "link": "#constructorparameters-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "ReturnType<Type>",
-        "slug": "returntype-type",
-        "link": "#returntype-type",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Readonly<Type>",
-        "slug": "readonly-type-1",
-        "link": "#readonly-type-1",
-        "children": []
-      }
-    ],
-    "path": "/typescript/polyfill.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "tsconfig.json配置",
-    "headers": [],
-    "path": "/typescript/tsconfig.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "babel",
     "headers": [
       {
@@ -2342,6 +1975,373 @@ export const searchIndex = [
       }
     ],
     "path": "/web/webpack2.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "排序",
+    "headers": [],
+    "path": "/structure/sort.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "typescript基础",
+    "headers": [
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "分配率",
+        "slug": "分配率",
+        "link": "#分配率",
+        "children": [
+          {
+            "level": 3,
+            "title": "去掉分配律的方式",
+            "slug": "去掉分配律的方式",
+            "link": "#去掉分配律的方式",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "递归",
+        "slug": "递归",
+        "link": "#递归",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "笛卡尔积",
+        "slug": "笛卡尔积",
+        "link": "#笛卡尔积",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "枚举类型",
+        "slug": "枚举类型",
+        "link": "#枚举类型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "函数重载",
+        "slug": "函数重载",
+        "link": "#函数重载",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Never类型",
+        "slug": "never类型",
+        "link": "#never类型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "unknown",
+        "slug": "unknown",
+        "link": "#unknown",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "元组",
+        "slug": "元组",
+        "link": "#元组",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "泛型",
+        "slug": "泛型",
+        "link": "#泛型",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "in",
+        "slug": "in",
+        "link": "#in",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "infer",
+        "slug": "infer",
+        "link": "#infer",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "extends",
+        "slug": "extends",
+        "link": "#extends",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "ThisType",
+        "slug": "thistype",
+        "link": "#thistype",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "单词字符大小写操作",
+        "slug": "单词字符大小写操作",
+        "link": "#单词字符大小写操作",
+        "children": [
+          {
+            "level": 3,
+            "title": "Uppercase",
+            "slug": "uppercase",
+            "link": "#uppercase",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "lowercase",
+            "slug": "lowercase",
+            "link": "#lowercase",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Capitalize",
+            "slug": "capitalize",
+            "link": "#capitalize",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Uncapitalize",
+            "slug": "uncapitalize",
+            "link": "#uncapitalize",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/typescript/base.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "ts类型体操训练",
+    "headers": [
+      {
+        "level": 2,
+        "title": "切割字符串",
+        "slug": "切割字符串",
+        "link": "#切割字符串",
+        "children": [
+          {
+            "level": 3,
+            "title": "题目",
+            "slug": "题目",
+            "link": "#题目",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "加法",
+        "slug": "加法",
+        "link": "#加法",
+        "children": [
+          {
+            "level": 3,
+            "title": "题目",
+            "slug": "题目-1",
+            "link": "#题目-1",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "提示",
+            "slug": "提示",
+            "link": "#提示",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "减法",
+        "slug": "减法",
+        "link": "#减法",
+        "children": [
+          {
+            "level": 3,
+            "title": "题目",
+            "slug": "题目-2",
+            "link": "#题目-2",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "提示",
+            "slug": "提示-1",
+            "link": "#提示-1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "两数和",
+        "slug": "两数和",
+        "link": "#两数和",
+        "children": [
+          {
+            "level": 3,
+            "title": "题目描述",
+            "slug": "题目描述",
+            "link": "#题目描述",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "提示",
+            "slug": "提示-2",
+            "link": "#提示-2",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "转驼峰",
+        "slug": "转驼峰",
+        "link": "#转驼峰",
+        "children": [
+          {
+            "level": 3,
+            "title": "题目描述",
+            "slug": "题目描述-1",
+            "link": "#题目描述-1",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/typescript/gymnastics.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "工具类的模拟实现",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Partial<Type>",
+        "slug": "partial-type",
+        "link": "#partial-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Required<Type>",
+        "slug": "required-type",
+        "link": "#required-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Readonly<Type>",
+        "slug": "readonly-type",
+        "link": "#readonly-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Record<Keys, Type>",
+        "slug": "record-keys-type",
+        "link": "#record-keys-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Pick<Type, Keys>",
+        "slug": "pick-type-keys",
+        "link": "#pick-type-keys",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Omit<Type, Keys>",
+        "slug": "omit-type-keys",
+        "link": "#omit-type-keys",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Exclude<UnionType, ExcludedMembers>",
+        "slug": "exclude-uniontype-excludedmembers",
+        "link": "#exclude-uniontype-excludedmembers",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Extract<Type, Union>",
+        "slug": "extract-type-union",
+        "link": "#extract-type-union",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "NonNullable<Type>",
+        "slug": "nonnullable-type",
+        "link": "#nonnullable-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Parameters<Type>",
+        "slug": "parameters-type",
+        "link": "#parameters-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "ConstructorParameters<Type>",
+        "slug": "constructorparameters-type",
+        "link": "#constructorparameters-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "ReturnType<Type>",
+        "slug": "returntype-type",
+        "link": "#returntype-type",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Readonly<Type>",
+        "slug": "readonly-type-1",
+        "link": "#readonly-type-1",
+        "children": []
+      }
+    ],
+    "path": "/typescript/polyfill.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "tsconfig.json配置",
+    "headers": [],
+    "path": "/typescript/tsconfig.html",
     "pathLocale": "/",
     "extraFields": []
   },
