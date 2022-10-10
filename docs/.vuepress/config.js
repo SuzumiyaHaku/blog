@@ -75,11 +75,11 @@ export default defineUserConfig({
                 '/network/tcp,udp.md',
               ]
             },
-            {
-              text: '数据结构与算法', children: [
-                '/structure/sort.md',
-              ]
-            },
+            // {
+            //   text: '数据结构与算法', children: [
+            //     '/structure/sort.md',
+            //   ]
+            // },
             {
               text: 'java', children: [
                 '/java/springboot.md',
