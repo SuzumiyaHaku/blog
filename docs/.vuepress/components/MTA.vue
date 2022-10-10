@@ -3,7 +3,7 @@
 <script setup>
 import { onMounted } from 'vue'
 onMounted(() => {
-  if(import.meta.env.DEV) return;
+  // if(import.meta.env.DEV) return;
   let { origin, pathname } = window.location
   let key = btoa(window.location.pathname)
   let value = sessionStorage.getItem(key)
@@ -13,7 +13,7 @@ onMounted(() => {
     }
   } else {
     sessionStorage.setItem(key, new Date().getTime())
-    fetch(`//www.suzumiya.club:3636/mta/setCount?origin=${origin}&pathname=${pathname}`)
+    fetch(`//www.suzumiya.club:6936/mta/setCount?origin=${origin}&pathname=${pathname}`)
   }
 })
 </script>
