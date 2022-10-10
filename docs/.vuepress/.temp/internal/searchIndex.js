@@ -1,6 +1,6 @@
 export const searchIndex = [
   {
-    "title": "blog",
+    "title": "dashboard",
     "headers": [],
     "path": "/",
     "pathLocale": "/",

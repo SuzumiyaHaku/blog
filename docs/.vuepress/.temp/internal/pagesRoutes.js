@@ -1,5 +1,5 @@
 export const pagesRoutes = [
-  ["v-8daa1a0e","/",{"title":"blog"},["/index.html","/readme.md"]],
+  ["v-8daa1a0e","/",{"title":"dashboard"},["/index.html","/readme.md"]],
   ["v-1aeda846","/java/springboot.html",{"title":"springboot"},["/java/springboot","/java/springboot.md"]],
   ["v-37e22f50","/js/apply.html",{"title":"call、apply"},["/js/apply","/js/apply.md"]],
   ["v-9cb8e686","/js/assign.html",{"title":"Object.assign和...（展开运算符/扩展运算符）的区别 [已发帖]"},["/js/assign","/js/assign.md"]],
