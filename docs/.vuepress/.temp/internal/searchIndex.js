@@ -7,6 +7,35 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "springboot",
+    "headers": [
+      {
+        "level": 2,
+        "title": "项目结构",
+        "slug": "项目结构",
+        "link": "#项目结构",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "pom.xml",
+        "slug": "pom-xml",
+        "link": "#pom-xml",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/java/springboot.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "分形图形",
     "headers": [
       {
@@ -21,14 +50,51 @@ export const searchIndex = [
         "title": "蕨类植物叶子(随机法)",
         "slug": "蕨类植物叶子-随机法",
         "link": "#蕨类植物叶子-随机法",
-        "children": []
+        "children": [
+          {
+            "level": 3,
+            "title": "方程",
+            "slug": "方程",
+            "link": "#方程",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "由上矩阵方程得到：",
+            "slug": "由上矩阵方程得到",
+            "link": "#由上矩阵方程得到",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Canvas绘制",
+            "slug": "canvas绘制",
+            "link": "#canvas绘制",
+            "children": []
+          }
+        ]
       },
       {
         "level": 2,
-        "title": "曼德博集合（Mandelbrot set）（矩阵）",
-        "slug": "曼德博集合-mandelbrot-set-矩阵",
-        "link": "#曼德博集合-mandelbrot-set-矩阵",
-        "children": []
+        "title": "曼德博集合（Mandelbrot set）",
+        "slug": "曼德博集合-mandelbrot-set",
+        "link": "#曼德博集合-mandelbrot-set",
+        "children": [
+          {
+            "level": 3,
+            "title": "复数二次多项式",
+            "slug": "复数二次多项式",
+            "link": "#复数二次多项式",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Canvas绘制",
+            "slug": "canvas绘制-1",
+            "link": "#canvas绘制-1",
+            "children": []
+          }
+        ]
       }
     ],
     "path": "/graphics/fractal.html",
@@ -314,35 +380,6 @@ export const searchIndex = [
       }
     ],
     "path": "/network/tcp,udp.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "springboot",
-    "headers": [
-      {
-        "level": 2,
-        "title": "项目结构",
-        "slug": "项目结构",
-        "link": "#项目结构",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "pom.xml",
-        "slug": "pom-xml",
-        "link": "#pom-xml",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/java/springboot.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -2262,9 +2299,9 @@ export const searchIndex = [
           },
           {
             "level": 3,
-            "title": "源码",
-            "slug": "源码",
-            "link": "#源码",
+            "title": "slot源码",
+            "slug": "slot源码",
+            "link": "#slot源码",
             "children": []
           }
         ]
@@ -2602,16 +2639,3 @@ export const searchIndex = [
     "extraFields": []
   }
 ]
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updateSearchIndex) {
-    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ searchIndex }) => {
-    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
-  })
-}

@@ -1,9 +1,9 @@
 export const pagesRoutes = [
   ["v-8daa1a0e","/",{"title":""},["/index.html","/readme.md"]],
+  ["v-1aeda846","/java/springboot.html",{"title":"springboot"},["/java/springboot","/java/springboot.md"]],
   ["v-5424c833","/graphics/fractal.html",{"title":"分形图形"},["/graphics/fractal","/graphics/fractal.md"]],
   ["v-286d6e52","/network/http.html",{"title":"http"},["/network/http","/network/http.md"]],
   ["v-27d94446","/network/tcp,udp.html",{"title":"TCP/UDP"},["/network/tcp,udp","/network/tcp,udp.md"]],
-  ["v-1aeda846","/java/springboot.html",{"title":"springboot"},["/java/springboot","/java/springboot.md"]],
   ["v-37e22f50","/js/apply.html",{"title":"call、apply"},["/js/apply","/js/apply.md"]],
   ["v-9cb8e686","/js/assign.html",{"title":"Object.assign和...（展开运算符/扩展运算符）的区别 [已发帖]"},["/js/assign","/js/assign.md"]],
   ["v-553dea22","/js/bind.html",{"title":"bind"},["/js/bind","/js/bind.md"]],
