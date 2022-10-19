@@ -2,7 +2,6 @@
 <ClientOnly>
   <MTA/>
 </ClientOnly>
-<p>《深入浅出node.js》模块机制部分的阅读笔记</p>
 <h2 id="commonjs" tabindex="-1"><a class="header-anchor" href="#commonjs" aria-hidden="true">#</a> CommonJS</h2>
 <p>在模块中，上下文提供require()方法来引入外部模块。对应引入的功能，上下文提供了
 exports对象用于导出当前模块的方法或者变量，并且它是唯导出的出口。在模块中，还存在

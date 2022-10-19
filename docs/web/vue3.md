@@ -4,8 +4,45 @@
   <MTA/>
 </ClientOnly>
 
+## 源码结构
+vue3是一个pnpm的[Monorepo项目](https://pnpm.io/zh/pnpm-workspace_yaml)
 
-《vue.js设计与实现》
+```txt
+.
+├── packages              里面是Monorepo工程里的子项目
+│   ├── compiler-core         模板解析核心，与具体环境无关，主要生成 AST，并根据 AST 生成 render() 函数
+│   ├── compiler-dom          浏览器环境中的模板解析逻辑，如处理 HTML 转义、处理 v-model 等指令
+│   ├── compiler-sfc          负责解析 Vue 单文件组件
+│   ├── compiler-ssr          服务端渲染环境中的模板解析逻辑
+│   ├── reactivity            响应式数据相关逻辑
+│   ├── reactivity-transform  vue的rfc实验性功能（不稳定的功能块，可能会被移除）
+│   ├── runtime-core          与平台无关的运行时核心
+│   ├── runtime-dom           浏览器环境中的运行时核心
+│   ├── runtime-test          用于自动化测试的
+│   ├── server-renderer       用于 SSR 服务端渲染的
+│   ├── sfc-playground        vue单文件的运行测试
+│   ├── shared                一些各个包之间共享的公共工具
+│   ├── size-check            一个用于测试 tree shaking 后代码大小的示例库
+│   ├── template-explorer     用于检查模板编译后的输出代码
+│   ├── vue                   Vue3 的主要入口，包含不同版本的包
+│   └── vue-compat            Vue2迁移Vue3用的兼容
+├── scripts
+├── test-dts
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml       Monorepo项目所需
+├── rollup.config.js
+├── api-extractor.json
+├── jest.config.js
+├── netlify.toml
+├── BACKERS.md
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── SECURITY.md
+├── package.json
+└── tsconfig.json
+```
+
 ## 模块
 带有-browser字样的esm资源是直接给<script type ="module"\>使用的
 带有-bundler是给打包工具使用的
@@ -271,6 +308,202 @@ effect(() => {
   let temp = p.a
 });
 p.a = 233
+```
+
+## 插槽
+
+### 插槽的本质和要注意的问题
+对于一个简单的插槽而言，`插槽`的本质就是一个当如下代码中`Comp`组件渲染执行时，执行的一个函数，这个函数会返回`插槽`的内容，并在`Comp`里显示。
+```vue
+<template>
+ <Comp>
+   <template #header>Header</template>
+ </Comp>
+</template>
+```
+它会被编译为
+```ts{7-9}
+import { createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from "vue"
+
+export function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_Comp = _resolveComponent("Comp")
+
+  return (_openBlock(), _createBlock(_component_Comp, null, {
+    header: _withCtx(() => [
+      _createTextVNode("Header")
+    ]),
+    _: 1 /* STABLE */
+  }))
+}
+```
+当该插槽存在v-if或v-for时，vue会认为它是一个`DYNAMIC_SLOTS`，这里我们暂且称为`异步插槽`。
+```vue
+<template>
+ <Comp>
+   <template v-if="show" #header>Header</template>
+ </Comp>
+</template>
+```
+`异步插槽`会被编译为
+```js{7-15}
+import { createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createSlots as _createSlots, openBlock as _openBlock, createBlock as _createBlock } from "vue"
+
+export function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_Comp = _resolveComponent("Comp")
+
+  return (_openBlock(), _createBlock(_component_Comp, null, _createSlots({ _: 2 /* DYNAMIC */ }, [
+    (_ctx.show)
+      ? {
+          name: "header",
+          fn: _withCtx(() => [
+            _createTextVNode("Header")
+          ]),
+          key: "0"
+        }
+      : undefined
+  ]), 1024 /* DYNAMIC_SLOTS */))
+}
+```
+如果show变量所在的组件有数据发生了变化，则会触发该render的重新执行。那么这时候Comp组件就会被重新渲染，即使Comp组件里没有任何数据被改变。要解决这个问题，vue为我们提供了v-memo的指令，传入依赖项，这样就可以避免Comp的重新渲染。
+```vue
+<template>
+  <Comp v-memo="[show]">
+    <template v-if="show" #header>Header</template>
+  </Comp>
+</template>
+```
+使用v-memo后，Comp组件会被用`_withMemo`进行包裹，初次运行得到结果后，下一次的更新就要进行依赖比较再更新，这里`v-memo`很像是react的`useMemo(() => (show && <>Header</>), [show])`的感觉。
+```js{6}
+import { createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createSlots as _createSlots, createVNode as _createVNode, withMemo as _withMemo } from "vue"
+
+export function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_Comp = _resolveComponent("Comp")
+
+  return _withMemo([_ctx.show], () => _createVNode(_component_Comp, null, _createSlots({ _: 2 /* DYNAMIC */ }, [
+    (_ctx.show)
+      ? {
+          name: "header",
+          fn: _withCtx(() => [
+            _createTextVNode("Header")
+          ]),
+          key: "0"
+        }
+      : undefined
+  ]), 1024 /* DYNAMIC_SLOTS */), _cache, 0)
+}
+```
+当然解决这个问题，除了v-memo外，我们还有种方法，那就是让其需要v-if隐藏的部分变成一个节点或者组件。
+```vue
+<template>
+  <Comp>
+    <template #header>
+      <template v-if="show">
+        Header
+      </template>
+    </template>
+  </Comp>
+</template>
+```
+解析得到的结果
+```js
+import { createTextVNode as _createTextVNode, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createBlock as _createBlock } from "vue"
+
+export function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_Comp = _resolveComponent("Comp")
+
+  return (_openBlock(), _createBlock(_component_Comp, null, {
+    header: _withCtx(() => [
+      (_ctx.show)
+        ? (_openBlock(), _createElementBlock(_Fragment, { key: 0 }, [
+            _createTextVNode(" Header ")
+          ], 64 /* STABLE_FRAGMENT */))
+        : _createCommentVNode("v-if", true)
+    ]),
+    _: 1 /* STABLE */
+  }))
+}
+```
+这是什么原理呢？这是因为上面讲过当插槽存在v-if或者v-for的时候才会被解析为一个`DYNAMIC_SLOTS`。如果该插槽html上不存在v-if或v-for，vue模板解析的时候，就不会给解析为一个`DYNAMIC_SLOTS`。
+
+上述方法需要vue版本为3.2.40以上
+### slot源码
+解析模板字符串的时候，关于是插槽的时候判断是否是异步的源码, 在`buildSlots`函数里的判断，找到if或者for都会被直接设置为`DYNAMIC_SLOTS`。
+
+vue3/core/packages/compiler-core/src/transforms/vSlot.ts
+```js
+  /// ...
+  if ((vIf = findDir(slotElement, 'if'))) {
+    hasDynamicSlots = true
+    ///...
+  } 
+  ///...
+  else if ((vFor = findDir(slotElement, 'for'))) {
+    hasDynamicSlots = true
+  }
+
+  /// ...
+```
+
+对于_createSlot函数，第一个参数传入静态插槽，第二个参数会传入如下`异步插槽`的代码。传入
+```js
+{
+  name: "header",
+  fn: _withCtx(() => [
+    _createTextVNode("Header")
+  ]),
+  key: "0"
+}
+```
+有key的存在时，则该`异步插槽`函数会被多包装一层，以延迟调用，没有的话则不需要包装。
+
+vue3/core/packages/runtime-core/src/helpers/createSlots.ts
+```js{22-30}
+/**
+ * Compiler runtime helper for creating dynamic slots object
+ * @private
+ */
+export function createSlots(
+  slots: Record<string, SSRSlot>,
+  dynamicSlots: (
+    | CompiledSlotDescriptor
+    | CompiledSlotDescriptor[]
+    | undefined
+  )[]
+): Record<string, SSRSlot> {
+  for (let i = 0; i < dynamicSlots.length; i++) {
+    const slot = dynamicSlots[i]
+    // array of dynamic slot generated by <template v-for="..." #[...]>
+    if (isArray(slot)) {
+      for (let j = 0; j < slot.length; j++) {
+        slots[slot[j].name] = slot[j].fn
+      }
+    } else if (slot) {
+      // conditional single slot generated by <template v-if="..." #foo>
+      slots[slot.name] = slot.key
+        ? (...args: any[]) => {
+            const res = slot.fn(...args)
+            // attach branch key so each conditional branch is considered a
+            // different fragment
+            if (res) (res as any).key = slot.key
+            return res
+          }
+        : slot.fn
+    }
+  }
+  return slots
+}
+```
+
+如下代码会在`shouldUpdateComponent`函数里判断是否需要更新，由于被编译为了`DYNAMIC_SLOTS`。所以会直接返回true，强制更新。
+vue3/core/packages/runtime-core/src/componentRenderUtils.ts
+```js{23}
+  /// ...
+  if (patchFlag & PatchFlags.DYNAMIC_SLOTS) {
+    // slot content that references values that might have changed,
+    // e.g. in a v-for
+    return true
+  }
+  /// ...
 ```
 
 ## ref和reactive的区别

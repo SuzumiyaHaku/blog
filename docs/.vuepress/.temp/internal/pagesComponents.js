@@ -3,6 +3,12 @@ import { defineAsyncComponent } from 'vue'
 export const pagesComponents = {
   // path: /
   "v-8daa1a0e": defineAsyncComponent(() => import(/* webpackChunkName: "v-8daa1a0e" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/index.html.vue")),
+  // path: /graphics/fractal.html
+  "v-5424c833": defineAsyncComponent(() => import(/* webpackChunkName: "v-5424c833" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/graphics/fractal.html.vue")),
+  // path: /network/http.html
+  "v-286d6e52": defineAsyncComponent(() => import(/* webpackChunkName: "v-286d6e52" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/network/http.html.vue")),
+  // path: /network/tcp,udp.html
+  "v-27d94446": defineAsyncComponent(() => import(/* webpackChunkName: "v-27d94446" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/network/tcp,udp.html.vue")),
   // path: /java/springboot.html
   "v-1aeda846": defineAsyncComponent(() => import(/* webpackChunkName: "v-1aeda846" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/java/springboot.html.vue")),
   // path: /js/apply.html
@@ -35,10 +41,6 @@ export const pagesComponents = {
   "v-5953e59c": defineAsyncComponent(() => import(/* webpackChunkName: "v-5953e59c" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/js/scope.html.vue")),
   // path: /js/this.html
   "v-292d95a4": defineAsyncComponent(() => import(/* webpackChunkName: "v-292d95a4" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/js/this.html.vue")),
-  // path: /network/http.html
-  "v-286d6e52": defineAsyncComponent(() => import(/* webpackChunkName: "v-286d6e52" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/network/http.html.vue")),
-  // path: /network/tcp,udp.html
-  "v-27d94446": defineAsyncComponent(() => import(/* webpackChunkName: "v-27d94446" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/network/tcp,udp.html.vue")),
   // path: /security/cookie%E5%92%8Csession.html
   "v-23e57ea0": defineAsyncComponent(() => import(/* webpackChunkName: "v-23e57ea0" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/security/cookie和session.html.vue")),
   // path: /security/cors%E8%AF%B7%E6%B1%82.html
@@ -47,6 +49,8 @@ export const pagesComponents = {
   "v-4977c126": defineAsyncComponent(() => import(/* webpackChunkName: "v-4977c126" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/security/oauth2.0和jwt.html.vue")),
   // path: /security/xss%E4%B8%8Ecsrf.html
   "v-bfe3a3a8": defineAsyncComponent(() => import(/* webpackChunkName: "v-bfe3a3a8" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/security/xss与csrf.html.vue")),
+  // path: /structure/sort.html
+  "v-9f8f2674": defineAsyncComponent(() => import(/* webpackChunkName: "v-9f8f2674" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/structure/sort.html.vue")),
   // path: /typescript/base.html
   "v-1374c017": defineAsyncComponent(() => import(/* webpackChunkName: "v-1374c017" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/typescript/base.html.vue")),
   // path: /typescript/gymnastics.html
@@ -55,10 +59,10 @@ export const pagesComponents = {
   "v-71704ed9": defineAsyncComponent(() => import(/* webpackChunkName: "v-71704ed9" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/typescript/polyfill.html.vue")),
   // path: /typescript/tsconfig.html
   "v-469f4ee7": defineAsyncComponent(() => import(/* webpackChunkName: "v-469f4ee7" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/typescript/tsconfig.html.vue")),
-  // path: /structure/sort.html
-  "v-9f8f2674": defineAsyncComponent(() => import(/* webpackChunkName: "v-9f8f2674" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/structure/sort.html.vue")),
   // path: /web/babel.html
   "v-af3277fa": defineAsyncComponent(() => import(/* webpackChunkName: "v-af3277fa" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/web/babel.html.vue")),
+  // path: /web/
+  "v-744e6dd4": defineAsyncComponent(() => import(/* webpackChunkName: "v-744e6dd4" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/web/index.html.vue")),
   // path: /web/react-hooks.html
   "v-0ec3220b": defineAsyncComponent(() => import(/* webpackChunkName: "v-0ec3220b" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/web/react-hooks.html.vue")),
   // path: /web/url.html

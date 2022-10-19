@@ -134,7 +134,7 @@ PromisePolyfill<span class="token punctuation">.</span><span class="token functi
 <li>按照规范写的promiseA延迟了一次</li>
 <li>只有promisePolyfill刚好在第3次打印了Promise.resolve(4)的结果。</li>
 </ul>
-<p>后面的执行和</p>
+<p>后面的执行结果都一样</p>
 <h2 id="promise的缺点" tabindex="-1"><a class="header-anchor" href="#promise的缺点" aria-hidden="true">#</a> Promise的缺点</h2>
 <ul>
 <li>promise一旦新建就会立即执行，中途无法取消</li>

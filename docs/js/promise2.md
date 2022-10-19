@@ -131,7 +131,7 @@ Promise.resolve().then(() => {
 - 按照规范写的promiseA延迟了一次
 - 只有promisePolyfill刚好在第3次打印了Promise.resolve(4)的结果。
 
-后面的执行和
+后面的执行结果都一样
 
 ## Promise的缺点
 - promise一旦新建就会立即执行，中途无法取消

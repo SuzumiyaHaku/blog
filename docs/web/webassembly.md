@@ -1,4 +1,4 @@
-# 快速入门WebAssembly/wasm
+# 写一个WebAssembly/wasm包
 
 <ClientOnly>
   <MTA/>
@@ -147,6 +147,51 @@ pub fn fib(v: u32) -> u32 { // rust递归实现斐波那契数列第n项
     ├── release
     └── wasm32-unknown-unknown
 ```
+wasm文件在浏览器的preview
+```wasm
+(module
+  (memory $memory (;0;) (export "memory") 17)
+  (func $func0 (param $var0 i32) (result i32)
+    (local $var1 i32)
+    i32.const 1
+    local.set $var1
+    local.get $var0
+    i32.const -1
+    i32.add
+    local.tee $var0
+    i32.const 2
+    i32.ge_u
+    if (result i32)
+      i32.const 0
+      local.set $var1
+      loop $label0
+        local.get $var0
+        call $func0
+        local.get $var1
+        i32.add
+        local.set $var1
+        local.get $var0
+        i32.const -2
+        i32.add
+        local.tee $var0
+        i32.const 1
+        i32.gt_u
+        br_if $label0
+      end $label0
+      local.get $var1
+      i32.const 1
+      i32.add
+    else
+      local.get $var1
+    end
+  )
+  (func $fib (;1;) (export "fib") (param $var0 i32) (result i32)
+    local.get $var0
+    call $func0
+  )
+  (data (i32.const 1048576) "\04")
+)
+```
 
 ## 使用wasm
 ### 以npm包的方式使用
@@ -252,6 +297,18 @@ loadWebAssembly('http://xxx.xxx.xxx/web_fib_bg.wasm') // 你的web_fib_bg.wasm�
 </html>
 ```
 
+### 把c编译为wasm
+创建如下内容的文件
+```c
+int fib (int n) {
+  if (n <= 0) return 0;
+  if (n <= 2) return 1;
+  return fib(n - 2) + fib(n - 1);
+}
+```
+安装[emscripten](https://github.com/emscripten-core/emscripten)然后运行
+> emcc --no-entry  fib.c  -s EXPORTED_FUNCTIONS='["_fib"]' -o fib.wasm
+得到fib.wasm就可以如上一样使用
 
 ## 参考
 - [WebAssembly 官网](https://webassembly.org/)

@@ -1,4 +1,4 @@
-<template><div><h1 id="快速入门webassembly-wasm" tabindex="-1"><a class="header-anchor" href="#快速入门webassembly-wasm" aria-hidden="true">#</a> 快速入门WebAssembly/wasm</h1>
+<template><div><h1 id="写一个webassembly-wasm包" tabindex="-1"><a class="header-anchor" href="#写一个webassembly-wasm包" aria-hidden="true">#</a> 写一个WebAssembly/wasm包</h1>
 <ClientOnly>
   <MTA/>
 </ClientOnly>
@@ -121,7 +121,50 @@ qaq@MacBook-Pro .cargo % <span class="token builtin class-name">pwd</span>
     ├── debug
     ├── release
     └── wasm32-unknown-unknown
-</code></pre><div class="highlight-lines"><br><br><br><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><br><br><br><br><br><br><br></div><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="使用wasm" tabindex="-1"><a class="header-anchor" href="#使用wasm" aria-hidden="true">#</a> 使用wasm</h2>
+</code></pre><div class="highlight-lines"><br><br><br><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><br><br><br><br><br><br><br></div><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>wasm文件在浏览器的preview</p>
+<div class="language-wasm ext-wasm line-numbers-mode"><pre v-pre class="language-wasm"><code><span class="token punctuation">(</span><span class="token keyword">module</span>
+  <span class="token punctuation">(</span><span class="token keyword">memory</span> $<span class="token keyword">memory</span> <span class="token comment">(;0;)</span> <span class="token punctuation">(</span><span class="token keyword">export</span> <span class="token string">"memory"</span><span class="token punctuation">)</span> <span class="token number">17</span><span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">func</span> <span class="token variable">$func0</span> <span class="token punctuation">(</span><span class="token keyword">param</span> <span class="token variable">$var0</span> <span class="token keyword">i32</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">result</span> <span class="token keyword">i32</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">local</span> <span class="token variable">$var1</span> <span class="token keyword">i32</span><span class="token punctuation">)</span>
+    <span class="token keyword">i32<span class="token punctuation">.</span>const</span> <span class="token number">1</span>
+    <span class="token keyword">local</span>.set <span class="token variable">$var1</span>
+    <span class="token keyword">local</span>.get <span class="token variable">$var0</span>
+    <span class="token keyword">i32<span class="token punctuation">.</span>const</span> <span class="token number">-1</span>
+    <span class="token keyword">i32<span class="token punctuation">.</span>add</span>
+    <span class="token keyword">local</span>.tee <span class="token variable">$var0</span>
+    <span class="token keyword">i32<span class="token punctuation">.</span>const</span> <span class="token number">2</span>
+    <span class="token keyword">i32<span class="token punctuation">.</span>ge_u</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">result</span> <span class="token keyword">i32</span><span class="token punctuation">)</span>
+      <span class="token keyword">i32<span class="token punctuation">.</span>const</span> <span class="token number">0</span>
+      <span class="token keyword">local</span>.set <span class="token variable">$var1</span>
+      <span class="token keyword">loop</span> <span class="token variable">$label0</span>
+        <span class="token keyword">local</span>.get <span class="token variable">$var0</span>
+        <span class="token keyword">call</span> <span class="token variable">$func0</span>
+        <span class="token keyword">local</span>.get <span class="token variable">$var1</span>
+        <span class="token keyword">i32<span class="token punctuation">.</span>add</span>
+        <span class="token keyword">local</span>.set <span class="token variable">$var1</span>
+        <span class="token keyword">local</span>.get <span class="token variable">$var0</span>
+        <span class="token keyword">i32<span class="token punctuation">.</span>const</span> <span class="token number">-2</span>
+        <span class="token keyword">i32<span class="token punctuation">.</span>add</span>
+        <span class="token keyword">local</span>.tee <span class="token variable">$var0</span>
+        <span class="token keyword">i32<span class="token punctuation">.</span>const</span> <span class="token number">1</span>
+        <span class="token keyword">i32<span class="token punctuation">.</span>gt_u</span>
+        <span class="token keyword">br_if</span> <span class="token variable">$label0</span>
+      <span class="token keyword">end</span> <span class="token variable">$label0</span>
+      <span class="token keyword">local</span>.get <span class="token variable">$var1</span>
+      <span class="token keyword">i32<span class="token punctuation">.</span>const</span> <span class="token number">1</span>
+      <span class="token keyword">i32<span class="token punctuation">.</span>add</span>
+    <span class="token keyword">else</span>
+      <span class="token keyword">local</span>.get <span class="token variable">$var1</span>
+    <span class="token keyword">end</span>
+  <span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">func</span> <span class="token variable">$fib</span> <span class="token comment">(;1;)</span> <span class="token punctuation">(</span><span class="token keyword">export</span> <span class="token string">"fib"</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">param</span> <span class="token variable">$var0</span> <span class="token keyword">i32</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">result</span> <span class="token keyword">i32</span><span class="token punctuation">)</span>
+    <span class="token keyword">local</span>.get <span class="token variable">$var0</span>
+    <span class="token keyword">call</span> <span class="token variable">$func0</span>
+  <span class="token punctuation">)</span>
+  <span class="token punctuation">(</span><span class="token keyword">data</span> <span class="token punctuation">(</span><span class="token keyword">i32<span class="token punctuation">.</span>const</span> <span class="token number">1048576</span><span class="token punctuation">)</span> <span class="token string">"\04"</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="使用wasm" tabindex="-1"><a class="header-anchor" href="#使用wasm" aria-hidden="true">#</a> 使用wasm</h2>
 <h3 id="以npm包的方式使用" tabindex="-1"><a class="header-anchor" href="#以npm包的方式使用" aria-hidden="true">#</a> 以npm包的方式使用</h3>
 <p>我们在package.json里添加npm包。(这里是npm引入未发布的本地npm的包，可以直接用路径)。</p>
 <div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
@@ -206,7 +249,19 @@ console<span class="token punctuation">.</span><span class="token function">time
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="参考" tabindex="-1"><a class="header-anchor" href="#参考" aria-hidden="true">#</a> 参考</h2>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="把c编译为wasm" tabindex="-1"><a class="header-anchor" href="#把c编译为wasm" aria-hidden="true">#</a> 把c编译为wasm</h3>
+<p>创建如下内容的文件</p>
+<div class="language-c ext-c line-numbers-mode"><pre v-pre class="language-c"><code><span class="token keyword">int</span> <span class="token function">fib</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token function">fib</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">fib</span><span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>安装<a href="https://github.com/emscripten-core/emscripten" target="_blank" rel="noopener noreferrer">emscripten<ExternalLinkIcon/></a>然后运行</p>
+<blockquote>
+<p>emcc --no-entry  fib.c  -s EXPORTED_FUNCTIONS='[&quot;_fib&quot;]' -o fib.wasm
+得到fib.wasm就可以如上一样使用</p>
+</blockquote>
+<h2 id="参考" tabindex="-1"><a class="header-anchor" href="#参考" aria-hidden="true">#</a> 参考</h2>
 <ul>
 <li><a href="https://webassembly.org/" target="_blank" rel="noopener noreferrer">WebAssembly 官网<ExternalLinkIcon/></a></li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/WebAssembly" target="_blank" rel="noopener noreferrer">WebAssembly MDN<ExternalLinkIcon/></a></li>

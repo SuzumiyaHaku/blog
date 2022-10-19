@@ -1,8 +1,319 @@
 export const searchIndex = [
   {
-    "title": "dashboard",
+    "title": "",
     "headers": [],
     "path": "/",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "分形图形",
+    "headers": [
+      {
+        "level": 2,
+        "title": "谢尔宾斯基三角形(随机法生成)",
+        "slug": "谢尔宾斯基三角形-随机法生成",
+        "link": "#谢尔宾斯基三角形-随机法生成",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "蕨类植物叶子(随机法)",
+        "slug": "蕨类植物叶子-随机法",
+        "link": "#蕨类植物叶子-随机法",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "曼德博集合（Mandelbrot set）（矩阵）",
+        "slug": "曼德博集合-mandelbrot-set-矩阵",
+        "link": "#曼德博集合-mandelbrot-set-矩阵",
+        "children": []
+      }
+    ],
+    "path": "/graphics/fractal.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "http",
+    "headers": [
+      {
+        "level": 2,
+        "title": "http1.1",
+        "slug": "http1-1",
+        "link": "#http1-1",
+        "children": [
+          {
+            "level": 3,
+            "title": "持久连接(persistent connection)",
+            "slug": "持久连接-persistent-connection",
+            "link": "#持久连接-persistent-connection",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "持久连接的限制和规则",
+            "slug": "持久连接的限制和规则",
+            "link": "#持久连接的限制和规则",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "管道化连接",
+            "slug": "管道化连接",
+            "link": "#管道化连接",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "队头阻塞问题",
+            "slug": "队头阻塞问题",
+            "link": "#队头阻塞问题",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "http2.0",
+        "slug": "http2-0",
+        "link": "#http2-0",
+        "children": [
+          {
+            "level": 3,
+            "title": "多路复用",
+            "slug": "多路复用",
+            "link": "#多路复用",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "头部压缩",
+            "slug": "头部压缩",
+            "link": "#头部压缩",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "流与二进制分帧",
+            "slug": "流与二进制分帧",
+            "link": "#流与二进制分帧",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "流量控制",
+            "slug": "流量控制",
+            "link": "#流量控制",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "服务端推送",
+            "slug": "服务端推送",
+            "link": "#服务端推送",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "最佳实践",
+            "slug": "最佳实践",
+            "link": "#最佳实践",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "http3.0",
+        "slug": "http3-0",
+        "link": "#http3-0",
+        "children": [
+          {
+            "level": 3,
+            "title": "拥赛控制",
+            "slug": "拥赛控制",
+            "link": "#拥赛控制",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "连接迁移",
+            "slug": "连接迁移",
+            "link": "#连接迁移",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "队头阻塞消除",
+            "slug": "队头阻塞消除",
+            "link": "#队头阻塞消除",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "https",
+        "slug": "https",
+        "link": "#https",
+        "children": [
+          {
+            "level": 3,
+            "title": "TLS/SSL握手",
+            "slug": "tls-ssl握手",
+            "link": "#tls-ssl握手",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "扩展链接",
+        "slug": "扩展链接",
+        "link": "#扩展链接",
+        "children": []
+      }
+    ],
+    "path": "/network/http.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "TCP/UDP",
+    "headers": [
+      {
+        "level": 2,
+        "title": "TCP的可靠性",
+        "slug": "tcp的可靠性",
+        "link": "#tcp的可靠性",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "TCP滑动窗口",
+        "slug": "tcp滑动窗口",
+        "link": "#tcp滑动窗口",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "TCP拥塞控制",
+        "slug": "tcp拥塞控制",
+        "link": "#tcp拥塞控制",
+        "children": [
+          {
+            "level": 3,
+            "title": "流量控制",
+            "slug": "流量控制",
+            "link": "#流量控制",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "慢启动",
+            "slug": "慢启动",
+            "link": "#慢启动",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "延迟确认",
+            "slug": "延迟确认",
+            "link": "#延迟确认",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "拥塞预防",
+            "slug": "拥塞预防",
+            "link": "#拥塞预防",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "TCP队头阻塞",
+        "slug": "tcp队头阻塞",
+        "link": "#tcp队头阻塞",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "TCP快速重传和快速恢复",
+        "slug": "tcp快速重传和快速恢复",
+        "link": "#tcp快速重传和快速恢复",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "TCP的TIME_WAIT累积与端口耗尽",
+        "slug": "tcp的time-wait累积与端口耗尽",
+        "link": "#tcp的time-wait累积与端口耗尽",
+        "children": [
+          {
+            "level": 3,
+            "title": "TCP SYN洪水（SYN Flood)攻击",
+            "slug": "tcp-syn洪水-syn-flood-攻击",
+            "link": "#tcp-syn洪水-syn-flood-攻击",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "UDP",
+        "slug": "udp",
+        "link": "#udp",
+        "children": [
+          {
+            "level": 3,
+            "title": "TCP首部",
+            "slug": "tcp首部",
+            "link": "#tcp首部",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "UDP首部",
+            "slug": "udp首部",
+            "link": "#udp首部",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "TCP性能聚焦",
+        "slug": "tcp性能聚焦",
+        "link": "#tcp性能聚焦",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "扩展链接",
+        "slug": "扩展链接",
+        "link": "#扩展链接",
+        "children": []
+      }
+    ],
+    "path": "/network/tcp,udp.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -859,288 +1170,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "http",
-    "headers": [
-      {
-        "level": 2,
-        "title": "http1.1",
-        "slug": "http1-1",
-        "link": "#http1-1",
-        "children": [
-          {
-            "level": 3,
-            "title": "持久连接(persistent connection)",
-            "slug": "持久连接-persistent-connection",
-            "link": "#持久连接-persistent-connection",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "持久连接的限制和规则",
-            "slug": "持久连接的限制和规则",
-            "link": "#持久连接的限制和规则",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "管道化连接",
-            "slug": "管道化连接",
-            "link": "#管道化连接",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "队头阻塞问题",
-            "slug": "队头阻塞问题",
-            "link": "#队头阻塞问题",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "http2.0",
-        "slug": "http2-0",
-        "link": "#http2-0",
-        "children": [
-          {
-            "level": 3,
-            "title": "多路复用",
-            "slug": "多路复用",
-            "link": "#多路复用",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "头部压缩",
-            "slug": "头部压缩",
-            "link": "#头部压缩",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "流与二进制分帧",
-            "slug": "流与二进制分帧",
-            "link": "#流与二进制分帧",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "流量控制",
-            "slug": "流量控制",
-            "link": "#流量控制",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "服务端推送",
-            "slug": "服务端推送",
-            "link": "#服务端推送",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "最佳实践",
-            "slug": "最佳实践",
-            "link": "#最佳实践",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "http3.0",
-        "slug": "http3-0",
-        "link": "#http3-0",
-        "children": [
-          {
-            "level": 3,
-            "title": "拥赛控制",
-            "slug": "拥赛控制",
-            "link": "#拥赛控制",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "连接迁移",
-            "slug": "连接迁移",
-            "link": "#连接迁移",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "队头阻塞消除",
-            "slug": "队头阻塞消除",
-            "link": "#队头阻塞消除",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "https",
-        "slug": "https",
-        "link": "#https",
-        "children": [
-          {
-            "level": 3,
-            "title": "TLS/SSL握手",
-            "slug": "tls-ssl握手",
-            "link": "#tls-ssl握手",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "扩展链接",
-        "slug": "扩展链接",
-        "link": "#扩展链接",
-        "children": []
-      }
-    ],
-    "path": "/network/http.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "TCP/UDP",
-    "headers": [
-      {
-        "level": 2,
-        "title": "TCP的可靠性",
-        "slug": "tcp的可靠性",
-        "link": "#tcp的可靠性",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "TCP滑动窗口",
-        "slug": "tcp滑动窗口",
-        "link": "#tcp滑动窗口",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "TCP拥塞控制",
-        "slug": "tcp拥塞控制",
-        "link": "#tcp拥塞控制",
-        "children": [
-          {
-            "level": 3,
-            "title": "流量控制",
-            "slug": "流量控制",
-            "link": "#流量控制",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "慢启动",
-            "slug": "慢启动",
-            "link": "#慢启动",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "延迟确认",
-            "slug": "延迟确认",
-            "link": "#延迟确认",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "拥塞预防",
-            "slug": "拥塞预防",
-            "link": "#拥塞预防",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "TCP队头阻塞",
-        "slug": "tcp队头阻塞",
-        "link": "#tcp队头阻塞",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "TCP快速重传和快速恢复",
-        "slug": "tcp快速重传和快速恢复",
-        "link": "#tcp快速重传和快速恢复",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "TCP的TIME_WAIT累积与端口耗尽",
-        "slug": "tcp的time-wait累积与端口耗尽",
-        "link": "#tcp的time-wait累积与端口耗尽",
-        "children": [
-          {
-            "level": 3,
-            "title": "TCP SYN洪水（SYN Flood)攻击",
-            "slug": "tcp-syn洪水-syn-flood-攻击",
-            "link": "#tcp-syn洪水-syn-flood-攻击",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "UDP",
-        "slug": "udp",
-        "link": "#udp",
-        "children": [
-          {
-            "level": 3,
-            "title": "TCP首部",
-            "slug": "tcp首部",
-            "link": "#tcp首部",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "UDP首部",
-            "slug": "udp首部",
-            "link": "#udp首部",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "TCP性能聚焦",
-        "slug": "tcp性能聚焦",
-        "link": "#tcp性能聚焦",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "扩展链接",
-        "slug": "扩展链接",
-        "link": "#扩展链接",
-        "children": []
-      }
-    ],
-    "path": "/network/tcp,udp.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "cookie 和 session",
     "headers": [
       {
@@ -1357,6 +1386,13 @@ export const searchIndex = [
       }
     ],
     "path": "/security/xss%E4%B8%8Ecsrf.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "排序",
+    "headers": [],
+    "path": "/structure/sort.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -1721,13 +1757,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "排序",
-    "headers": [],
-    "path": "/structure/sort.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "babel",
     "headers": [
       {
@@ -1739,6 +1768,190 @@ export const searchIndex = [
       }
     ],
     "path": "/web/babel.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "索引",
+    "headers": [
+      {
+        "level": 2,
+        "title": "标准",
+        "slug": "标准",
+        "link": "#标准",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "操作系统",
+        "slug": "操作系统",
+        "link": "#操作系统",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "网络",
+        "slug": "网络",
+        "link": "#网络",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "webServer",
+        "slug": "webserver",
+        "link": "#webserver",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "前端研发工具",
+        "slug": "前端研发工具",
+        "link": "#前端研发工具",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "JavaScript",
+        "slug": "javascript",
+        "link": "#javascript",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "浏览器",
+        "slug": "浏览器",
+        "link": "#浏览器",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "工程化",
+        "slug": "工程化",
+        "link": "#工程化",
+        "children": [
+          {
+            "level": 3,
+            "title": "脚手架",
+            "slug": "脚手架",
+            "link": "#脚手架",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "包管理",
+            "slug": "包管理",
+            "link": "#包管理",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "开发",
+            "slug": "开发",
+            "link": "#开发",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "打包工具",
+            "slug": "打包工具",
+            "link": "#打包工具",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "css预处理",
+            "slug": "css预处理",
+            "link": "#css预处理",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "代码规范",
+            "slug": "代码规范",
+            "link": "#代码规范",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "测试",
+            "slug": "测试",
+            "link": "#测试",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CI/CD",
+            "slug": "ci-cd",
+            "link": "#ci-cd",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "库 DRY(Don’t Repeat Yourselt)原则",
+            "slug": "库-dry-don-t-repeat-yourselt-原则",
+            "link": "#库-dry-don-t-repeat-yourselt-原则",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "性能优化",
+            "slug": "性能优化",
+            "link": "#性能优化",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "模块规范",
+            "slug": "模块规范",
+            "link": "#模块规范",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "DevOps",
+            "slug": "devops",
+            "link": "#devops",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "后端部分",
+        "slug": "后端部分",
+        "link": "#后端部分",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "中后台",
+        "slug": "中后台",
+        "link": "#中后台",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "数据可视化",
+        "slug": "数据可视化",
+        "link": "#数据可视化",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "互动技术",
+        "slug": "互动技术",
+        "link": "#互动技术",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "智能化",
+        "slug": "智能化",
+        "link": "#智能化",
+        "children": []
+      }
+    ],
+    "path": "/web/",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -1994,6 +2207,13 @@ export const searchIndex = [
     "headers": [
       {
         "level": 2,
+        "title": "源码结构",
+        "slug": "源码结构",
+        "link": "#源码结构",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "模块",
         "slug": "模块",
         "link": "#模块",
@@ -2026,6 +2246,28 @@ export const searchIndex = [
         "slug": "响应式系统",
         "link": "#响应式系统",
         "children": []
+      },
+      {
+        "level": 2,
+        "title": "插槽",
+        "slug": "插槽",
+        "link": "#插槽",
+        "children": [
+          {
+            "level": 3,
+            "title": "插槽的本质和要注意的问题",
+            "slug": "插槽的本质和要注意的问题",
+            "link": "#插槽的本质和要注意的问题",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "源码",
+            "slug": "源码",
+            "link": "#源码",
+            "children": []
+          }
+        ]
       },
       {
         "level": 2,
@@ -2105,7 +2347,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "快速入门WebAssembly/wasm",
+    "title": "写一个WebAssembly/wasm包",
     "headers": [
       {
         "level": 2,
@@ -2153,6 +2395,13 @@ export const searchIndex = [
             "title": "以http的方式直接引入",
             "slug": "以http的方式直接引入",
             "link": "#以http的方式直接引入",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "把c编译为wasm",
+            "slug": "把c编译为wasm",
+            "link": "#把c编译为wasm",
             "children": []
           }
         ]
@@ -2353,3 +2602,16 @@ export const searchIndex = [
     "extraFields": []
   }
 ]
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateSearchIndex) {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ searchIndex }) => {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  })
+}

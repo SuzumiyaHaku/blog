@@ -1,5 +1,6 @@
 import { defaultTheme, defineUserConfig } from 'vuepress'
 import { searchPlugin } from '@vuepress/plugin-search'
+import mathjax3 from "markdown-it-mathjax3"
 export default defineUserConfig({
   lang: 'zh-CN',
   title: 'Dragon的博客',
@@ -10,7 +11,10 @@ export default defineUserConfig({
       lang: 'zh-CN'
     }
   },
-  
+  extendsMarkdown: (md) => {
+    md.use(mathjax3)
+    md.linkify.set({ fuzzyEmail: false })
+  },
   theme: defaultTheme({
     // docsDir: 'zh',
     lastUpdated: false,
@@ -23,16 +27,16 @@ export default defineUserConfig({
           '/': [
             {
               text: 'javascript', children: [
-                '/js/this.md',
-                '/js/class.md',
                 '/js/event.md',
                 '/js/function.md',
                 '/js/module.md',
                 '/js/promise1.md',
                 '/js/promise2.md',
                 '/js/scope.md',
+                '/js/class.md',
                 '/js/new.md',
                 '/js/let,var.md',
+                '/js/this.md',
                 '/js/bind.md',
                 '/js/apply.md',
                 '/js/equal.md',
@@ -51,6 +55,7 @@ export default defineUserConfig({
             },
             {
               text: '前端相关', children: [
+                '/web/index.md',
                 '/web/webpack1.md',
                 '/web/webpack2.md',
                 '/web/url.md',
@@ -83,6 +88,11 @@ export default defineUserConfig({
             {
               text: 'java', children: [
                 '/java/springboot.md',
+              ]
+            },
+            {
+              text: '计算机图形学',children: [
+                '/graphics/fractal.md'
               ]
             }
           ],

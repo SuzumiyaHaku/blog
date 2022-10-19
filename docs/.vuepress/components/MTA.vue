@@ -3,7 +3,7 @@
 <script setup>
 import { onMounted } from 'vue'
 onMounted(() => {
-  // if(import.meta.env.DEV) return;
+  if(import.meta.env.DEV) return;
   let { origin, pathname } = window.location
   let key = btoa(window.location.pathname)
   let value = sessionStorage.getItem(key)
