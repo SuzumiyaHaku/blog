@@ -412,3 +412,47 @@ The comparison x === y, where x and y are values, produces true or false. Such a
 This algorithm differs from the SameValue Algorithm (7.2.9) in its treatment of signed zeroes and `NaNs`.
 > 该算法与[SameValue算法（7.2.9）](https://262.ecma-international.org/6.0/#sec-samevalue)在处理有符号零和`NaNs`方面有所不同。
 :::
+
+## 让if(a==1&&a==2&&a==3)为true
+`Object.prototype.valueOf`作用是返回一个对象的“值”，默认情况下返回对象本身。
+`Object.prototype.toString`作用是返回一个对象的字符串形式，默认情况下返回类型字符串。
+```js
+var a = {
+   value: 0,
+  //  valueOf() {
+  //    return this.value += 1
+  //  },
+   toString() {
+     return this.value += 1
+   }
+ }
+console.log(a == 1 && a == 2 && a == 3) // true
+```
+```js
+class A {
+  constructor(value) {
+    this.value = value;
+  }
+  // valueOf() {
+  //   return this.value++;
+  // }
+  toString() {
+    return this.value++;
+  }
+}
+var a = new A(1);
+console.log(a == 1 && a == 2 && a == 3) // true
+```
+valueOf的优先级高于toString，toString 不会被执行。反之如果没有重写valueOf方法，系统就会往下查找 toString 方法。
+## 让if(a===1&&a===2&&a===3)为true
+使用属性代理Object.defineProperty
+```js
+var value = 1;
+Object.defineProperty(window, "a", {
+  get() {
+    return this.value++;
+  }
+});
+
+console.log(a == 1 && a == 2 && a == 3) // true
+```

@@ -1,1 +1,5 @@
 #
+
+<ClientOnly>
+  <Power/>
+</ClientOnly>
