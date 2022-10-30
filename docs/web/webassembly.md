@@ -296,6 +296,38 @@ loadWebAssembly('http://xxx.xxx.xxx/web_fib_bg.wasm') // 你的web_fib_bg.wasm�
 </body>
 </html>
 ```
+```ts
+export function loadWebAssembly(
+  fileName: string,
+  imports: any = { env: null }
+): Promise<WebAssembly.WebAssemblyInstantiatedSource> {
+  // return fetch(fileName, { mode: "cors" })
+  //   .then((response) => response.arrayBuffer())
+  //   .then((bits) => WebAssembly.compile(bits))
+  //   .then((module) => {
+  //     return new WebAssembly.Instance(module);
+  //   });
+
+  return fetch(fileName, { mode: "cors" })
+    .then((response) => response.arrayBuffer())
+    .then((buffer) => {
+      imports.env = imports.env || {};
+      Object.assign(imports.env, {
+        memoryBase: 0,
+        tableBase: 0,
+        __memory_base: 0,
+        __table_base: 0,
+        memory: new WebAssembly.Memory({ initial: 256, maximum: 256 }),
+        table: new WebAssembly.Table({
+          initial: 0,
+          maximum: 0,
+          element: "anyfunc",
+        }),
+      });
+      return WebAssembly.instantiate(buffer, imports);
+    });
+}
+```
 
 ### 把c编译为wasm
 创建如下内容的文件
@@ -308,6 +340,40 @@ int fib (int n) {
 ```
 安装[emscripten](https://github.com/emscripten-core/emscripten)然后运行
 > emcc --no-entry  fib.c  -s EXPORTED_FUNCTIONS='["_fib"]' -o fib.wasm
+
+得到fib.wasm就可以如上一样使用
+
+### 把c++编译为wasm
+```c
+#ifndef EM_PORT_API
+#	if defined(__EMSCRIPTEN__)
+#		include <emscripten.h>
+#		if defined(__cplusplus)
+#			define EM_PORT_API(rettype) extern "C" rettype EMSCRIPTEN_KEEPALIVE
+#		else
+#			define EM_PORT_API(rettype) rettype EMSCRIPTEN_KEEPALIVE
+#		endif
+#	else
+#		if defined(__cplusplus)
+#			define EM_PORT_API(rettype) extern "C" rettype
+#		else
+#			define EM_PORT_API(rettype) rettype
+#		endif
+#	endif
+#endif
+
+EM_PORT_API(int) fib (int n) {
+  if (n <= 0) return 0;
+  if (n <= 2) return 1;
+  return fib(n - 2) + fib(n - 1);
+}
+```
+c++导出fib函数需要定义`函数导出宏`，不然会报错
+>emcc --no-entry ./fib.cc -s EXPORTED_FUNCTIONS=_fib -o fib.wasm
+
+如果不定义的话需要这样，但是函数全部导出，不写就莫得fib函数，`emcc --help`可以看见一些优化项
+>emcc ./fib.cc -Wl,--export-all -o fib.wasm 
+
 得到fib.wasm就可以如上一样使用
 
 ## 参考

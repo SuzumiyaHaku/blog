@@ -5,6 +5,8 @@ export const pagesData = {
   "v-1aeda846": () => import(/* webpackChunkName: "v-1aeda846" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/java/springboot.html.js").then(({ data }) => data),
   // path: /graphics/fractal.html
   "v-5424c833": () => import(/* webpackChunkName: "v-5424c833" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/graphics/fractal.html.js").then(({ data }) => data),
+  // path: /graphics/matrixAndTransform.html
+  "v-55ad3f50": () => import(/* webpackChunkName: "v-55ad3f50" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/graphics/matrixAndTransform.html.js").then(({ data }) => data),
   // path: /network/http.html
   "v-286d6e52": () => import(/* webpackChunkName: "v-286d6e52" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/network/http.html.js").then(({ data }) => data),
   // path: /network/tcp,udp.html

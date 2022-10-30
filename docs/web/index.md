@@ -101,7 +101,7 @@
   - mock.js
   - proxy代理
 ### 打包工具
-  - webpack、gulp、snowpack、vite
+  - webpack、gulp、snowpack、vite、Turbopack
   - js、ts的编译
     - [tsc](https://www.typescriptlang.org/)
     - [babel](https://www.babeljs.cn/)

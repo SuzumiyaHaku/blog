@@ -43,7 +43,15 @@ export const searchIndex = [
         "title": "谢尔宾斯基三角形(随机法生成)",
         "slug": "谢尔宾斯基三角形-随机法生成",
         "link": "#谢尔宾斯基三角形-随机法生成",
-        "children": []
+        "children": [
+          {
+            "level": 3,
+            "title": "原理",
+            "slug": "原理",
+            "link": "#原理",
+            "children": []
+          }
+        ]
       },
       {
         "level": 2,
@@ -98,6 +106,13 @@ export const searchIndex = [
       }
     ],
     "path": "/graphics/fractal.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "矩阵与3d变换",
+    "headers": [],
+    "path": "/graphics/matrixAndTransform.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -2439,6 +2454,13 @@ export const searchIndex = [
             "title": "把c编译为wasm",
             "slug": "把c编译为wasm",
             "link": "#把c编译为wasm",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "把c++编译为wasm",
+            "slug": "把c-编译为wasm",
+            "link": "#把c-编译为wasm",
             "children": []
           }
         ]

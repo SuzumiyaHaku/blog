@@ -11,10 +11,8 @@ import { onMounted, ref } from "vue";
 let mycanvas = ref<null | HTMLElement>(null);
 type Point = { x: number; y: number; color?: string };
 
-
-const WIDTH = 500*1.2;
-const HEIGHT = 300*1.2;
-
+const WIDTH = 500 * 1.2;
+const HEIGHT = 300 * 1.2;
 
 var xRange = [-2.2, 1.5];
 var yRange = [-1.2, 1.2];
@@ -63,23 +61,22 @@ function iterateEquation(Cr, Ci) {
   let Ti = 0;
 
   for (var n = 0; n < 20; ++n) {
-    if(2 < Zr){
-      return [null, Tr, Ti]
+    if (2 < Zr) {
+      return [null, Tr, Ti];
     }
     Zi = 2 * Zr * Zi + Ci;
     Zr = Tr - Ti + Cr;
     Tr = Zr ** 2;
     Ti = Zi ** 2;
   }
-  return [n, Tr, Ti]
+  return [n, Tr, Ti];
 }
 
 function getColor(Tr1, Tr2, Ti1, Ti2) {
   // console.log(Tr1, Tr2, Ti1, Ti2)
-  
-  return  `rgba(${~~(Math.abs(Tr1*100-Tr2*100)%255)},0,0, 1)`
-}
 
+  return `rgba(${~~(Math.abs(Tr1 * 100 - Tr2 * 100) % 255)},0,0, 1)`;
+}
 
 let pointerArr = [];
 for (let i = 0; i < arr.length; i++) {
@@ -121,7 +118,6 @@ function render() {
   draw();
 }
 onMounted(() => {
-  render()
-
+  render();
 });
 </script>
