@@ -382,3 +382,4 @@ c++导出fib函数需要定义`函数导出宏`，不然会报错
 - [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html)
 - [The Rust Reference](https://doc.rust-lang.org/stable/reference/introduction.html)
 - [关于wasm-bindgen](https://rustwasm.github.io/docs/wasm-bindgen/)
+- [JavaScript调用C函数](https://www.cntofu.com/book/150/zh/ch2-c-js/ch2-01-js-call-c.md)

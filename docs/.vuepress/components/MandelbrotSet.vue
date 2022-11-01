@@ -1,6 +1,6 @@
 <template>
   <canvas
-    ref="mycanvas"
+    ref="canvas"
     :width="WIDTH"
     :height="HEIGHT"
     style="background: rgba(0, 0, 0, 0)"
@@ -8,9 +8,21 @@
 </template>
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-let mycanvas = ref<null | HTMLElement>(null);
-type Point = { x: number; y: number; color?: string };
-
+let canvas = ref<null | HTMLCanvasElement>(null);
+interface Point1 {   
+  cX: number;
+  cY: number;
+  x: number;
+  y: number;
+  r: number;
+};
+interface Point2 {
+  x: number;
+  y: number;
+  Tr: number | null;
+  Ti: number | null;
+  color: string;
+}
 const WIDTH = 500 * 1.2;
 const HEIGHT = 300 * 1.2;
 
@@ -22,7 +34,7 @@ var yRange = [-1.2, 1.2];
 var xStep = (xRange[1] - xRange[0]) / WIDTH;
 var yStep = (yRange[1] - yRange[0]) / HEIGHT;
 
-let arr = [];
+let arr: Point1[] = [];
 let cX = xRange[0];
 for (let i = 0; i < WIDTH; i++) {
   let cY = yRange[0];
@@ -78,7 +90,7 @@ function getColor(Tr1, Tr2, Ti1, Ti2) {
   return `rgba(${~~(Math.abs(Tr1 * 100 - Tr2 * 100) % 255)},0,0, 1)`;
 }
 
-let pointerArr = [];
+let pointerArr: Point2[] = [];
 for (let i = 0; i < arr.length; i++) {
   let prev = i > 0 ? pointerArr[pointerArr.length - 1] : null;
   let curr = arr[i];
@@ -94,24 +106,28 @@ for (let i = 0; i < arr.length; i++) {
   }
 }
 function render() {
-  mycanvas = mycanvas.value;
+  let mycanvas = (canvas.value) as HTMLCanvasElement;
   mycanvas.width = WIDTH;
   mycanvas.height = HEIGHT;
   let ctx = mycanvas.getContext("2d");
+  if (!ctx) {
+    throw Error(`mycanvas.getContext("2d") is null`);
+  }
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
   let i = 0;
   let len = pointerArr.length;
   let speed = 250;
+  let id: number;
   let draw = () => {
     for (let j = 1; j <= speed && i + j < len; j++) {
       let curr = pointerArr[i + j];
-      ctx.fillStyle = curr.color;
-      ctx.fillRect(curr.x, curr.y, 1, 1);
+      ctx!.fillStyle = curr.color;
+      ctx!.fillRect(curr.x, curr.y, 1, 1);
     }
     if (i < len) {
-      window.requestAnimationFrame(draw);
+      id = window.requestAnimationFrame(draw);
     } else {
-      window.cancelAnimationFrame(draw);
+      window.cancelAnimationFrame(id);
     }
     i += speed;
   };

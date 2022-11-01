@@ -330,6 +330,7 @@ console<span class="token punctuation">.</span><span class="token function">time
 <li><a href="https://doc.rust-lang.org/book/title-page.html" target="_blank" rel="noopener noreferrer">The Rust Programming Language<ExternalLinkIcon/></a></li>
 <li><a href="https://doc.rust-lang.org/stable/reference/introduction.html" target="_blank" rel="noopener noreferrer">The Rust Reference<ExternalLinkIcon/></a></li>
 <li><a href="https://rustwasm.github.io/docs/wasm-bindgen/" target="_blank" rel="noopener noreferrer">关于wasm-bindgen<ExternalLinkIcon/></a></li>
+<li><a href="https://www.cntofu.com/book/150/zh/ch2-c-js/ch2-01-js-call-c.md" target="_blank" rel="noopener noreferrer">JavaScript调用C函数<ExternalLinkIcon/></a></li>
 </ul>
 </div></template>
 

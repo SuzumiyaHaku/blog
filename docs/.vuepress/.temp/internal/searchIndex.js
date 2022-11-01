@@ -7,35 +7,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "springboot",
-    "headers": [
-      {
-        "level": 2,
-        "title": "项目结构",
-        "slug": "项目结构",
-        "link": "#项目结构",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "pom.xml",
-        "slug": "pom-xml",
-        "link": "#pom-xml",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/java/springboot.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "分形图形",
     "headers": [
       {
@@ -950,6 +921,35 @@ export const searchIndex = [
       }
     ],
     "path": "/js/this.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "springboot",
+    "headers": [
+      {
+        "level": 2,
+        "title": "项目结构",
+        "slug": "项目结构",
+        "link": "#项目结构",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "pom.xml",
+        "slug": "pom-xml",
+        "link": "#pom-xml",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/java/springboot.html",
     "pathLocale": "/",
     "extraFields": []
   },

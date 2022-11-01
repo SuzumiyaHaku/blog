@@ -1,8 +1,6 @@
 export const pagesData = {
   // path: /
   "v-8daa1a0e": () => import(/* webpackChunkName: "v-8daa1a0e" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/index.html.js").then(({ data }) => data),
-  // path: /java/springboot.html
-  "v-1aeda846": () => import(/* webpackChunkName: "v-1aeda846" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/java/springboot.html.js").then(({ data }) => data),
   // path: /graphics/fractal.html
   "v-5424c833": () => import(/* webpackChunkName: "v-5424c833" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/graphics/fractal.html.js").then(({ data }) => data),
   // path: /graphics/matrixAndTransform.html
@@ -37,6 +35,8 @@ export const pagesData = {
   "v-5953e59c": () => import(/* webpackChunkName: "v-5953e59c" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/js/scope.html.js").then(({ data }) => data),
   // path: /js/this.html
   "v-292d95a4": () => import(/* webpackChunkName: "v-292d95a4" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/js/this.html.js").then(({ data }) => data),
+  // path: /java/springboot.html
+  "v-1aeda846": () => import(/* webpackChunkName: "v-1aeda846" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/java/springboot.html.js").then(({ data }) => data),
   // path: /network/http.html
   "v-286d6e52": () => import(/* webpackChunkName: "v-286d6e52" */"/Users/dragon/workspace/node/work/vue_press/blog/docs/.vuepress/.temp/pages/network/http.html.js").then(({ data }) => data),
   // path: /network/tcp,udp.html

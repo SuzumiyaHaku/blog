@@ -1,15 +1,15 @@
 <template>
-    <canvas ref="mycanvas" :style="`background:rgba(0,0,0,1);width:${props.width}px;height:${props.width}px;`"></canvas>
+    <canvas ref="canvas" :style="`background:rgba(0,0,0,1);width:${props.width}px;height:${props.width}px;`"></canvas>
 </template>
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-let mycanvas = (ref<null | HTMLElement>(null))
+let canvas = (ref<null | HTMLCanvasElement>(null))
 const props = defineProps({
     width: { type: Number, default: 100 },
     speed: { type: Boolean, default: false }
 })
 onMounted(() => {
-  mycanvas = mycanvas.value;
+  let mycanvas = (canvas.value as HTMLCanvasElement);
   const WIDTH = props.width;
   const PADDING = 10;
   const scale =  window.devicePixelRatio
@@ -38,6 +38,9 @@ onMounted(() => {
 //   for (var item in pointObj) {
 //     ctx.fillRect(pointObj[item].x, pointObj[item].y, 5, 5);
 //   }
+  if (!ctx) {
+    throw Error(`mycanvas.getContext("2d") is null`);
+  }
   ctx.fillStyle = "aqua";
   function setPoint(point) {
     pointObj.beginPoint.x = pointObj.beginPoint.x / 2 + point.x / 2;
@@ -45,19 +48,20 @@ onMounted(() => {
   }
 
   var i = 0;
+  let id;
   function draw() {
     i++
-    var randomNum = Math.random().toFixed(2) * 100;
+    var randomNum = (Math.random() as any).toFixed(2) * 100;
 
     if (randomNum < 33) setPoint(pointObj.point1);
     else if (randomNum >= 33 && randomNum < 66) setPoint(pointObj.point2);
     else setPoint(pointObj.point3);
-    ctx.fillRect(pointObj.beginPoint.x, pointObj.beginPoint.y, 1, 1);
+    ctx!.fillRect(pointObj.beginPoint.x, pointObj.beginPoint.y, 1, 1);
     if(props.speed) return
     if (i < 20000) {
-      window.requestAnimationFrame(draw);
+      id = window.requestAnimationFrame(draw);
     } else {
-      window.cancelAnimationFrame(draw);
+      window.cancelAnimationFrame(id);
     }
   }
   

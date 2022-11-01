@@ -40,7 +40,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { ref, reactive, onUnmounted } from "vue";
 import { cloneDeep } from "lodash-es";
 

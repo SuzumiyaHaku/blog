@@ -1,6 +1,5 @@
 export const pagesRoutes = [
   ["v-8daa1a0e","/",{"title":""},["/index.html","/readme.md"]],
-  ["v-1aeda846","/java/springboot.html",{"title":"springboot"},["/java/springboot","/java/springboot.md"]],
   ["v-5424c833","/graphics/fractal.html",{"title":"分形图形"},["/graphics/fractal","/graphics/fractal.md"]],
   ["v-55ad3f50","/graphics/matrixAndTransform.html",{"title":"矩阵与3d变换"},["/graphics/matrixAndTransform","/graphics/matrixAndTransform.md"]],
   ["v-37e22f50","/js/apply.html",{"title":"call、apply"},["/js/apply","/js/apply.md"]],
@@ -18,6 +17,7 @@ export const pagesRoutes = [
   ["v-73e54775","/js/promise2.html",{"title":"Promise--下"},["/js/promise2","/js/promise2.md"]],
   ["v-5953e59c","/js/scope.html",{"title":"作用域"},["/js/scope","/js/scope.md"]],
   ["v-292d95a4","/js/this.html",{"title":"this"},["/js/this","/js/this.md"]],
+  ["v-1aeda846","/java/springboot.html",{"title":"springboot"},["/java/springboot","/java/springboot.md"]],
   ["v-286d6e52","/network/http.html",{"title":"http"},["/network/http","/network/http.md"]],
   ["v-27d94446","/network/tcp,udp.html",{"title":"TCP/UDP"},["/network/tcp,udp","/network/tcp,udp.md"]],
   ["v-23e57ea0","/security/cookie%E5%92%8Csession.html",{"title":"cookie 和 session"},["/security/cookie和session.html","/security/cookie%E5%92%8Csession","/security/cookie和session.md","/security/cookie%E5%92%8Csession.md"]],

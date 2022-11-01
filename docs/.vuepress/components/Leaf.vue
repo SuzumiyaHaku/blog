@@ -1,6 +1,6 @@
 <template>
   <canvas
-    ref="mycanvas"
+    ref="canvas"
     width="200px"
     height="350px"
     style="background-color: rgba(0,0,0,0)"
@@ -8,12 +8,15 @@
 </template>
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
-let mycanvas = (ref<null | HTMLElement>(null))
+let canvas = (ref<null | HTMLCanvasElement>(null))
 onMounted(() => {
-  mycanvas = mycanvas.value;
+  let mycanvas = (canvas.value) as HTMLCanvasElement;
   mycanvas.width = 200;
   mycanvas.height = 350;
   let ctx = mycanvas.getContext("2d");
+  if (!ctx) {
+    throw Error(`mycanvas.getContext("2d") is null`);
+  }
   ctx.clearRect(0, 0, 200, 350);
   ctx.fillStyle = "#00ff00";
   //把每个方程用立即执行函数表达式（先不执行）存放到一个数组，在把这四组放到pwowq的数组
@@ -53,7 +56,7 @@ onMounted(() => {
   };
 
   //  按1% 7% 7% 85%的比例放到newArr数组
-  let newArr = [];
+  let newArr: typeof pwowq.F1[] = [];
 
   for (let i = 0; i < 1; i++) {
     newArr.push(pwowq.F1);
@@ -82,7 +85,7 @@ onMounted(() => {
       x = QAQ[0];
       y = QAQ[1];
     }
-    ctx.fillRect(x * 30 + 100, -y * 30 + 320, 1, 1); /*渲染点*/
+    ctx!.fillRect(x * 30 + 100, -y * 30 + 320, 1, 1); /*渲染点*/
     if (count < 10000) {
       window.requestAnimationFrame(render); //js的做动画的一种方式
       // window.requestAnimationFrame(render)//取消注释以双倍的速度渲染
