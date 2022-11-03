@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-652eef22","path":"/web/framework.html","title":"\u524D\u7AEF\u9879\u76EE\u7ED3\u6784","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[{"level":2,"title":"vue","slug":"vue","link":"#vue","children":[]},{"level":2,"title":"react","slug":"react","link":"#react","children":[]}],"git":{},"filePathRelative":"web/framework.md"}');export{e as data};

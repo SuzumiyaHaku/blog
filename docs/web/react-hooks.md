@@ -4,6 +4,109 @@
   <MTA/>
 </ClientOnly>
 
+## 快速理解react hooks在干什么
+
+### 举个例子
+- 创建`currentlyRenderingFiber`对象
+- 创建`useState(value)`函数
+- 执行`useState`的时候初始化，也就是第一次执行`function App()`
+- 就会创建一个链表节点放到`currentlyRenderingFiber.memoizedState`上
+  - 如果有多个`useState` 就会形成一个链表
+```js
+let currentlyRenderingFiber = {
+  memoizedState: null
+};
+function App() {
+  let [countA, setCountA] = useState("a");
+  let [countB, setCountB] = useState("b");
+  let [countC, setCountC] = useState("c");
+  return <div onClick={() => {
+      setCountA(v => v += "a")
+      setCountA(v => v += "a")
+      setCountA(v => v += "a")
+    }}>{countA}  {countB} {countC}</div>
+}
+```
+执行第一次初始化的时候，`currentlyRenderingFiber`就变成了（这时候`currentlyRenderingFiber`会被加到react fiber节点的属性上去）：
+```js
+let currentlyRenderingFiber = {
+  memoizedState: {
+    memoizedState: "a",
+    next: {
+      memoizedState: "b",
+      next: {
+        memoizedState: "c",
+        next: null
+      }
+    }
+  }
+};
+```
+当点击触发`setCountA`的时候，也就是进入update阶段，会连续触发三次。这种请情况下，react用一个链表存储了每个函数就，
+`currentlyRenderingFiber`就变成了这样：
+```js
+let currentlyRenderingFiber = {
+  memoizedState: {
+    memoizedState: "a",
+    queue: {
+      pending: {
+        action: (v) => v += "a",
+        next: {
+          action: (v) => v += "a",
+          next: {
+            action: (v) => v += "a",
+            next: null
+          }
+        }
+      }
+    }
+    next: {
+      memoizedState: "b",
+      queue: {
+        pending: null
+      }
+      next: {
+        memoizedState: "c",
+        queue: {
+          pending: null
+        }
+        next: null
+      }
+    }
+  }
+};
+```
+这时候，会触发queue.pending上的链表遍历执行也就是`dispatchReducerAction`里的实现，执行完毕后设置为null，并且调度`enqueueRenderPhaseUpdate`更新react视图。
+```js
+let currentlyRenderingFiber = {
+  memoizedState: {
+    memoizedState: "a",
+    queue: {
+      pending: null // <-------------
+    }
+    next: {
+      memoizedState: "b",
+      queue: {
+        pending: null
+      }
+      next: {
+        memoizedState: "c",
+        queue: {
+          pending: null
+        }
+        next: null
+      }
+    }
+  }
+};
+```
+
+### 小结
+- react的hook的数据是存在当前组件对应的fiber节点上的
+- 当hook里有多个值的时候，以链表的方式都存在`currentlyRenderingFiber.memorizedState`上。
+- hook里面触发视图更新，需要调度`enqueueRenderPhaseUpdate`方法。
+
+接下来，来看hooks部分的源码！
 
 ## mount和update
 react初始化的时候状态为mount，更新的时候为update。对于hook API来讲，如useState，对应了`mountState`和`updateState`

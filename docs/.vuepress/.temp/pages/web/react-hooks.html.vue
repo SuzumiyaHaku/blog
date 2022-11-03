@@ -2,6 +2,105 @@
 <ClientOnly>
   <MTA/>
 </ClientOnly>
+<h2 id="快速理解react-hooks在干什么" tabindex="-1"><a class="header-anchor" href="#快速理解react-hooks在干什么" aria-hidden="true">#</a> 快速理解react hooks在干什么</h2>
+<h3 id="举个例子" tabindex="-1"><a class="header-anchor" href="#举个例子" aria-hidden="true">#</a> 举个例子</h3>
+<ul>
+<li>创建<code v-pre>currentlyRenderingFiber</code>对象</li>
+<li>创建<code v-pre>useState(value)</code>函数</li>
+<li>执行<code v-pre>useState</code>的时候初始化，也就是第一次执行<code v-pre>function App()</code></li>
+<li>就会创建一个链表节点放到<code v-pre>currentlyRenderingFiber.memoizedState</code>上
+<ul>
+<li>如果有多个<code v-pre>useState</code> 就会形成一个链表</li>
+</ul>
+</li>
+</ul>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">let</span> currentlyRenderingFiber <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> <span class="token punctuation">[</span>countA<span class="token punctuation">,</span> setCountA<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> <span class="token punctuation">[</span>countB<span class="token punctuation">,</span> setCountB<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> <span class="token punctuation">[</span>countC<span class="token punctuation">,</span> setCountC<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>div onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">setCountA</span><span class="token punctuation">(</span><span class="token parameter">v</span> <span class="token operator">=></span> v <span class="token operator">+=</span> <span class="token string">"a"</span><span class="token punctuation">)</span>
+      <span class="token function">setCountA</span><span class="token punctuation">(</span><span class="token parameter">v</span> <span class="token operator">=></span> v <span class="token operator">+=</span> <span class="token string">"a"</span><span class="token punctuation">)</span>
+      <span class="token function">setCountA</span><span class="token punctuation">(</span><span class="token parameter">v</span> <span class="token operator">=></span> v <span class="token operator">+=</span> <span class="token string">"a"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">></span><span class="token punctuation">{</span>countA<span class="token punctuation">}</span>  <span class="token punctuation">{</span>countB<span class="token punctuation">}</span> <span class="token punctuation">{</span>countC<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>执行第一次初始化的时候，<code v-pre>currentlyRenderingFiber</code>就变成了（这时候<code v-pre>currentlyRenderingFiber</code>会被加到react fiber节点的属性上去）：</p>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">let</span> currentlyRenderingFiber <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token string">"c"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token keyword">null</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>当点击触发<code v-pre>setCountA</code>的时候，也就是进入update阶段，会连续触发三次。这种请情况下，react用一个链表存储了每个函数就，
+<code v-pre>currentlyRenderingFiber</code>就变成了这样：</p>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">let</span> currentlyRenderingFiber <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">queue</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">pending</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">action</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token operator">=></span> v <span class="token operator">+=</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token function-variable function">action</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token operator">=></span> v <span class="token operator">+=</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token function-variable function">action</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token operator">=></span> v <span class="token operator">+=</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token keyword">null</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">queue</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">pending</span><span class="token operator">:</span> <span class="token keyword">null</span>
+      <span class="token punctuation">}</span>
+      <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token string">"c"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">queue</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">pending</span><span class="token operator">:</span> <span class="token keyword">null</span>
+        <span class="token punctuation">}</span>
+        <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token keyword">null</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这时候，会触发queue.pending上的链表遍历执行也就是<code v-pre>dispatchReducerAction</code>里的实现，执行完毕后设置为null，并且调度<code v-pre>enqueueRenderPhaseUpdate</code>更新react视图。</p>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">let</span> currentlyRenderingFiber <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">queue</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">pending</span><span class="token operator">:</span> <span class="token keyword">null</span> <span class="token comment">// &lt;-------------</span>
+    <span class="token punctuation">}</span>
+    <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">queue</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">pending</span><span class="token operator">:</span> <span class="token keyword">null</span>
+      <span class="token punctuation">}</span>
+      <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">memoizedState</span><span class="token operator">:</span> <span class="token string">"c"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">queue</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">pending</span><span class="token operator">:</span> <span class="token keyword">null</span>
+        <span class="token punctuation">}</span>
+        <span class="token literal-property property">next</span><span class="token operator">:</span> <span class="token keyword">null</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="小结" tabindex="-1"><a class="header-anchor" href="#小结" aria-hidden="true">#</a> 小结</h3>
+<ul>
+<li>react的hook的数据是存在当前组件对应的fiber节点上的</li>
+<li>当hook里有多个值的时候，以链表的方式都存在<code v-pre>currentlyRenderingFiber.memorizedState</code>上。</li>
+<li>hook里面触发视图更新，需要调度<code v-pre>enqueueRenderPhaseUpdate</code>方法。</li>
+</ul>
+<p>接下来，来看hooks部分的源码！</p>
 <h2 id="mount和update" tabindex="-1"><a class="header-anchor" href="#mount和update" aria-hidden="true">#</a> mount和update</h2>
 <p>react初始化的时候状态为mount，更新的时候为update。对于hook API来讲，如useState，对应了<code v-pre>mountState</code>和<code v-pre>updateState</code></p>
 <div class="language-typescript ext-ts line-numbers-mode"><pre v-pre class="language-typescript"><code><span class="token keyword">const</span> HooksDispatcherOnMount<span class="token operator">:</span> Dispatcher <span class="token operator">=</span> <span class="token punctuation">{</span>
