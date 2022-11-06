@@ -20,7 +20,7 @@ bar.call(foo); // 1
 ```js
 Function.prototype.myCall = function (context) {
   var context = Object(context) || window;
-  context.fn = this;
+  context.fn = this; // 让其为当前的函数
   var args = [];
   for(var i = 1, len = arguments.length; i < len; i++) {
     args.push('arguments[' + i + ']');

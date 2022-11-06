@@ -11,7 +11,8 @@
 - 创建`useState(value)`函数
 - 执行`useState`的时候初始化，也就是第一次执行`function App()`
 - 就会创建一个链表节点放到`currentlyRenderingFiber.memoizedState`上
-  - 如果有多个`useState` 就会形成一个链表
+  - 如果有多个`useState` 就会`.next`连接形成一个链表,
+  - 如果是有`useEffect`也是加在链表上, 只是除了`.next`其他属性有些不一样
 ```js
 let currentlyRenderingFiber = {
   memoizedState: null
@@ -27,7 +28,8 @@ function App() {
     }}>{countA}  {countB} {countC}</div>
 }
 ```
-执行第一次初始化的时候，`currentlyRenderingFiber`就变成了（这时候`currentlyRenderingFiber`会被加到react fiber节点的属性上去）：
+执行第一次初始化的时候，`currentlyRenderingFiber`就变成了:
+> `currentlyRenderingFiber`最终会被加到react fiber树上，当然你也可以直接理解为，currentlyRenderingFiber的属性一开始由创建好的FiberNode节点提供。
 ```js
 let currentlyRenderingFiber = {
   memoizedState: {
@@ -100,6 +102,25 @@ let currentlyRenderingFiber = {
   }
 };
 ```
+### 在举个例子
+```js
+import { useEffect, useLayoutEffect, useReducer, useState, useRef, useCallback, useMemo } from 'react'
+function App() {
+  const [state, dispatch] = useReducer(reducer, 1);
+  let [count, setCount] = useReducer(foo, 2);
+  useState("aaa");
+  useRef({a:9999999999})
+  useEffect(() => console.log(8880), [count])
+  useMemo(() => count + 888, [count])
+  useCallback(() => console.log(233),[count])
+  useLayoutEffect(() => console.log(0))
+}
+```
+```js
+```
+
+### 为啥hooks不能用if呢？
+通过上面，我们发现初始化mount时，hook被执行一次，就会被作为链表节点加上去。如果你有条件判断第一次为true还好，要是为false，那么会导致第二次update时，找不到你的hook节点。
 
 ### 小结
 - react的hook的数据是存在当前组件对应的fiber节点上的
@@ -158,7 +179,7 @@ const HooksDispatcherOnUpdate: Dispatcher = {
 };
 ```
 ### mountState
-`const hook = mountWorkInProgressHook()`返回的是在组件对应的fiber上的记录的数据hook，hook的结构是一个`链表`。每一次update都会新增一个hook的链表`节点`。然后通过调用了`dispatchSetState`方法调度更新fiber。
+`const hook = mountWorkInProgressHook()`返回的是在组件对应的fiber上的记录的数据hook，hook的结构是一个`链表`。每一次`useState(value)`执行都会新增一个hook的链表`节点`。
 ```ts{4,18-24}
 function mountState<S>(
 initialState: (() => S) | S,
@@ -259,7 +280,7 @@ function mountReducer<S, I, A>(
 }
 ```
 ### updateReducer
-`updateWorkInProgressHook`获取hook,调用mount阶段初始化的dipatch去更新fiber。 `if (pendingQueue !== null){/*24-46行代码*/}`和`if (baseQueue !== null){/*48-143行代码*/}`的部分，目的是为了得到新的`hook.baseQueue`、`hook.baseState`。`hook.queue`是一个`环形链表`。
+`updateWorkInProgressHook`获取hook。 `if (pendingQueue !== null){/*24-46行代码*/}`和`if (baseQueue !== null){/*48-143行代码*/}`的部分，目的是为了得到新的`hook.baseQueue`、`hook.baseState`。`hook.queue`是一个`环形链表`。
 ```ts{6,24-46,48-143}
 function updateReducer<S, I, A>(
   reducer: (S, A) => S,
@@ -417,7 +438,7 @@ function updateReducer<S, I, A>(
 ```
 
 ## useEffect
-在mountEffect源码里`mountWorkInProgressHook()`获取hook。存`hook.memoizedState`后react会在不同生命周期里取到对应的`create`判断是否需要执行。updateEffect同理。
+在mountEffect源码里`mountWorkInProgressHook()`获取hook。也是和`useState`一样作为一个链表节点存`hook.memoizedState`后，react会在不同生命周期里取到对应的`create`判断是否需要执行。updateEffect同理。依赖项是用Object.is去浅比较
 ```js
 useEffect(() => {
   console.log(count)
@@ -565,7 +586,7 @@ function updateRef<T>(initialValue: T): {|current: T|} {
 ```
 
 ## useMemo
-第一次就直接执行，并且返回函数的执行结果。
+第一次就直接执行，并且返回函数的执行结果。依赖项是用Object.is去浅比较
 ```ts{5,8-9}
 function mountMemo<T>(
   nextCreate: () => T,
