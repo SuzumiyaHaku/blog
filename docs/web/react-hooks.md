@@ -655,6 +655,7 @@ function updateCallback<T>(callback: T, deps: Array<mixed> | void | null): T {
 
 ::: tip 提示
 所以useMemo和useCallback最大的区别只是，useMemo会把传进去的函数执行。useCallback只是缓存函数。
+为啥需要缓存函数呢，回忆一下，我们的组件新旧对比，如果认为函数是组件上的属性，你节点的属性改变了，那是不是需要更新呢？
 :::
 
 ## useLayoutEffect

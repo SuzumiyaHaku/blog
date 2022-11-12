@@ -1,4 +1,4 @@
-# vue3源码[未完...]
+# vue3源码
 
 <ClientOnly>
   <MTA/>
@@ -91,22 +91,22 @@ export function callWithErrorHandling(
 ```
 
 ## 响应式系统
-依赖绑定原理，利用Proxy劫持对象的属性，当对象有读/写的时候，触发依赖绑定的副作用函数
+依赖绑定原理，利用Proxy劫持对象的属性，当对象读的时候，把当前对象所在的`effect函数`给保存下来。写入的时候执行`effect函数`
 ```js{9,14}
 let obj = {
   a: 1
 };
 
-const bucket = new Set();
+const bucket = new Set(); // 用于存储依赖，执行的函数
 
 const p = new Proxy(obj, {
-  get(target, prototype, receiver) {
-    bucket.add(effect)
+  get(target, prototype, receiver) { // 读取拦截
+    bucket.add(effect) // 存储依赖函数
     return target[prototype]
   },
-  set(target, prototype, newVal, receiver) {
+  set(target, prototype, newVal, receiver) { // 写入拦截
     target[prototype] = newVal;
-    bucket.forEach(fn => fn());
+    bucket.forEach(fn => fn()); // 执行依赖函数
   }
 })
 
@@ -118,74 +118,130 @@ setTimeout(() => {
   p.a = 233
 }, 1000)
 ```
-1. 增加多个effect的依赖
-得到如下模型
-```txt
-target1 ---------- WeakMap1
-  prototype1 ----- Map1
-  prototype2 ----- Map2
-    effect   ----- Set1
-    effect   ----- Set1
 
-target2 ---------- WeakMap1
-  prototype3 ----- Map3
-    effect   ----- Set2
+##### 分析如下代码
+```js
+let obj = {
+  a: 1
+}
+let p = Proxy(obj, {
+  // ...
+})
+effect(() => {
+  console.log('effect run')
+  document.body.innerText = p.a
+})
+```
+构建一个关系:
+```txt
+target   <------------- 表示原始对象obj，我们用WeekMap存储它
+  prototype <---------- 原始对象的属性obj的a属性，我们用Map存储它
+    effect  <---------- 表示effect函数, 我们用Set存储它
 ```
 
+关于effect函数，因为有存在执行多次的情况，如
+```js
+effect(() => {
+  console.log('effect run')
+  document.body.innerText = p.a
+})
+effect(() => {
+  p.a = p.a + 1
+})
+```
+这个关系就变为
+```txt
+obj
+  a
+    effect
+    effect
+```
+
+伪代码
+```js
+let obj1 = {
+  a: 1,
+  b: 2
+}
+let obj2 = {
+  c: 1
+}
+
+let bucket = new WeakMap()// 用来存储所有依赖对象
+
+let map1 = new Map()
+map1.set("a", new Set([effect1]))
+map1.set("b", new Set([effect1, effect2]))
+
+
+let map2 = new Map()
+map2.set("c", new Set([effect1]))
+
+bucket.set(obj1, map1)
+bucket.set(obj2, map2)
+```
+
+##### 代码实现
 ```js{10-19,24-26}
 let obj = {
   a: 1
 };
 
 let activeEffect;
-const bucket = new WeakMap();
+const bucket = new WeakMap(); // 构建全局的bucket存储
+// 1、WeakMap只接受对象作为key，如果设置其他类型的数据作为key，会报错。
+// 2、WeakMap的key所引用的对象都是弱引用，只要对象的其他引用被删除，垃圾回收机制就会释放该对象占用的内存，从而避免内存泄漏。
+// 3、由于WeakMap的成员随时可能被垃圾回收机制回收，成员的数量不稳定，所以没有size属性。
 
 const p = new Proxy(obj, {
-  get(target, prototype, receiver) {
-    if (!activeEffect) return target[prototype]
-    let depsMap = bucket.get(target)
+  get(target, prototype, receiver) { // 读取时触发
+    if (!activeEffect) return target[prototype] // 如果依赖函数为空，直接返回属性的值
+    let depsMap = bucket.get(target) // 先判断有没有存储obj对应的map依赖
     if (!depsMap) {
-      bucket.set(target, depsMap = new Map())
+      bucket.set(target, depsMap = new Map()) // 如果没有obj对应的依赖，那么就往全局bucket添加obj
     }
-    let deps = depsMap.get(prototype);
+    let deps = depsMap.get(prototype); // 取得obj的属性对应的存effect依赖的Set集合
     if (!deps) {
-      depsMap.set(prototype, deps = new Set())
+      depsMap.set(prototype, deps = new Set()) // 第一次进来没有的话，就创建空Set
     }
-    deps.add(activeEffect) // 根据prototype绑定对应的effect函数
-    return target[prototype]
+    deps.add(activeEffect) // 根据prototype往Set里添加对应的函数，也就是根据prototype绑定对应的effect函数
+    return target[prototype] // 返回属性值
   },
-  set(target, prototype, newValue, receiver) {
+  set(target, prototype, newValue, receiver) {// 数据被修改后触发
     target[prototype] = newValue
-    let m = bucket.get(target)
-    let set = m.get(prototype)
-    set && set.forEach(fn => fn()) // 改变变量后执行对应的副作用函数
+    let m = bucket.get(target) // 获取bucket里对应obj的map依赖
+    let set = m.get(prototype) // 获取属性对应的Set，然后准备执行Set里的effect函数
+    set && set.forEach(fn => fn()) // 改变变量后执行对应的绑定的effect函数
   },
 
 })
 
 
 function effect(fn) {
-  activeEffect = fn // 存储副作用函数的引用，相比较之前就可以不关心函数的名称了
+  activeEffect = fn // 存储依赖函数的引用，等我们执行fn里的函数，如果读取p.a那么，就把这个activeEffect存起来，下次p.a如果被修改之类的，就又执行这个activeEffect
   fn()
 }
 
 
 effect(() => {
   console.log('effect run')
-  document.body.innerText = p.a
+  document.body.innerText = p.a // 这里读取a会触发代理的get操作，get操作就开始构建obj和a对应的依赖存到bucket里
 })
 
 effect(() => {
-  console.log('p.c 1: ', p.c)
+  console.log('p.c 1: ', p.c) // 读取c，触发get操作，建立obj和c和当前传入函数的依赖关系
 })
 effect(() => {
-  console.log('p.c 2: ', p.c)
+  console.log('p.c 2: ', p.c) // 读取c，触发get操作，建立obj和c和当前传入函数的依赖关系
 })
 
 setTimeout(() => {
-  p.c = 233
+  p.c = 233 // 触发set操作，就会把上面建立的依赖的函数，又重新执行一遍
 }, 1000)
 ```
+##### 结果
+![image](../assets/vue3_01.png)
+
 2. 增加副作用依赖记录，并且每次执行结束副作用函数要清除副作用函数
 ```js{21,34-39,43}
 let obj = {
@@ -243,6 +299,8 @@ setTimeout(() => {
   p.a = 233;
 }, 1000);
 ```
+
+
 3. 增加嵌套effect的能力
 ```js{28-32,36,46,48-49}
 let obj = {

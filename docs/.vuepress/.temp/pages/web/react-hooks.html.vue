@@ -604,7 +604,8 @@ initialState<span class="token operator">:</span> <span class="token punctuation
   <span class="token keyword">return</span> callback<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="highlight-lines"><br><br><br><br><br><br><br><br><div class="highlight-line">&nbsp;</div><br><br><br><div class="highlight-line">&nbsp;</div><div class="highlight-line">&nbsp;</div><br></div><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container tip"><p class="custom-container-title">提示</p>
-<p>所以useMemo和useCallback最大的区别只是，useMemo会把传进去的函数执行。useCallback只是缓存函数。</p>
+<p>所以useMemo和useCallback最大的区别只是，useMemo会把传进去的函数执行。useCallback只是缓存函数。
+为啥需要缓存函数呢，回忆一下，我们的组件新旧对比，如果认为函数是组件上的属性，你节点的属性改变了，那是不是需要更新呢？</p>
 </div>
 <h2 id="uselayouteffect" tabindex="-1"><a class="header-anchor" href="#uselayouteffect" aria-hidden="true">#</a> useLayoutEffect</h2>
 <!-- 和useEffect的区别在于传参不一样。导致`useLayoutEffect`是同步调用的。而`useEffect`是在`commit阶段`的layout完成后被异步调用的。 -->

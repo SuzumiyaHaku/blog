@@ -88,35 +88,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "springboot",
-    "headers": [
-      {
-        "level": 2,
-        "title": "项目结构",
-        "slug": "项目结构",
-        "link": "#项目结构",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "pom.xml",
-        "slug": "pom-xml",
-        "link": "#pom-xml",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/java/springboot.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "call、apply",
     "headers": [
       {
@@ -1236,9 +1207,31 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "排序",
-    "headers": [],
-    "path": "/structure/sort.html",
+    "title": "springboot",
+    "headers": [
+      {
+        "level": 2,
+        "title": "项目结构",
+        "slug": "项目结构",
+        "link": "#项目结构",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "pom.xml",
+        "slug": "pom-xml",
+        "link": "#pom-xml",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/java/springboot.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -1459,6 +1452,13 @@ export const searchIndex = [
       }
     ],
     "path": "/security/xss%E4%B8%8Ecsrf.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "排序",
+    "headers": [],
+    "path": "/structure/sort.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -1823,6 +1823,28 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "",
+    "headers": [
+      {
+        "level": 2,
+        "title": "axios源码",
+        "slug": "axios源码",
+        "link": "#axios源码",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "",
+        "slug": "",
+        "link": "#",
+        "children": []
+      }
+    ],
+    "path": "/web/axios.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "babel",
     "headers": [
       {
@@ -1841,6 +1863,13 @@ export const searchIndex = [
     "title": "",
     "headers": [],
     "path": "/web/code.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "D3.js",
+    "headers": [],
+    "path": "/web/d3.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -2203,6 +2232,28 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "UI组件库架构",
+    "headers": [
+      {
+        "level": 2,
+        "title": "功能",
+        "slug": "功能",
+        "link": "#功能",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "目录结构",
+        "slug": "目录结构",
+        "link": "#目录结构",
+        "children": []
+      }
+    ],
+    "path": "/web/ui-components.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "浏览器从输入url发生了什么[未完...]",
     "headers": [
       {
@@ -2363,7 +2414,7 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "vue3源码[未完...]",
+    "title": "vue3源码",
     "headers": [
       {
         "level": 2,
