@@ -31,9 +31,9 @@ function dispatch(i) {
 dispatch(-1) 
 
 ```
-// 本质，利用A的next回调执行B函数，利用B的next执行C函数，
-// 执行A函数遇见next回调就等B函数执行
-// 执行B函数遇见next回调就等C函数执行
+- 本质，利用A的next回调执行B函数，利用B的next执行C函数，
+- 执行A函数遇见next回调就等B函数执行
+- 执行B函数遇见next回调就等C函数执行
 ```js
 async function A(next) {
   console.log(1)

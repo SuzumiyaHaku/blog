@@ -63,6 +63,7 @@ export default defineUserConfig({
                 '/web/webassembly.md',
                 '/web/vue3.md',
                 '/web/react-hooks.md',
+                '/web/onion.md',
               ]
             },
             {
