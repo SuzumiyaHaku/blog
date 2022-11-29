@@ -1,5 +1,8 @@
 # 前端项目结构
 
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 ## vue
 ```txt
 

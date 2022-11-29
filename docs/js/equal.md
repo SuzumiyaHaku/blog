@@ -454,5 +454,5 @@ Object.defineProperty(window, "a", {
   }
 });
 
-console.log(a == 1 && a == 2 && a == 3) // true
+console.log(a === 1 && a === 2 && a === 3) // true
 ```

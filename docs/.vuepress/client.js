@@ -5,6 +5,7 @@ import SierpinskiTriangle from './components/SierpinskiTriangle.vue'
 import Leaf from './components/Leaf.vue'
 import MandelbrotSet from './components/MandelbrotSet.vue'
 import Power from './components/Power.vue'
+import Menu from './components/Menu.vue'
 export default defineClientConfig({
   enhance({ app, router, siteData }) {
     app.component('Equal', Equal)
@@ -13,5 +14,6 @@ export default defineClientConfig({
     app.component('Leaf', Leaf)
     app.component('MandelbrotSet', MandelbrotSet)
     app.component('Power', Power)
+    app.component('Menu', Menu)
   },
 })

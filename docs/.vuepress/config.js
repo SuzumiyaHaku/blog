@@ -26,6 +26,12 @@ export default defineUserConfig({
           // SidebarItem
           '/': [
             {
+              text: 'css',
+              children: [
+                '/css/filter.md'
+              ]
+            },
+            {
               text: 'javascript', children: [
                 '/js/event.md',
                 '/js/function.md',

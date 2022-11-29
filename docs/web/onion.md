@@ -1,4 +1,7 @@
 # 洋葱模型
+<ClientOnly>
+  <MTA/>
+</ClientOnly>
 ## 输出1 2 3 4 5 6
 ```js
 async function A(next) {
