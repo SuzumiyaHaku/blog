@@ -7,6 +7,71 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "css 的黑魔法 filter",
+    "headers": [
+      {
+        "level": 2,
+        "title": "融合效果",
+        "slug": "融合效果",
+        "link": "#融合效果",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "看看这些组合",
+        "slug": "看看这些组合",
+        "link": "#看看这些组合",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "高斯模糊",
+        "slug": "高斯模糊",
+        "link": "#高斯模糊",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "图像对比度",
+        "slug": "图像对比度",
+        "link": "#图像对比度",
+        "children": []
+      }
+    ],
+    "path": "/css/filter.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "springboot",
+    "headers": [
+      {
+        "level": 2,
+        "title": "项目结构",
+        "slug": "项目结构",
+        "link": "#项目结构",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "pom.xml",
+        "slug": "pom-xml",
+        "link": "#pom-xml",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/java/springboot.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "分形图形",
     "headers": [
       {
@@ -84,71 +149,6 @@ export const searchIndex = [
     "title": "矩阵与3d变换",
     "headers": [],
     "path": "/graphics/matrixAndTransform.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "springboot",
-    "headers": [
-      {
-        "level": 2,
-        "title": "项目结构",
-        "slug": "项目结构",
-        "link": "#项目结构",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "pom.xml",
-        "slug": "pom-xml",
-        "link": "#pom-xml",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/java/springboot.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "css 的黑魔法 filter",
-    "headers": [
-      {
-        "level": 2,
-        "title": "融合效果",
-        "slug": "融合效果",
-        "link": "#融合效果",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "看看这些组合",
-        "slug": "看看这些组合",
-        "link": "#看看这些组合",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "高斯模糊",
-        "slug": "高斯模糊",
-        "link": "#高斯模糊",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "图像对比度",
-        "slug": "图像对比度",
-        "link": "#图像对比度",
-        "children": []
-      }
-    ],
-    "path": "/css/filter.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -1492,13 +1492,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "排序",
-    "headers": [],
-    "path": "/structure/sort.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "typescript基础",
     "headers": [
       {
@@ -1855,6 +1848,13 @@ export const searchIndex = [
     "title": "tsconfig.json配置",
     "headers": [],
     "path": "/typescript/tsconfig.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "排序",
+    "headers": [],
+    "path": "/structure/sort.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -2827,16 +2827,3 @@ export const searchIndex = [
     "extraFields": []
   }
 ]
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updateSearchIndex) {
-    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ searchIndex }) => {
-    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
-  })
-}

@@ -1,10 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@traptitech/markdown-it-katex': ^3.6.0
   '@vuepress/client': 2.0.0-beta.51
   '@vuepress/plugin-search': 2.0.0-beta.51
-  katex: ^0.16.2
   less: ^4.1.3
   less-loader: ^11.0.0
   lodash-es: ^4.17.21
@@ -13,10 +11,8 @@ specifiers:
   vuepress: 2.0.0-beta.51
 
 dependencies:
-  '@traptitech/markdown-it-katex': 3.6.0
   '@vuepress/client': 2.0.0-beta.51
   '@vuepress/plugin-search': 2.0.0-beta.51
-  katex: 0.16.2
   lodash-es: 4.17.21
   markdown-it-mathjax3: 4.3.2
   vue: 3.2.40
@@ -164,12 +160,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
-    dev: false
-
-  /@traptitech/markdown-it-katex/3.6.0:
-    resolution: {integrity: sha512-CnJzTWxsgLGXFdSrWRaGz7GZ1kUUi8g3E9HzJmeveX1YwVJavrKYqysktfHZQsujdnRqV5O7g8FPKEA/aeTkOQ==}
-    dependencies:
-      katex: 0.16.2
     dev: false
 
   /@types/debug/4.1.7:
@@ -776,11 +766,6 @@ packages:
   /commander/6.2.1:
     resolution: {integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==}
     engines: {node: '>= 6'}
-    dev: false
-
-  /commander/8.3.0:
-    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
-    engines: {node: '>= 12'}
     dev: false
 
   /commander/9.2.0:
@@ -1624,13 +1609,6 @@ packages:
       web-resource-inliner: 6.0.1
     transitivePeerDependencies:
       - encoding
-    dev: false
-
-  /katex/0.16.2:
-    resolution: {integrity: sha512-70DJdQAyh9EMsthw3AaQlDyFf54X7nWEUIa5W+rq8XOpEk//w5Th7/8SqFqpvi/KZ2t6MHUj4f9wLmztBmAYQA==}
-    hasBin: true
-    dependencies:
-      commander: 8.3.0
     dev: false
 
   /kind-of/6.0.3:
