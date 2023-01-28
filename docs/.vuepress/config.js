@@ -99,7 +99,8 @@ export default defineUserConfig({
             },
             {
               text: '计算机图形学',children: [
-                '/graphics/fractal.md'
+                '/graphics/fractal.md',
+                '/graphics/heart.md'
               ]
             }
           ],
