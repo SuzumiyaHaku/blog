@@ -43,160 +43,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "分形图形",
-    "headers": [
-      {
-        "level": 2,
-        "title": "谢尔宾斯基三角形(随机法生成)",
-        "slug": "谢尔宾斯基三角形-随机法生成",
-        "link": "#谢尔宾斯基三角形-随机法生成",
-        "children": [
-          {
-            "level": 3,
-            "title": "原理",
-            "slug": "原理",
-            "link": "#原理",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "蕨类植物叶子(随机法)",
-        "slug": "蕨类植物叶子-随机法",
-        "link": "#蕨类植物叶子-随机法",
-        "children": [
-          {
-            "level": 3,
-            "title": "方程",
-            "slug": "方程",
-            "link": "#方程",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "由上矩阵方程得到：",
-            "slug": "由上矩阵方程得到",
-            "link": "#由上矩阵方程得到",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Canvas绘制",
-            "slug": "canvas绘制",
-            "link": "#canvas绘制",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "曼德博集合（Mandelbrot set）",
-        "slug": "曼德博集合-mandelbrot-set",
-        "link": "#曼德博集合-mandelbrot-set",
-        "children": [
-          {
-            "level": 3,
-            "title": "复数二次多项式",
-            "slug": "复数二次多项式",
-            "link": "#复数二次多项式",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Canvas绘制",
-            "slug": "canvas绘制-1",
-            "link": "#canvas绘制-1",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/graphics/fractal.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "心形图形",
-    "headers": [
-      {
-        "level": 2,
-        "title": "r = a(1 - sinθ)",
-        "slug": "r-a-1-sinθ",
-        "link": "#r-a-1-sinθ",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "线条组成的心",
-        "slug": "线条组成的心",
-        "link": "#线条组成的心",
-        "children": [
-          {
-            "level": 3,
-            "title": "1、线条填充",
-            "slug": "_1、线条填充",
-            "link": "#_1、线条填充",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "2、轮廓构成",
-            "slug": "_2、轮廓构成",
-            "link": "#_2、轮廓构成",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "心跳",
-            "slug": "心跳",
-            "link": "#心跳",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/graphics/heart.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "矩阵与3d变换",
-    "headers": [],
-    "path": "/graphics/matrixAndTransform.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "springboot",
-    "headers": [
-      {
-        "level": 2,
-        "title": "项目结构",
-        "slug": "项目结构",
-        "link": "#项目结构",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "pom.xml",
-        "slug": "pom-xml",
-        "link": "#pom-xml",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "参考",
-        "slug": "参考",
-        "link": "#参考",
-        "children": []
-      }
-    ],
-    "path": "/java/springboot.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "call、apply",
     "headers": [
       {
@@ -1030,6 +876,146 @@ export const searchIndex = [
       }
     ],
     "path": "/js/this.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "线砍断方块",
+    "headers": [
+      {
+        "level": 3,
+        "title": "Canvas绘制",
+        "slug": "canvas绘制",
+        "link": "#canvas绘制",
+        "children": []
+      }
+    ],
+    "path": "/graphics/chaos.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "分形图形",
+    "headers": [
+      {
+        "level": 2,
+        "title": "谢尔宾斯基三角形(随机法生成)",
+        "slug": "谢尔宾斯基三角形-随机法生成",
+        "link": "#谢尔宾斯基三角形-随机法生成",
+        "children": [
+          {
+            "level": 3,
+            "title": "原理",
+            "slug": "原理",
+            "link": "#原理",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "蕨类植物叶子(随机法)",
+        "slug": "蕨类植物叶子-随机法",
+        "link": "#蕨类植物叶子-随机法",
+        "children": [
+          {
+            "level": 3,
+            "title": "方程",
+            "slug": "方程",
+            "link": "#方程",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "由上矩阵方程得到：",
+            "slug": "由上矩阵方程得到",
+            "link": "#由上矩阵方程得到",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Canvas绘制",
+            "slug": "canvas绘制",
+            "link": "#canvas绘制",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "曼德博集合（Mandelbrot set）",
+        "slug": "曼德博集合-mandelbrot-set",
+        "link": "#曼德博集合-mandelbrot-set",
+        "children": [
+          {
+            "level": 3,
+            "title": "复数二次多项式",
+            "slug": "复数二次多项式",
+            "link": "#复数二次多项式",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Canvas绘制",
+            "slug": "canvas绘制-1",
+            "link": "#canvas绘制-1",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/graphics/fractal.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "心形图形",
+    "headers": [
+      {
+        "level": 2,
+        "title": "r = a(1 - sinθ)",
+        "slug": "r-a-1-sinθ",
+        "link": "#r-a-1-sinθ",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "线条组成的心",
+        "slug": "线条组成的心",
+        "link": "#线条组成的心",
+        "children": [
+          {
+            "level": 3,
+            "title": "1、线条填充",
+            "slug": "_1、线条填充",
+            "link": "#_1、线条填充",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2、轮廓构成",
+            "slug": "_2、轮廓构成",
+            "link": "#_2、轮廓构成",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "心跳",
+            "slug": "心跳",
+            "link": "#心跳",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/graphics/heart.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "矩阵与3d变换",
+    "headers": [],
+    "path": "/graphics/matrixAndTransform.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -2864,6 +2850,35 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "springboot",
+    "headers": [
+      {
+        "level": 2,
+        "title": "项目结构",
+        "slug": "项目结构",
+        "link": "#项目结构",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "pom.xml",
+        "slug": "pom-xml",
+        "link": "#pom-xml",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参考",
+        "slug": "参考",
+        "link": "#参考",
+        "children": []
+      }
+    ],
+    "path": "/java/springboot.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "",
     "headers": [],
     "path": "/404.html",
@@ -2871,3 +2886,16 @@ export const searchIndex = [
     "extraFields": []
   }
 ]
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateSearchIndex) {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ searchIndex }) => {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  })
+}

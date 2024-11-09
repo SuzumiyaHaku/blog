@@ -1,10 +1,6 @@
 export const pagesRoutes = [
   ["v-8daa1a0e","/",{"title":""},["/index.html","/readme.md"]],
   ["v-65656e3c","/css/filter.html",{"title":"css 的黑魔法 filter"},["/css/filter","/css/filter.md"]],
-  ["v-5424c833","/graphics/fractal.html",{"title":"分形图形"},["/graphics/fractal","/graphics/fractal.md"]],
-  ["v-41418ebe","/graphics/heart.html",{"title":"心形图形"},["/graphics/heart","/graphics/heart.md"]],
-  ["v-55ad3f50","/graphics/matrixAndTransform.html",{"title":"矩阵与3d变换"},["/graphics/matrixAndTransform","/graphics/matrixAndTransform.md"]],
-  ["v-1aeda846","/java/springboot.html",{"title":"springboot"},["/java/springboot","/java/springboot.md"]],
   ["v-37e22f50","/js/apply.html",{"title":"call、apply"},["/js/apply","/js/apply.md"]],
   ["v-9cb8e686","/js/assign.html",{"title":"Object.assign和...（展开运算符/扩展运算符）的区别 [已发帖]"},["/js/assign","/js/assign.md"]],
   ["v-553dea22","/js/bind.html",{"title":"bind"},["/js/bind","/js/bind.md"]],
@@ -20,6 +16,10 @@ export const pagesRoutes = [
   ["v-73e54775","/js/promise2.html",{"title":"Promise--下"},["/js/promise2","/js/promise2.md"]],
   ["v-5953e59c","/js/scope.html",{"title":"作用域"},["/js/scope","/js/scope.md"]],
   ["v-292d95a4","/js/this.html",{"title":"this"},["/js/this","/js/this.md"]],
+  ["v-cf8fc878","/graphics/chaos.html",{"title":"线砍断方块"},["/graphics/chaos","/graphics/chaos.md"]],
+  ["v-5424c833","/graphics/fractal.html",{"title":"分形图形"},["/graphics/fractal","/graphics/fractal.md"]],
+  ["v-41418ebe","/graphics/heart.html",{"title":"心形图形"},["/graphics/heart","/graphics/heart.md"]],
+  ["v-55ad3f50","/graphics/matrixAndTransform.html",{"title":"矩阵与3d变换"},["/graphics/matrixAndTransform","/graphics/matrixAndTransform.md"]],
   ["v-286d6e52","/network/http.html",{"title":"http"},["/network/http","/network/http.md"]],
   ["v-27d94446","/network/tcp,udp.html",{"title":"TCP/UDP"},["/network/tcp,udp","/network/tcp,udp.md"]],
   ["v-23e57ea0","/security/cookie%E5%92%8Csession.html",{"title":"cookie 和 session"},["/security/cookie和session.html","/security/cookie%E5%92%8Csession","/security/cookie和session.md","/security/cookie%E5%92%8Csession.md"]],
@@ -45,5 +45,6 @@ export const pagesRoutes = [
   ["v-1d9a45b3","/web/webassembly.html",{"title":"写一个WebAssembly/wasm包"},["/web/webassembly","/web/webassembly.md"]],
   ["v-ed9480be","/web/webpack1.html",{"title":"webpack"},["/web/webpack1","/web/webpack1.md"]],
   ["v-ea2acf80","/web/webpack2.html",{"title":"webpack 和 vite"},["/web/webpack2","/web/webpack2.md"]],
+  ["v-1aeda846","/java/springboot.html",{"title":"springboot"},["/java/springboot","/java/springboot.md"]],
   ["v-3706649a","/404.html",{"title":""},["/404"]],
 ]

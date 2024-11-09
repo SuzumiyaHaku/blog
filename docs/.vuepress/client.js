@@ -10,6 +10,7 @@ import HeartBase from './components/heart/HeartBase.vue'
 import HeartLine from './components/heart/HeartLine.vue'
 import HeartFill from './components/heart/HeartFill.vue'
 import Heartbeat from './components/heart/Heartbeat.vue'
+import LineCanvasGame from './components/LineCanvasGame.vue'
 export default defineClientConfig({
   enhance({ app, router, siteData }) {
     app.component('Equal', Equal)
@@ -23,5 +24,6 @@ export default defineClientConfig({
     app.component('HeartLine', HeartLine)
     app.component('HeartFill', HeartFill)
     app.component('Heartbeat', Heartbeat)
+    app.component('LineCanvasGame', LineCanvasGame)
   },
 })
